@@ -32,7 +32,7 @@ namespace MahjongMachineNS
 
         public void Load(MahjongGame mjGame, LoadMahjongAssetsCompletedDelegate loadMjAssetsCompleted = null)
         {
-            LoadMahjongAssetsCompleted = loadMjAssetsCompleted;
+            LoadMahjongAssetsCompleted =  loadMjAssetsCompleted;
             mjGame.StartCoroutine(LoadMahjongRes());
         }
 
