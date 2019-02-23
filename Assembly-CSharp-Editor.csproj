@@ -10,7 +10,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace>
     </RootNamespace>
-    <ProjectGuid>{787F52BB-2632-1AD2-58C8-561F5A486126}</ProjectGuid>
+    <ProjectGuid>{7FC13565-AEFA-7569-3BCC-CEC8C02D5850}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -73,13 +73,13 @@
     <Compile Include="Assets\Editor\SaveSprite.cs" />
     <None Include="Assets\codeandweb.com\Editor\SettingsTexturePackerImporter.txt" />
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>D:/MyDocuments/UnityProjects/QiPai/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>D:/MyDocuments/GitHub/3DMahjong/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>D:/MyDocuments/UnityProjects/QiPai/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>D:/MyDocuments/GitHub/3DMahjong/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>D:/MyDocuments/UnityProjects/QiPai/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>D:/MyDocuments/GitHub/3DMahjong/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>D:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -319,43 +319,43 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="TexturePackerImporter">
-      <HintPath>D:/MyDocuments/UnityProjects/QiPai/Assets/codeandweb.com/Editor/TexturePackerImporter.dll</HintPath>
+      <HintPath>D:/MyDocuments/GitHub/3DMahjong/Assets/codeandweb.com/Editor/TexturePackerImporter.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
-      <HintPath>D:/MyDocuments/UnityProjects/QiPai/Assets/DOTween/DOTween.dll</HintPath>
+      <HintPath>D:/MyDocuments/GitHub/3DMahjong/Assets/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="DOTween43">
-      <HintPath>D:/MyDocuments/UnityProjects/QiPai/Assets/DOTween/DOTween43.dll</HintPath>
+      <HintPath>D:/MyDocuments/GitHub/3DMahjong/Assets/DOTween/DOTween43.dll</HintPath>
     </Reference>
     <Reference Include="DOTween46">
-      <HintPath>D:/MyDocuments/UnityProjects/QiPai/Assets/DOTween/DOTween46.dll</HintPath>
+      <HintPath>D:/MyDocuments/GitHub/3DMahjong/Assets/DOTween/DOTween46.dll</HintPath>
     </Reference>
     <Reference Include="DOTween50">
-      <HintPath>D:/MyDocuments/UnityProjects/QiPai/Assets/DOTween/DOTween50.dll</HintPath>
+      <HintPath>D:/MyDocuments/GitHub/3DMahjong/Assets/DOTween/DOTween50.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenEditor">
-      <HintPath>D:/MyDocuments/UnityProjects/QiPai/Assets/DOTween/Editor/DOTweenEditor.dll</HintPath>
+      <HintPath>D:/MyDocuments/GitHub/3DMahjong/Assets/DOTween/Editor/DOTweenEditor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Advertisements">
-      <HintPath>D:/MyDocuments/UnityProjects/QiPai/Library/PackageCache/com.unity.ads@2.3.1/Editor/UnityEditor.Advertisements.dll</HintPath>
+      <HintPath>D:/MyDocuments/GitHub/3DMahjong/Library/PackageCache/com.unity.ads@2.3.1/Editor/UnityEditor.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Advertisements">
-      <HintPath>D:/MyDocuments/UnityProjects/QiPai/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.dll</HintPath>
+      <HintPath>D:/MyDocuments/GitHub/3DMahjong/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Advertisements.Editor">
-      <HintPath>D:/MyDocuments/UnityProjects/QiPai/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.Editor.dll</HintPath>
+      <HintPath>D:/MyDocuments/GitHub/3DMahjong/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>D:/MyDocuments/UnityProjects/QiPai/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>D:/MyDocuments/GitHub/3DMahjong/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>D:/MyDocuments/UnityProjects/QiPai/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>D:/MyDocuments/GitHub/3DMahjong/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>D:/MyDocuments/UnityProjects/QiPai/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>D:/MyDocuments/GitHub/3DMahjong/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Purchasing">
-      <HintPath>D:/MyDocuments/UnityProjects/QiPai/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
+      <HintPath>D:/MyDocuments/GitHub/3DMahjong/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>D:/Unity/Editor/Data/MonoBleedingEdge/lib/mono/2.0-api/mscorlib.dll</HintPath>
@@ -387,11 +387,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{2F76FE9C-4E89-5AE7-4DB3-A8C4554A59CD}</Project>
+      <Project>{2F39E861-DC58-3A56-E82A-2795FB506E03}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.AssetBundleBrowser.Editor.csproj">
-      <Project>{6721E1B6-AE8E-6849-A6CD-A8DF1173FEE6}</Project>
+      <Project>{3DB6BA03-2EFF-BEAA-AA14-70E533C016F4}</Project>
       <Name>Unity.AssetBundleBrowser.Editor</Name>
     </ProjectReference>
   </ItemGroup>

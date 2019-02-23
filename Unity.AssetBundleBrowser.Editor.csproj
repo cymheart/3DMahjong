@@ -10,7 +10,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace>
     </RootNamespace>
-    <ProjectGuid>{6721E1B6-AE8E-6849-A6CD-A8DF1173FEE6}</ProjectGuid>
+    <ProjectGuid>{3DB6BA03-2EFF-BEAA-AA14-70E533C016F4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.AssetBundleBrowser.Editor</AssemblyName>
@@ -318,43 +318,43 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="TexturePackerImporter">
-      <HintPath>D:/MyDocuments/UnityProjects/QiPai/Assets/codeandweb.com/Editor/TexturePackerImporter.dll</HintPath>
+      <HintPath>D:/MyDocuments/GitHub/3DMahjong/Assets/codeandweb.com/Editor/TexturePackerImporter.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
-      <HintPath>D:/MyDocuments/UnityProjects/QiPai/Assets/DOTween/DOTween.dll</HintPath>
+      <HintPath>D:/MyDocuments/GitHub/3DMahjong/Assets/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="DOTween43">
-      <HintPath>D:/MyDocuments/UnityProjects/QiPai/Assets/DOTween/DOTween43.dll</HintPath>
+      <HintPath>D:/MyDocuments/GitHub/3DMahjong/Assets/DOTween/DOTween43.dll</HintPath>
     </Reference>
     <Reference Include="DOTween46">
-      <HintPath>D:/MyDocuments/UnityProjects/QiPai/Assets/DOTween/DOTween46.dll</HintPath>
+      <HintPath>D:/MyDocuments/GitHub/3DMahjong/Assets/DOTween/DOTween46.dll</HintPath>
     </Reference>
     <Reference Include="DOTween50">
-      <HintPath>D:/MyDocuments/UnityProjects/QiPai/Assets/DOTween/DOTween50.dll</HintPath>
+      <HintPath>D:/MyDocuments/GitHub/3DMahjong/Assets/DOTween/DOTween50.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenEditor">
-      <HintPath>D:/MyDocuments/UnityProjects/QiPai/Assets/DOTween/Editor/DOTweenEditor.dll</HintPath>
+      <HintPath>D:/MyDocuments/GitHub/3DMahjong/Assets/DOTween/Editor/DOTweenEditor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Advertisements">
-      <HintPath>D:/MyDocuments/UnityProjects/QiPai/Library/PackageCache/com.unity.ads@2.3.1/Editor/UnityEditor.Advertisements.dll</HintPath>
+      <HintPath>D:/MyDocuments/GitHub/3DMahjong/Library/PackageCache/com.unity.ads@2.3.1/Editor/UnityEditor.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Advertisements">
-      <HintPath>D:/MyDocuments/UnityProjects/QiPai/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.dll</HintPath>
+      <HintPath>D:/MyDocuments/GitHub/3DMahjong/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Advertisements.Editor">
-      <HintPath>D:/MyDocuments/UnityProjects/QiPai/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.Editor.dll</HintPath>
+      <HintPath>D:/MyDocuments/GitHub/3DMahjong/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>D:/MyDocuments/UnityProjects/QiPai/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>D:/MyDocuments/GitHub/3DMahjong/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>D:/MyDocuments/UnityProjects/QiPai/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>D:/MyDocuments/GitHub/3DMahjong/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>D:/MyDocuments/UnityProjects/QiPai/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>D:/MyDocuments/GitHub/3DMahjong/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Purchasing">
-      <HintPath>D:/MyDocuments/UnityProjects/QiPai/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
+      <HintPath>D:/MyDocuments/GitHub/3DMahjong/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>D:/Unity/Editor/Data/MonoBleedingEdge/lib/mono/2.0-api/mscorlib.dll</HintPath>
