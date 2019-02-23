@@ -77,7 +77,7 @@ public class DaZhongMahjongRule
 
         if (m_EventThread.ThreadState == ThreadState.Running)
         {
-            m_EventThread。Abort();
+            m_EventThread.Abort();
         }
     }
 
