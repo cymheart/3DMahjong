@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: "4.\u5149\u7167\u6750\u8D28\u5B8C\u5907beta\u7248"
+  m_Shader: {fileID: 4800000, guid: cab052e6441f4bf4b934fed257ebfde0, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 27d6c675a5bfd684ea7a294d0bde3029, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecMap:
+        m_Texture: {fileID: 2800000, guid: 70a0b23acbbd8074da683f07470694a5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Shininess: 0.054743774
+    m_Colors:
+    - _AmbientColor: {r: 1, g: 1, b: 0, a: 1}
+    - _Color: {r: 0.88235295, g: 0.12474644, b: 0.59268, a: 1}
+    - _DiffuseColor: {r: 1, g: 0.3, b: 0.5, a: 1}
+    - _Emission: {r: 0.25, g: 0.25, b: 0.25, a: 0}
+    - _SpecColor: {r: 0.26516226, g: 0.6055414, b: 0.9264706, a: 1}

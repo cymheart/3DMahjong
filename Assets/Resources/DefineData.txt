@@ -1,0 +1,64 @@
+﻿=================================
+#Define Integer
+MALE   =   0
+FEMALE   = 1
+NONE   = 2
+#EndDefine
+
+=================================
+#Define String
+PT_SPEAK =  普通话
+SC_SPEAK = 四川话
+GD_SPEAK  = 广东话
+EFFECT_AUDIO = 效果音
+MUSIC_AUDIO = 音乐
+#EndDefine
+
+=================================
+#Define StringGroup
+SPEAK = {PT_SPEAK, SC_SPEAK, GD_SPEAK}
+#EndDefine
+
+=================================
+#Define Integer
+MJ_WANG_1  =  0
+MJ_WANG_2  =  1
+MJ_WANG_3  =  2
+MJ_WANG_4  =   3
+MJ_WANG_5  =  4
+MJ_WANG_6  =  5
+MJ_WANG_7  =  6
+MJ_WANG_8 =   7
+MJ_WANG_9  =   8
+MJ_TONG_1   =   9
+MJ_TONG_2   =  10
+MJ_TONG_3    =  11
+MJ_TONG_4   =   12
+MJ_TONG_5   =   13
+MJ_TONG_6   =  14
+MJ_TONG_7   =    15
+MJ_TONG_8   =  16
+MJ_TONG_9  =  17
+MJ_TIAO_1    = 18
+MJ_TIAO_2  =  19
+MJ_TIAO_3   =   20
+MJ_TIAO_4   =   21
+MJ_TIAO_5    =   22
+MJ_TIAO_6   = 23
+MJ_TIAO_7  =  24
+MJ_TIAO_8   =   25
+MJ_TIAO_9   =  26  
+MJ_FENG_DONG  =  35
+MJ_FENG_NAN   =  36
+MJ_FENG_XI      =    37
+MJ_FENG_BEI    =    38
+MJ_ZFB_HONGZHONG  = 39
+MJ_ZFB_FACAI         =     40
+MJ_ZFB_BAIBAN      =     41
+AUDIO_SPEAK_HU = 42
+AUDIO_EFFECT_SHANDIAN = 43
+AUDIO_EFFECT_TUIDAO  = 44
+AUDIO_EFFECT_DEAL  = 45
+AUDIO_EFFECT_GIVE  = 46
+AUDIO_BG_MUSIC = 47
+#EndDefine

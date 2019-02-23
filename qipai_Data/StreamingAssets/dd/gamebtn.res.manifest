@@ -1,0 +1,26 @@
+ManifestFileVersion: 0
+CRC: 8428711
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: cfc234f3ebcad0ad394bceb4f6ae0bfa
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: eb2a8858dc4dfcbd859e7f940dd06179
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 687078895
+  Script: {instanceID: 0}
+Assets:
+- Assets/MyRes/moduleMahjongRes/animation/effect_ui_jinbi01/effect_ui_jinbi010.xml
+- Assets/MyRes/moduleMahjongRes/animation/effect_ui_jinbi01/effect_ui_jinbi010.png
+- Assets/BtnAtlas.spriteatlas
+- Assets/MyRes/moduleMahjongRes/animation/effect_ui_tubiaoliuguang01/effect_ui_tubiaoliuguang010.png
+- Assets/MyRes/moduleMahjongRes/animation/effect_ui_tubiaoliuguang01/effect_ui_tubiaoliuguang010.xml
+Dependencies: []

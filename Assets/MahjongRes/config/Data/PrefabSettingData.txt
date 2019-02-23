@@ -1,0 +1,201 @@
+=================================
+#Define VAR Integer
+//Prefab type
+DEFAULT = 0
+EFFECT = 1
+MJPAI = 2
+UI = 3
+
+=========================
+//Prefab Idx
+MJ_WANG_1  =  0
+MJ_WANG_2
+MJ_WANG_3
+MJ_WANG_4
+MJ_WANG_5
+MJ_WANG_6 
+MJ_WANG_7
+MJ_WANG_8 
+MJ_WANG_9
+MJ_TONG_1
+MJ_TONG_2
+MJ_TONG_3
+MJ_TONG_4
+MJ_TONG_5
+MJ_TONG_6
+MJ_TONG_7
+MJ_TONG_8
+MJ_TONG_9
+MJ_TIAO_1
+MJ_TIAO_2
+MJ_TIAO_3
+MJ_TIAO_4
+MJ_TIAO_5
+MJ_TIAO_6
+MJ_TIAO_7
+MJ_TIAO_8
+MJ_TIAO_9
+MJ_FENG_DONG
+MJ_FENG_NAN
+MJ_FENG_XI
+MJ_FENG_BEI
+MJ_ZFB_HONGZHONG
+MJ_ZFB_FACAI
+MJ_ZFB_BAIBAN
+MJ_HUA_CHUN
+MJ_HUA_XIA
+MJ_HUA_QIU
+MJ_HUA_DONG
+MJ_HUA_MEI
+MJ_HUA_LAN
+MJ_HUA_ZHU
+MJ_HUA_JU
+MJ_SHADOW
+MJ_SHADOW_SMALL
+FEMALE_HAND
+HAND_SHADOW_PLANE
+HUPAI_GET_MJ_EFFECT
+HUPAI_SHAN_DIAN_EFFECT
+HUPAI_TEXT_EFFECT
+CHIPAI_TEXT_EFFECT
+PENGPAI_TEXT_EFFECT
+GANGPAI_TEXT_EFFECT
+TINGPAI_TEXT_EFFECT
+ZIMO_TEXT_EFFECT
+LONGJUANFENG_EFFECT
+RAIN_EFFECT
+PENGPAI_DUST_EFFECT
+TOUXIANG_HEAD_FIRE_EFFECT
+TOUXIANG_FIRE_EFFECT
+UI_SPEED_LINE_EFFECT
+UI_STAR_SHAN_EFFECT
+SWAPPAI_TIPS_OPP_ARROW
+SWAPPAI_TIPS_CLOCKWISE_ARROW
+SWAPPAI_TIPS_ANTICLOCKWISE_ARROW
+DICE_MACHINE
+MJPAI_POINT
+UI_SELECT_SWAP_HANDPAI
+UI_SWAPPAI_TIPS
+UI_HUPAI_TIPS
+UI_HUPAI_DETAIL_TIPS
+UI_CHIPAI_TIPS
+UI_CHIPAI_DETAIL_TIPS
+UI_TOUXIANG
+UI_HUPAI_INHANDPAI_TIPS_ARROW
+UI_PENG_BTN
+UI_CHI_BTN
+UI_GANG_BTN
+UI_TING_BTN
+UI_HU_BTN
+UI_GUO_BTN
+UI_CANCEL_BTN
+UI_SCORE
+UI_SPRITE
+UI_HUASE_FLAG
+UI_SELECT_QUEMEN
+#EndDefine
+
+==================================
+#Define PREFAB Integer DEFAULT
+FEMALE_HAND = {FemaleHand}
+HAND_SHADOW_PLANE = {HandShadowPlane}
+DICE_MACHINE ={DiceMachine}
+MJPAI_POINT = {Point}
+#EndDefine 
+
+==================================
+#Define PREFAB Integer EFFECT
+MJ_SHADOW = {MahjongShadow}
+MJ_SHADOW_SMALL = {MahjongShadowSmall}
+HUPAI_GET_MJ_EFFECT = {HuPaGetMjParticle}
+HUPAI_SHAN_DIAN_EFFECT = {HuPaiShanDianParticle}
+HUPAI_TEXT_EFFECT = {HuTextParticle}
+CHIPAI_TEXT_EFFECT = {ChiTextParticle}
+PENGPAI_TEXT_EFFECT = {PengTextParticle}
+GANGPAI_TEXT_EFFECT = {GangTextParticle}
+TINGPAI_TEXT_EFFECT = {TingTextParticle}
+ZIMO_TEXT_EFFECT = {ZimoTextParticle}
+LONGJUANFENG_EFFECT = {LongJuanFeng}
+RAIN_EFFECT = {Rain}
+PENGPAI_DUST_EFFECT = {PengDustParticle}
+TOUXIANG_HEAD_FIRE_EFFECT = {TouxianHeadParticle}
+TOUXIANG_FIRE_EFFECT = {TouxiangParticle}       
+UI_SPEED_LINE_EFFECT = {UIScoreSpeedLine}
+UI_STAR_SHAN_EFFECT = {UIStarShan}
+SWAPPAI_TIPS_OPP_ARROW = {SwapPaiTipsOppositeArrow}   
+SWAPPAI_TIPS_CLOCKWISE_ARROW = {swapPaiTipsClockWiseArrow}  
+SWAPPAI_TIPS_ANTICLOCKWISE_ARROW = {SwapPaiTipsAntiClockWiseArrow}  
+#EndDefine 
+
+==================================
+#Define PREFAB Integer MJPAI
+MJ_WANG_1  =  {mj_wang_001}
+MJ_WANG_2  =  {mj_wang_002}
+MJ_WANG_3  =  {mj_wang_003}
+MJ_WANG_4  =  {mj_wang_004}
+MJ_WANG_5  =  {mj_wang_005}
+MJ_WANG_6  =  {mj_wang_006}
+MJ_WANG_7  =  {mj_wang_007}
+MJ_WANG_8 =   {mj_wang_008}
+MJ_WANG_9  =  {mj_wang_009}
+MJ_TONG_1   =  {mj_tong_001}
+MJ_TONG_2   =  {mj_tong_002}
+MJ_TONG_3    = {mj_tong_003}
+MJ_TONG_4   =  {mj_tong_004}
+MJ_TONG_5   =  {mj_tong_005}
+MJ_TONG_6   =  {mj_tong_006}
+MJ_TONG_7   =  {mj_tong_007}
+MJ_TONG_8   =  {mj_tong_008}
+MJ_TONG_9  =  {mj_tong_009}
+MJ_TIAO_1 = {mj_tiao_001}
+MJ_TIAO_2  =  {mj_tiao_002}
+MJ_TIAO_3   =  {mj_tiao_003}
+MJ_TIAO_4   =  {mj_tiao_004}
+MJ_TIAO_5    =   {mj_tiao_005}
+MJ_TIAO_6   = {mj_tiao_006}
+MJ_TIAO_7  = {mj_tiao_007}
+MJ_TIAO_8   =  {mj_tiao_008}
+MJ_TIAO_9   =  {mj_tiao_009}
+MJ_HUA_CHUN=  {mj_hua_chun}
+MJ_HUA_XIA= {mj_hua_xia}
+MJ_HUA_QIU=  {mj_hua_qiu}
+MJ_HUA_DONG= {mj_hua_dong}
+MJ_HUA_MEI= {mj_hua_mei}
+MJ_HUA_LAN=  {mj_hua_lan}
+MJ_HUA_ZHU=  {mj_hua_zhu}
+MJ_HUA_JU= {mj_hua_ju}
+MJ_FENG_DONG  =  {mj_feng_dong}
+MJ_FENG_NAN   =  {mj_feng_nan}
+MJ_FENG_XI      =    {mj_feng_xi}
+MJ_FENG_BEI    =    {mj_feng_bei}
+MJ_ZFB_HONGZHONG  = {mj_zfb_zhong}
+MJ_ZFB_FACAI =  {mj_zfb_fa}
+MJ_ZFB_BAIBAN  = {mj_zfb_bai}
+#EndDefine 
+
+==================================
+#Define PREFAB Integer UI
+UI_SELECT_SWAP_HANDPAI = {UISelectSwapHandPai}  
+UI_SWAPPAI_TIPS = {UISwapPaiingTips}  
+UI_HUPAI_TIPS = {UIHuPaiTips}  
+UI_HUPAI_DETAIL_TIPS = {UIHuPaiTipsDetail}    
+UI_CHIPAI_TIPS = {UIChiPaiTips}  
+UI_CHIPAI_DETAIL_TIPS = {UIChiPaiTipsDetail}    
+UI_TOUXIANG = {UITouXiang}
+UI_HUPAI_INHANDPAI_TIPS_ARROW = {UIHuPaiInHandPaiTipsArrow}
+UI_PENG_BTN = {UIPengBtn}
+UI_HU_BTN = {UIHuBtn}
+UI_CHI_BTN = {UIChiBtn}
+UI_GANG_BTN = {UIGangBtn}
+UI_TING_BTN = {UITingBtn}
+UI_GUO_BTN = {UIGuoBtn}
+UI_CANCEL_BTN = {UICancelBtn}
+UI_SCORE = {UIScoreBlue,UIScoreYellow}
+UI_SPRITE = {UISprite}
+UI_HUASE_FLAG = {UIHuaSeFlag}
+UI_SELECT_QUEMEN = {UISelectQueMen}
+#EndDefine 
+
+
+
+

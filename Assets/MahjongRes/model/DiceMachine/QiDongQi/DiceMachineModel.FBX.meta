@@ -1,0 +1,148 @@
+fileFormatVersion: 2
+guid: 1f76b0cdb9bcf1a499ce871f0ef19300
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: QiDongQiDictBox
+    100004: QiDongQiEast
+    100006: QiDongQiEastLight
+    100008: QiDongQiGanZi
+    100010: QiDongQiNorth
+    100012: QiDongQiNorthLight
+    100014: QiDongQiShadow
+    100016: QiDongQiSouth
+    100018: QiDongQiSouthLight
+    100020: QiDongQiWest
+    100022: QiDongQiWestLight
+    400000: //RootNode
+    400002: QiDongQiDictBox
+    400004: QiDongQiEast
+    400006: QiDongQiEastLight
+    400008: QiDongQiGanZi
+    400010: QiDongQiNorth
+    400012: QiDongQiNorthLight
+    400014: QiDongQiShadow
+    400016: QiDongQiSouth
+    400018: QiDongQiSouthLight
+    400020: QiDongQiWest
+    400022: QiDongQiWestLight
+    2100000: 09 - Default
+    2100002: 15 - Default
+    2100004: 14 - Default
+    2100006: 08 - Default
+    2300000: QiDongQiDictBox
+    2300002: QiDongQiEast
+    2300004: QiDongQiEastLight
+    2300006: QiDongQiGanZi
+    2300008: QiDongQiNorth
+    2300010: QiDongQiNorthLight
+    2300012: QiDongQiShadow
+    2300014: QiDongQiSouth
+    2300016: QiDongQiSouthLight
+    2300018: QiDongQiWest
+    2300020: QiDongQiWestLight
+    3300000: QiDongQiDictBox
+    3300002: QiDongQiEast
+    3300004: QiDongQiEastLight
+    3300006: QiDongQiGanZi
+    3300008: QiDongQiNorth
+    3300010: QiDongQiNorthLight
+    3300012: QiDongQiShadow
+    3300014: QiDongQiSouth
+    3300016: QiDongQiSouthLight
+    3300018: QiDongQiWest
+    3300020: QiDongQiWestLight
+    4300000: QiDongQiShadow
+    4300002: QiDongQiNorth
+    4300004: QiDongQiEast
+    4300006: QiDongQiSouth
+    4300008: QiDongQiWest
+    4300010: QiDongQiDictBox
+    4300012: QiDongQiNorthLight
+    4300014: QiDongQiGanZi
+    4300016: QiDongQiSouthLight
+    4300018: QiDongQiWestLight
+    4300020: QiDongQiEastLight
+  externalObjects: {}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: majiang
+  assetBundleVariant: ab

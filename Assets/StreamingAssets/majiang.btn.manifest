@@ -1,0 +1,37 @@
+ManifestFileVersion: 0
+CRC: 2162687202
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b5864c1f3a81c9ba741d5270a0492ea4
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 492fa9675f425f50f2efcb3a5313437f
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+Assets:
+- Assets/MajiangRes/prefab/UI/UIGangBtn.prefab
+Dependencies:
+- D:/MyDocuments/UnityProjects/QiPai/Assets/StreamingAssets/majiang.ab

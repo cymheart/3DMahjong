@@ -1,0 +1,5 @@
+D:\MyDocuments\UnityProjects\QiPai\HotFix_Project\obj\Release\HotFix_Project.csprojResolveAssemblyReference.cache
+D:\MyDocuments\UnityProjects\QiPai\Assets\StreamingAssets\HotFix_Project.dll
+D:\MyDocuments\UnityProjects\QiPai\Assets\StreamingAssets\HotFix_Project.pdb
+D:\MyDocuments\UnityProjects\QiPai\HotFix_Project\obj\Release\HotFix_Project.dll
+D:\MyDocuments\UnityProjects\QiPai\HotFix_Project\obj\Release\HotFix_Project.pdb

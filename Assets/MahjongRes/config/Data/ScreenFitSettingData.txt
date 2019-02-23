@@ -1,0 +1,85 @@
+﻿=================================
+//屏幕适配配置0
+#Define VAR Float
+screenAspect0 = 1.333
+#EndDefine
+
+#Define VAR Vector3
+camPosition0 = (-0.005, 0.79, 0.51)
+#EndDefine
+
+#Define VAR Vector3
+camEluerAngle0 = (59.6, -180, 0)
+#EndDefine
+
+#Define VAR Float
+camFieldOfView0 = 47.6
+#EndDefine
+
+#Define VAR Float
+mjScale0 = 1.4
+#EndDefine
+
+#Define VAR DataWrap
+screenFixSetting0 = {screenAspect0:Float, camPosition0:Vector3, camEluerAngle0:Vector3, camFieldOfView0:Float, mjScale0:Float}
+#EndDefine
+=================================
+
+=================================
+//屏幕适配配置1
+#Define VAR Float
+screenAspect1 = 1.6
+#EndDefine
+
+#Define VAR Vector3
+camPosition1 = (-0.005, 0.899, 0.726)
+#EndDefine
+
+#Define VAR Vector3
+camEluerAngle1 = (51.857, -180, 0)
+#EndDefine
+
+#Define VAR Float
+camFieldOfView1 = 33.8
+#EndDefine
+
+#Define VAR Float
+mjScale1 = 1.16
+#EndDefine
+
+#Define VAR DataWrap
+screenFixSetting1 = {screenAspect1:Float, camPosition1:Vector3, camEluerAngle1:Vector3, camFieldOfView1:Float, mjScale1:Float}
+#EndDefine
+=================================
+
+=================================
+//屏幕适配配置2
+#Define VAR Float
+screenAspect2 = 1.7778
+#EndDefine
+
+#Define VAR Vector3
+camPosition2 = (-0.005, 0.899, 0.726)
+#EndDefine
+
+#Define VAR Vector3
+camEluerAngle2 = (51.857, -180, 0)
+#EndDefine
+
+#Define VAR Float
+camFieldOfView2 = 33.8
+#EndDefine
+
+#Define VAR Float
+mjScale2 = 1.3
+#EndDefine
+
+#Define VAR DataWrap
+screenFixSetting2 = {screenAspect2:Float, camPosition2:Vector3, camEluerAngle2:Vector3, camFieldOfView2:Float, mjScale2:Float}
+#EndDefine
+=================================
+
+=================================
+#Define VAR DataWrap
+SCREEN_FIT_INFO_SET = {screenFixSetting0:DataWrap, screenFixSetting1:DataWrap, screenFixSetting2:DataWrap}
+#EndDefine

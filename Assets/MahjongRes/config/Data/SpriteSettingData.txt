@@ -1,0 +1,40 @@
+=================================
+#Define VAR Integer
+//Sprite type
+DICE_MACHINE_TIMER_NUM = 0
+SELECT = 1
+QUE_YI_MEN = 2
+
+=========================
+//Spirte Idx
+BLUE_NUMS = 0
+SELECT_NUMS
+SELECT_NUMS_GREY
+SELECT_QUE_TEXT
+SELECT_DING_TEXT
+SELECT_KUOHAO
+QUE_HUA_SE
+QUE_HUA_SE_MOVE
+HUA_SE_FLAG
+#EndDefine
+
+==================================
+#Define SPRITE Integer DICE_MACHINE_TIMER_NUM
+BLUE_NUMS = {UI_2_125, UI_2_108, UI_2_96, UI_2_117, UI_2_116, UI_2_98, UI_2_107, UI_2_126,  UI_2_115, UI_2_97}
+#EndDefine 
+
+==================================
+#Define SPRITE Integer SELECT 
+SELECT_NUMS:integer = {num0_text, num1_text, num2_text, num3_text, num4_text, num5_text, num6_text, num7_text,  num8_text, num9_text}
+SELECT_NUMS_GREY = {num0_grey_text, num1_grey_text, num2_grey_text, num3_grey_text, num4_grey_text, num5_grey_text, num6_grey_text, num7_grey_text, num8_grey_text, num9_grey_text}
+SELECT_QUE_TEXT = {que_text, que_grey_text} 
+SELECT_DING_TEXT = {ding_text, ding_grey_text} 
+SELECT_KUOHAO = {left_kuohao_text, right_kuohao_text, left_kuohao_grey_text, right_kuohao_grey_text} 
+#EndDefine 
+
+==================================
+#Define SPRITE Integer QUE_YI_MEN
+QUE_HUA_SE = {PlayingGUI_29, PlayingGUI_30, PlayingGUI_34}
+QUE_HUA_SE_MOVE = {PlayingGUI_58, PlayingGUI_54, PlayingGUI_48}
+HUA_SE_FLAG = {PlayingGUI_71, PlayingGUI_76, PlayingGUI_77}
+#EndDefine 

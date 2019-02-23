@@ -1,0 +1,207 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!128 &12800000
+Font:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: YellowScoreFont
+  serializedVersion: 5
+  m_LineSpacing: 0.1
+  m_DefaultMaterial: {fileID: 2100000, guid: c940d09fb0dc2684d9cac40e66a42519, type: 2}
+  m_FontSize: 0
+  m_Texture: {fileID: 0}
+  m_AsciiStartOffset: 0
+  m_Tracking: 1
+  m_CharacterSpacing: 0
+  m_CharacterPadding: 1
+  m_ConvertCase: 0
+  m_CharacterRects:
+  - serializedVersion: 2
+    index: 48
+    uv:
+      serializedVersion: 2
+      x: 0.15820312
+      y: 0.28515625
+      width: 0.14257812
+      height: 0.16601562
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 73
+      height: -85
+    advance: 48
+    flipped: 0
+  - serializedVersion: 2
+    index: 49
+    uv:
+      serializedVersion: 2
+      x: 0.44140625
+      y: 0.13867188
+      width: 0.10546875
+      height: 0.16210938
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: -1
+      width: 54
+      height: -83
+    advance: 30
+    flipped: 0
+  - serializedVersion: 2
+    index: 50
+    uv:
+      serializedVersion: 2
+      x: 0.3046875
+      y: 0.47265625
+      width: 0.13671875
+      height: 0.16601562
+    vert:
+      serializedVersion: 2
+      x: -2
+      y: 0
+      width: 70
+      height: -85
+    advance: 41
+    flipped: 0
+  - serializedVersion: 2
+    index: 51
+    uv:
+      serializedVersion: 2
+      x: 0.3046875
+      y: 0.30273438
+      width: 0.12890625
+      height: 0.16601562
+    vert:
+      serializedVersion: 2
+      x: -2
+      y: 0
+      width: 66
+      height: -85
+    advance: 38
+    flipped: 0
+  - serializedVersion: 2
+    index: 52
+    uv:
+      serializedVersion: 2
+      x: 0.4375
+      y: 0.3046875
+      width: 0.13671875
+      height: 0.1640625
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 70
+      height: -84
+    advance: 46
+    flipped: 0
+  - serializedVersion: 2
+    index: 53
+    uv:
+      serializedVersion: 2
+      x: 0.45507812
+      y: 0.8300781
+      width: 0.13085938
+      height: 0.16601562
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 67
+      height: -85
+    advance: 40
+    flipped: 0
+  - serializedVersion: 2
+    index: 54
+    uv:
+      serializedVersion: 2
+      x: 0.31445312
+      y: 0.8261719
+      width: 0.13671875
+      height: 0.16992188
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: 1
+      width: 70
+      height: -87
+    advance: 45
+    flipped: 0
+  - serializedVersion: 2
+    index: 55
+    uv:
+      serializedVersion: 2
+      x: 0.4453125
+      y: 0.49023438
+      width: 0.12890625
+      height: 0.16210938
+    vert:
+      serializedVersion: 2
+      x: 2
+      y: -1
+      width: 66
+      height: -83
+    advance: 38
+    flipped: 0
+  - serializedVersion: 2
+    index: 56
+    uv:
+      serializedVersion: 2
+      x: 0.30078125
+      y: 0.115234375
+      width: 0.13671875
+      height: 0.16601562
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: -1
+      width: 70
+      height: -85
+    advance: 45
+    flipped: 0
+  - serializedVersion: 2
+    index: 57
+    uv:
+      serializedVersion: 2
+      x: 0.44140625
+      y: 0.65625
+      width: 0.13671875
+      height: 0.16601562
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 70
+      height: -85
+    advance: 45
+    flipped: 0
+  - serializedVersion: 2
+    index: 43
+    uv:
+      serializedVersion: 2
+      x: 0.55078125
+      y: 0.1640625
+      width: 0.125
+      height: 0.13671875
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: -10
+      width: 64
+      height: -70
+    advance: 37
+    flipped: 0
+  m_KerningValues: []
+  m_PixelScale: 0.1
+  m_FontData: 
+  m_Ascent: 0
+  m_Descent: 0
+  m_DefaultStyle: 0
+  m_FontNames: []
+  m_FallbackFonts: []
+  m_FontRenderingMode: 0
+  m_UseLegacyBoundsCalculation: 0
+  m_ShouldRoundAdvanceValue: 1

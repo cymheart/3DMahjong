@@ -1,0 +1,20 @@
+ManifestFileVersion: 0
+CRC: 1928947639
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b8b6b0248a892ea970fe48d78da2158f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 1b3feb9bc6055cd677abb4cd6f720d90
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 687078895
+  Script: {instanceID: 0}
+Assets:
+- Assets/BtnAtlas.spriteatlas
+Dependencies: []

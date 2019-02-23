@@ -1,0 +1,16 @@
+ManifestFileVersion: 0
+CRC: 3602748979
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 7b0ca1245e65e185a2954715dff311da
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6370d3f9de9eca57f523bce048404a46
+HashAppended: 0
+ClassTypes:
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Shader/Diffuse Texture.shader
+Dependencies: []

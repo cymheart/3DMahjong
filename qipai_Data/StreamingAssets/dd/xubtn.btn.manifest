@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 2289463
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 738e9c099690a5ce9b988b307221806d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: c2bdabd68c118aabc18c59eaf5951821
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Grey.mat
+Dependencies: []

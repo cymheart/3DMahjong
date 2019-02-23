@@ -1,0 +1,10 @@
+ManifestFileVersion: 0
+CRC: 2984831008
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: dd/xubtn.btn
+      Dependencies: {}
+    Info_1:
+      Name: dd/gamebtn.res
+      Dependencies: {}

@@ -1,0 +1,145 @@
+ManifestFileVersion: 0
+CRC: 1915344478
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: d05668dbdd96ccc9b383f2dc445f130f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: c03c402fdd996b7d1ab135a47a991c32
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 111
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+- Class: 687078895
+  Script: {instanceID: 0}
+Assets:
+- Assets/MajiangRes/sprite/mjface/hua_lan.png
+- Assets/MajiangRes/tex/shou_nv.png
+- Assets/MajiangRes/sprite/mjface/hua_zhu.png
+- Assets/MajiangRes/prefab/mj_hand_zheng.prefab
+- Assets/MajiangRes/mat/m_mj_dui_west.mat
+- Assets/MajiangRes/prefab/mj_ping_ce_west.prefab
+- Assets/MajiangRes/prefab/mj_dui_east.prefab
+- Assets/MajiangRes/prefab/mj_dui_zheng.prefab
+- Assets/MajiangRes/sprite/mjface/tiao_2.png
+- Assets/MajiangRes/sprite/mjface/tiao_8.png
+- Assets/MajiangRes/model/cc13.FBX
+- Assets/MajiangRes/prefab/mj_hand_west.prefab
+- Assets/MajiangRes/prefab/mj_dui_west.prefab
+- Assets/MajiangRes/prefab/mj_hand_main.prefab
+- Assets/MajiangRes/mat/m_mj_hand_west.mat
+- Assets/MajiangRes/shader/NewUnlitShader2.shader
+- Assets/MajiangRes/mat/desk_mj_qidongqi.mat
+- Assets/MajiangRes/sprite/mjface/tong_8.png
+- Assets/MajiangRes/mat/m_mj_dui_east.mat
+- Assets/MajiangRes/sprite/mjface/img_pai.png
+- Assets/MajiangRes/tex/majiangpai_paimian.png
+- Assets/Shader/Diffuse Texture.shader
+- Assets/MajiangRes/tex/majiangpai_handEast.png
+- Assets/MajiangRes/sprite/mjface/tiao_5.png
+- Assets/MajiangRes/sprite/mjface/poker_sleep.png
+- Assets/MajiangRes/sprite/mjface/w_7.png
+- Assets/MajiangRes/sprite/mjface/tiao_3.png
+- Assets/MajiangRes/mat/m_desk_face.mat
+- Assets/MajiangRes/sprite/mjface/feng_bei.png
+- Assets/MajiangRes/prefab/mj_ping_ce_east.prefab
+- Assets/MajiangRes/tex/majiangpai_handWest.png
+- Assets/MajiangRes/prefab/selfHandPai.prefab
+- Assets/MajiangRes/sprite/mjface/hua_qiu.png
+- Assets/MajiangRes/prefab/mj_dui_west_shadow.prefab
+- Assets/MajiangRes/sprite/mjface/tong_4.png
+- Assets/MajiangRes/sprite/mjface/w_1.png
+- Assets/MajiangRes/sprite/mjface/zfb_facai.png
+- Assets/MajiangRes/prefab/handnv.prefab
+- Assets/MajiangRes/sprite/mjface/mj_bg1.png
+- Assets/MajiangRes/tex/qidongqi.png
+- Assets/MajiangRes/model/mj.FBX
+- Assets/MajiangRes/sprite/mjface/mj_bg.png
+- Assets/MajiangRes/sprite/mjface/mj_bg_stand2.png
+- Assets/MajiangRes/mat/m_desk_bottom.mat
+- Assets/MajiangRes/prefab/mj_dui_zheng_shadow.prefab
+- Assets/MajiangRes/mat/m_mj_hand_zheng.mat
+- Assets/MajiangRes/sprite/mjface/tiao_4.png
+- Assets/MajiangRes/mat/m_mj_hand_east.mat
+- Assets/MajiangRes/tex/majiangpai_beice.png
+- Assets/MajiangRes/sprite/mjface/tong_3.png
+- Assets/MajiangRes/tex/majiangpai_beiceWest.png
+- Assets/MajiangRes/tex/majiangzhuo.png
+- Assets/MajiangRes/mat/m_mj_ping_zheng.mat
+- Assets/MajiangRes/tex/majiangpai.png
+- Assets/MajiangRes/mat/m_mj_hand_main.mat
+- Assets/MajiangRes/sprite/mjface/hua_chun.png
+- Assets/MajiangRes/mat/m_mj_hand_fan.mat
+- Assets/MajiangRes/sprite/mjface/tiao_9.png
+- Assets/MajiangRes/sprite/mjface/mj_bg_stand.png
+- Assets/MajiangRes/sprite/mjface/hua_ju.png
+- Assets/MajiangRes/tex/majiangpai_ce.png
+- Assets/MajiangRes/tex/majiangpai_beizheng.png
+- Assets/MajiangRes/prefab/mj_hand_fan.prefab
+- Assets/MajiangRes/sprite/mjface/tiao_7.png
+- Assets/MajiangRes/sprite/mjface/feng_xi.png
+- Assets/MajiangRes/sprite/mjface/tong_5.png
+- Assets/MajiangRes/sprite/mjface/w_3.png
+- Assets/MajiangRes/sprite/mjface/tong_7.png
+- Assets/MajiangRes/sprite/mjface/w_6.png
+- Assets/MajiangRes/sprite/mjface/w_5.png
+- Assets/MajiangRes/model/desk.FBX
+- Assets/MajiangRes/sprite/mjface/hua_dong.png
+- Assets/MajiangRes/sprite/mjface/hua_mei.png
+- Assets/MajiangRes/tex/majiangpai_beiceEast.png
+- Assets/MajiangRes/sprite/mjface/w_2.png
+- Assets/MajiangRes/sprite/mjface/tiao_1.png
+- Assets/MajiangRes/sprite/mjface/zfb_baipi.png
+- Assets/MajiangRes/sprite/mjface/hua_xia.png
+- Assets/MajiangRes/sprite/mjface/w_4.png
+- Assets/MajiangRes/prefab/mj_ping_zheng_self.prefab
+- Assets/MajiangRes/sprite/mjface/zfb_hz.png
+- Assets/MajiangRes/sprite/mjface/feng_nan.png
+- Assets/MajiangRes/sprite/mjface/w_9.png
+- Assets/MajiangRes/tex/majiangpai_zheng_ping.png
+- Assets/MajiangRes/mat/m_mj_ping_ce.mat
+- Assets/MajiangRes/prefab/mj_dui_east_shadow.prefab
+- Assets/MajiangRes/prefab/mj_hand_east.prefab
+- Assets/MajiangRes/prefab/mj_ping_zheng_north.prefab
+- Assets/MajiangRes/sprite/mjface/tiao_6.png
+- Assets/MajiangRes/sprite/mjface/feng_dong.png
+- Assets/MajiangRes/sprite/mjface/w_8.png
+- Assets/MajiangRes/sprite/mjface/tong_6.png
+- Assets/MajiangRes/sprite/mjface/tong_1.png
+- Assets/MajiangRes/sprite/mjAtlas.spriteatlas
+- Assets/MajiangRes/sprite/mjface/tong_2.png
+- Assets/MajiangRes/sprite/mjface/tong_9.png
+Dependencies: []

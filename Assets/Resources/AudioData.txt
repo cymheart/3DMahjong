@@ -1,0 +1,129 @@
+﻿==================================
+#Define PT_SPEAK  FEMALE
+MJ_WANG_1 = {g_1wan}
+MJ_WANG_2 = {g_2wan}
+MJ_WANG_3 = {g_3wan}
+MJ_WANG_4 = {g_4wan}
+MJ_WANG_5 = {g_5wan}
+MJ_WANG_6 = {g_6wan}
+MJ_WANG_7 = {g_7wan}
+MJ_WANG_8 = {g_8wan}
+MJ_WANG_9 = {g_9wan}
+MJ_TONG_1 = {g_1tong}
+MJ_TONG_2 = {g_2tong}
+MJ_TONG_3 = {g_3tong}
+MJ_TONG_4 = {g_4tong}
+MJ_TONG_5 = {g_5tong}
+MJ_TONG_6 = {g_6tong}
+MJ_TONG_7 = {g_7tong}
+MJ_TONG_8 = {g_8tong}
+MJ_TONG_9 = {g_9tong}
+MJ_TIAO_1 = {g_1tiao}
+MJ_TIAO_2 = {g_2tiao}
+MJ_TIAO_3 = {g_3tiao}
+MJ_TIAO_4 = {g_4tiao}
+MJ_TIAO_5 = {g_5tiao}
+MJ_TIAO_6 = {g_6tiao}
+MJ_TIAO_7 = {g_7tiao}
+MJ_TIAO_8 = {g_8tiao}
+MJ_TIAO_9 = {g_9tiao}
+MJ_FENG_DONG = {g_dongfeng}
+MJ_FENG_NAN = {g_nanfeng}
+MJ_FENG_XI = {g_xifeng}
+MJ_FENG_BEI = {g_beifeng}
+MJ_ZFB_HONGZHONG = {g_hongzhong}
+MJ_ZFB_FACAI = {g_fa}
+MJ_ZFB_BAIBAN = {g_bai}
+AUDIO_SPEAK_HU =  {g_hu}
+#EndDefine
+
+==================================
+#Define PT_SPEAK  MALE
+MJ_WANG_1 = {1wan}
+MJ_WANG_2 = {2wan}
+MJ_WANG_3 = {3wan}
+MJ_WANG_4 = {4wan}
+MJ_WANG_5 = {5wan}
+MJ_WANG_6 = {6wan}
+MJ_WANG_7 = {7wan}
+MJ_WANG_8 = {8wan}
+MJ_WANG_9 = {9wan}
+MJ_TONG_1 = {1tong}
+MJ_TONG_2 = {2tong}
+MJ_TONG_3 = {3tong}
+MJ_TONG_4 = {4tong}
+MJ_TONG_5 = {5tong}
+MJ_TONG_6 = {6tong}
+MJ_TONG_7 = {7tong}
+MJ_TONG_8 = {8tong}
+MJ_TONG_9 = {9tong}
+MJ_TIAO_1 = {1tiao}
+MJ_TIAO_2 = {2tiao}
+MJ_TIAO_3 = {3tiao}
+MJ_TIAO_4 = {4tiao}
+MJ_TIAO_5 = {5tiao}
+MJ_TIAO_6 = {6tiao}
+MJ_TIAO_7 = {7tiao}
+MJ_TIAO_8 = {8tiao}
+MJ_TIAO_9 = {9tiao}
+MJ_FENG_DONG = {dongfeng}
+MJ_FENG_NAN = {nanfeng}
+MJ_FENG_XI = {xifeng}
+MJ_FENG_BEI = {beifeng}
+MJ_ZFB_HONGZHONG = {hongzhong}
+MJ_ZFB_FACAI = {fa}
+MJ_ZFB_BAIBAN = {bai}
+AUDIO_SPEAK_HU =  {hu}
+#EndDefine
+
+==================================
+#Define SC_SPEAK  FEMALE
+MJ_WANG_1 = {sc_girl_1wan}
+MJ_WANG_2 = {sc_girl_2wan}
+MJ_WANG_3 = {sc_girl_3wan}
+MJ_WANG_4 = {sc_girl_4wan}
+MJ_WANG_5 = {sc_girl_5wan}
+MJ_WANG_6 = {sc_girl_6wan}
+MJ_WANG_7 = {sc_girl_7wan}
+MJ_WANG_8 = {sc_girl_8wan}
+MJ_WANG_9 = {sc_girl_9wan}
+MJ_TONG_1 = {sc_girl_1tong}
+MJ_TONG_2 = {sc_girl_2tong}
+MJ_TONG_3 = {sc_girl_3tong}
+MJ_TONG_4 = {sc_girl_4tong}
+MJ_TONG_5 = {sc_girl_5tong}
+MJ_TONG_6 = {sc_girl_6tong}
+MJ_TONG_7 = {sc_girl_7tong}
+MJ_TONG_8 = {sc_girl_8tong}
+MJ_TONG_9 = {sc_girl_9tong}
+MJ_TIAO_1 = {sc_girl_1tiao}
+MJ_TIAO_2 = {sc_girl_2tiao}
+MJ_TIAO_3 = {sc_girl_3tiao}
+MJ_TIAO_4 = {sc_girl_4tiao}
+MJ_TIAO_5 = {sc_girl_5tiao}
+MJ_TIAO_6 = {sc_girl_6tiao}
+MJ_TIAO_7 = {sc_girl_7tiao}
+MJ_TIAO_8 = {sc_girl_8tiao}
+MJ_TIAO_9 = {sc_girl_9tiao}
+MJ_FENG_DONG = {sc_girl_dongfeng}
+MJ_FENG_NAN = {sc_girl_nanfeng}
+MJ_FENG_XI = {sc_girl_xifeng}
+MJ_FENG_BEI = {sc_girl_beifeng}
+MJ_ZFB_HONGZHONG = {sc_girl_hongzhong}
+MJ_ZFB_FACAI = {sc_girl_fa}
+MJ_ZFB_BAIBAN = {sc_girl_bai}
+AUDIO_SPEAK_HU =  {sc_girl_hu}
+#EndDefine
+
+==================================
+#Define EFFECT_AUDIO  NONE
+AUDIO_EFFECT_SHANDIAN = {shandian}
+AUDIO_EFFECT_TUIDAO = {tuidao}
+AUDIO_EFFECT_DEAL =  {deal}
+AUDIO_EFFECT_GIVE =  {give}
+#EndDefine
+
+==================================
+#Define MUSIC_AUDIO NONE
+AUDIO_BG_MUSIC = {playingInGame}
+#EndDefine 

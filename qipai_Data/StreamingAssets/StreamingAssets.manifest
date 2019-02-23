@@ -1,0 +1,13 @@
+ManifestFileVersion: 0
+CRC: 2746945405
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: majiang.ab
+      Dependencies: {}
+    Info_1:
+      Name: dd/gamebtn.res
+      Dependencies: {}
+    Info_2:
+      Name: dd/xubtn.btn
+      Dependencies: {}
