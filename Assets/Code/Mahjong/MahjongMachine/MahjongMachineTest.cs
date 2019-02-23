@@ -147,11 +147,6 @@ namespace MahjongMachineNS
                         qiDongCmd.seatIdx = 0;
                         mjOpCmdList.Append(qiDongCmd);
 
-                        ReqSelectDaPaiOpCmd cmdx = (ReqSelectDaPaiOpCmd)CmdPool.Instance.CreateCmd(MahjongOpCode.ReqSelectDaPai);
-                        mjOpCmdList.Append(cmdx);
-
-
-
                         MahjongDaPaiOpCmd cmd = (MahjongDaPaiOpCmd)CmdPool.Instance.CreateCmd(MahjongOpCode.DaPai);
                         cmd.seatIdx = 1;
                         cmd.handStyle = PlayerType.FEMALE;

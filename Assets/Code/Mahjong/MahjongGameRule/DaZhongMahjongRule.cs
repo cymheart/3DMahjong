@@ -139,6 +139,7 @@ public class DaZhongMahjongRule
         faPaiCmd.isBlock = true;
         taskProcesser.PostTask(TaskCallBack, faPaiCmd);
 
+        //
         int seatIdx;
         MahjongBuHuaPaiOpCmd buHuaCmd;
         for (int i = 0; i < 4; i++)
@@ -154,6 +155,12 @@ public class DaZhongMahjongRule
                 taskProcesser.PostTask(TaskCallBack, buHuaCmd);
             }
         }
+
+
+        //
+        ReqSelectDaPaiOpCmd reqSelectDaPaiCmd = (ReqSelectDaPaiOpCmd)CmdPool.Instance.CreateCmd(MahjongOpCode.ReqSelectDaPai);
+        taskProcesser.PostTask(TaskCallBack, reqSelectDaPaiCmd);
+
     }
 
     void CreateMjCards()

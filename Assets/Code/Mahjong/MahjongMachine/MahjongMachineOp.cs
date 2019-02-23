@@ -575,6 +575,10 @@ namespace MahjongMachineNS
             cmd2.handStyle = PlayerType.FEMALE;
             cmd2.canSelectPaiAfterCmdEnd = true;
             mjOpCmdList.Append(cmd2);
+
+            //test
+            ReqSelectDaPaiOpCmd cmdx = (ReqSelectDaPaiOpCmd)CmdPool.Instance.CreateCmd(MahjongOpCode.ReqSelectDaPai);
+            mjOpCmdList.Append(cmdx);
         }
 
         /// <summary>
