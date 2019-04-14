@@ -8,6 +8,7 @@ using CoreDesgin;
 using Task;
 using ComponentDesgin;
 using ActionDesgin;
+using CmdDesgin;
 
 public class MahjongGame : MonoBehaviour
 {

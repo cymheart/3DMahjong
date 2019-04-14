@@ -111,10 +111,10 @@
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ActionDesgin\SelectSwapPai\SelectSwapPaiStateData.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ActionDesgin\SortPai\SortPaiAction.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ActionDesgin\SortPai\SortPaiStateData.cs" />
-    <Compile Include="Assets\Code\Mahjong\MahjongMachine\ActionDesgin\SwapPaiHint\SwapPaiHintAction.cs" />
-    <Compile Include="Assets\Code\Mahjong\MahjongMachine\ActionDesgin\SwapPaiHint\SwapPaiHintStateData.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ActionDesgin\SwapPai\SwapPaiAction.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ActionDesgin\SwapPai\SwapPaiStateData.cs" />
+    <Compile Include="Assets\Code\Mahjong\MahjongMachine\ActionDesgin\SwapPaiHint\SwapPaiHintAction.cs" />
+    <Compile Include="Assets\Code\Mahjong\MahjongMachine\ActionDesgin\SwapPaiHint\SwapPaiHintStateData.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ActionDesgin\TuiDaoPai\TuiDaoPaiAction.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ActionDesgin\TuiDaoPai\TuiDaoPaiStateData.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ActionDesgin\XiPai\XiPaiAction.cs" />
@@ -609,9 +609,6 @@
       <Project>{3DB6BA03-2EFF-BEAA-AA14-70E533C016F4}</Project>
       <Name>Unity.AssetBundleBrowser.Editor</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\Code\Mahjong\MahjongMachine\ActionDesgin\TouXiang\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
