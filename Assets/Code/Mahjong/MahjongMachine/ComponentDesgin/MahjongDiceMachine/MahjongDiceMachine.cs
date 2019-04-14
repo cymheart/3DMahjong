@@ -122,9 +122,8 @@ namespace ComponentDesgin
             mjTable = desk.mjtableTransform;
             numSpritesDict = settingDataAssetsMgr.GetSpritesIntKeyDict((int)SpritesType.DICE_MACHINE_TIMER_NUM);
             blueNums = numSpritesDict[(int)SpriteIdx.BLUE_NUMS];
-            prefabDiceMachine = mjAssetsMgr.defaultPrefabDict[(int)PrefabIdx.DICE_MACHINE][0];
 
-            diceMachineTransform = Object.Instantiate(prefabDiceMachine, mjTable).transform;
+            diceMachineTransform = mjTable.Find("DiceMachine").transform;
             mjAssetsMgr.AppendToDestoryPool(diceMachineTransform.gameObject);
 
             gaiziTransform = diceMachineTransform.Find("QiDongQiGanZi");

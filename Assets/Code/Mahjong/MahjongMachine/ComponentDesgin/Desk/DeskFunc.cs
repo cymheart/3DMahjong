@@ -6,17 +6,6 @@ namespace ComponentDesgin
 {
     public partial class Desk
     {
-        public override void PreInit()
-        {
-            base.PreInit();
-            GameObject prefabMjTable = mjAssetsMgr.defaultPrefabDict[(int)PrefabIdx.TABLE_POSITION_HELPER][0];
-            GameObject prefabCanvasHandPai = mjAssetsMgr.defaultPrefabDict[(int)PrefabIdx.TABLE_POSITION_HELPER][0];
-
-            mjtableTransform = Object.Instantiate(prefabMjTable).transform;
-            canvasHandPaiTransform = Object.Instantiate(prefabCanvasHandPai).transform;
-            canvasHandPaiRectTransform = canvasHandPaiTransform.GetComponent<RectTransform>();
-        }
-
         public override void Init()
         {
             base.Init();
@@ -27,7 +16,12 @@ namespace ComponentDesgin
         {
             this.mjMachine = mjMachine;
             mjAssetsMgr = mjMachine.GetComponent<MahjongAssetsMgr>();
-            fit = mjMachine.GetComponent<Fit>();  
+            fit = mjMachine.GetComponent<Fit>();
+            scene = mjMachine.GetComponent<Scene>();
+            mjtableTransform = scene.mjtableTransform;
+
+            canvasHandPaiTransform = scene.canvasHandPaiTransform;
+            canvasHandPaiRectTransform = canvasHandPaiTransform.GetComponent<RectTransform>();
         }
 
         public override void Load()

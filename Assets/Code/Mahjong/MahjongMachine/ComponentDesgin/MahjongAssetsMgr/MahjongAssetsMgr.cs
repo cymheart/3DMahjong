@@ -86,24 +86,19 @@ namespace ComponentDesgin
         public override void Wake()
         {
             base.Wake();
-            Setting((MahjongMachine)Parent);     
+
+            mjMachine = (MahjongMachine)Parent;
+            mjGame = mjMachine.mjGame;
+            settingDataAssetsMgr = mjMachine.GetComponent<SettingDataAssetsMgr>();
+
+            mjGame.StartCoroutine(LoadMahjongRes());
+            mjMachine.SetWaitState();
         }
 
         public override void PreLoad()
         {
             base.PreLoad();
             LoadPools();
-
-        }
-
-        public void Setting(MahjongMachine mjMachine)
-        {
-            this.mjMachine = mjMachine;
-            mjGame = mjMachine.mjGame;
-            settingDataAssetsMgr = mjMachine.GetComponent<SettingDataAssetsMgr>();
-
-            mjGame.StartCoroutine(LoadMahjongRes());
-            mjMachine.SetWaitState();
         }
 
         public IEnumerator LoadMahjongRes()
@@ -179,7 +174,7 @@ namespace ComponentDesgin
             huPaiTipsAndDetailOffsetX = x2 - x1;
 
 
-            huPaiInHandPaiTipsArrowPool.CreatePool(uiPrefabDict[(int)PrefabIdx.UI_HUPAI_INHANDPAI_TIPS_ARROW][0], 20, desk.canvasHandPaiTransform);
+            huPaiInHandPaiTipsArrowPool.CreatePool(uiPrefabDict[(int)PrefabIdx.UI_HUPAI_INHANDPAI_TIPS_ARROW][0], 20, scene.canvasHandPaiTransform);
 
             CreateHandShadowPlanes();    
             CreateDeskOrSelfHandMjPool();
