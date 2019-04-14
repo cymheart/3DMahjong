@@ -8,9 +8,6 @@ namespace CoreDesgin
     { 
         public MahjongGame mjGame;
 
-        public int uiLayer = LayerMask.NameToLayer("UI");
-        public int defaultLayer = LayerMask.NameToLayer("Default");
-  
         public MahjongMachineUpdater mjMachineUpdater = new MahjongMachineUpdater();
 
         public TingData[] tingDatas;

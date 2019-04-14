@@ -28,6 +28,8 @@ public class MahjongGame : MonoBehaviour
         //  GC.Collect();
         Application.targetFrameRate = 30;
 
+        mjMachine = new MahjongMachine();
+
         taskProcesser = new CommonTaskProcesser(taskPump);
         //daZhongMjRule = new DaZhongMahjongRule(mjMachine, taskProcesser);
 
@@ -130,7 +132,7 @@ public class MahjongGame : MonoBehaviour
 
     void Update()
     {
-        taskPump.Run();
+      //  taskPump.Run();
         MonitorQuitGame();
 
         mjMachine.mjMachineUpdater.Update();

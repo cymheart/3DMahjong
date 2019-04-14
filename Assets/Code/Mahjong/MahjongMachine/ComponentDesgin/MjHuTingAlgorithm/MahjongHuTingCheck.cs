@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-namespace CoreDesgin
+namespace ComponentDesgin
 {
     /// <summary>
     /// 麻将颜色（种类）定义

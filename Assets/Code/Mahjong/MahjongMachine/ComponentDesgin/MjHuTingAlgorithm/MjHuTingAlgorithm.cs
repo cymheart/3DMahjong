@@ -1,14 +1,10 @@
 ﻿using CoreDesgin;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace ComponentDesgin
 {
-    public class Scene : MahjongMachineComponent
+    public class MjHuTingAlgorithm : MahjongMachineComponent
     {
         MahjongMachine mjMachine;
         MahjongAssetsMgr mjAssetsMgr;
