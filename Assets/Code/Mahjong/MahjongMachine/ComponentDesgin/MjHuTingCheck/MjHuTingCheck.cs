@@ -8,6 +8,7 @@ namespace ComponentDesgin
     {
         MahjongMachine mjMachine;
         MjHuTingAlgorithm mjHuTingAlgo;
+        public TingData[] tingDatas;
 
         public override void Init()
         {
@@ -16,9 +17,11 @@ namespace ComponentDesgin
             mjMachine = (MahjongMachine)Parent;
             mjHuTingAlgo = new MjHuTingAlgorithm();
             mjHuTingAlgo.Train();
+
+            tingDatas = mjHuTingAlgo.CreateTingDataMemory();
         }
 
-        public void CheckTing(byte[] cards, byte laiziIndex, ref TingData[] tingDatas)
+        public void CheckTing(byte[] cards, byte laiziIndex)
         {
             mjHuTingAlgo.CheckTing(cards, laiziIndex, ref tingDatas);
         }

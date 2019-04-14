@@ -58,7 +58,7 @@ public class MahjongGame : MonoBehaviour
             typeof(MahjongPoint), typeof(PreSettingHelper), typeof(Scene),
             typeof(ScreenFit), typeof(UIPCGHTBtnMgr), typeof(UISelectQueMen),
             typeof(UISelectSwapHandPai), typeof(UIScore), typeof(SwapPaiHintArrowEffect),
-            typeof(UISwapPaiingTips), typeof(UITouXiang)
+            typeof(UISwapPaiingTips), typeof(UITouXiang),typeof(MjHuTingCheck)
         };
 
         AppendComponent(componentTypes);

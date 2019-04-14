@@ -25,7 +25,7 @@ namespace ActionDesgin
 
         UIHuPaiHandPaiIdxTipsArrow uiHuPaiTipsArrow;
         UIHuPaiTips uiHuPaiTips;
-        public TingData[] tingDatas;
+       
 
         public override void Init(MahjongMachine mjMachine)
         {
@@ -66,7 +66,7 @@ namespace ActionDesgin
                 byte[] cards = new byte[34];
 
                 desk.CreateHandPaiCardList(ref cards);
-                mjHuTingCheck.CheckTing(cards, 100, ref tingDatas);
+                mjHuTingCheck.CheckTing(cards, 100);
 
                 if (huPaiInfosInHandPai == null)
                     huPaiInfosInHandPai = new List<HuPaiTipsInfo[]>();
@@ -74,8 +74,8 @@ namespace ActionDesgin
                 if (huPaiInfosInMoPai == null)
                     huPaiInfosInMoPai = new List<HuPaiTipsInfo[]>();
 
-                CreateHuPaiInfos(desk.mjSeatHandPaiLists[0], tingDatas, ref huPaiInHandPaiIdxs, ref huPaiInfosInHandPai);
-                CreateHuPaiInfos(desk.mjSeatMoPaiLists[0],tingDatas, ref huPaiInMoPaiIdxs, ref huPaiInfosInMoPai);
+                CreateHuPaiInfos(desk.mjSeatHandPaiLists[0], mjHuTingCheck.tingDatas, ref huPaiInHandPaiIdxs, ref huPaiInfosInHandPai);
+                CreateHuPaiInfos(desk.mjSeatMoPaiLists[0], mjHuTingCheck.tingDatas, ref huPaiInMoPaiIdxs, ref huPaiInfosInMoPai);
             }
 
             SelectDaPaiStateData stateData = playerStateData[0].GetComponent<SelectDaPaiStateData>();
