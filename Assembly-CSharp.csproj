@@ -96,7 +96,6 @@
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\CoreDesgin\MahjongTypes.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\CoreDesgin\MjMachineCmdPool.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\CoreDesgin\StateDataGroup.cs" />
-    <Compile Include="Assets\Code\Mahjong\MahjongMachine\MahjongAssets.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\MahjongAssetsMgr.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\MahjongDiceMachine.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\MahjongGame.cs" />
