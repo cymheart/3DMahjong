@@ -170,7 +170,7 @@
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\MahjongAssetsMgr\ParseTextData.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\MahjongAssetsMgr\SettingDataAssetsMgr.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\MahjongDiceMachine\MahjongDiceMachine.cs" />
-    <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\MjHuTingAlgorithm\MjHuTingAlgorithm.cs" />
+    <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\MjHuTingCheck\MjHuTingCheck.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\MjPointer\MahjongPoint.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\PreSettingHelper\PreSettingHelper.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\Scene\Scene.cs" />
@@ -189,7 +189,7 @@
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\TouXiang\UITouXiang.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\TouXiang\UITouXiangLiuGuangEffect.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\Types.cs" />
-    <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\MjHuTingAlgorithm\MahjongHuTingCheck.cs" />
+    <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\MjHuTingCheck\MjHuTingAlgorithm.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\CoreDesgin\MahjongMachine.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\CoreDesgin\MahjongMachineAction.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\CoreDesgin\MahjongMachineCmd.cs" />

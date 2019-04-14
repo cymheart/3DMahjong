@@ -54,6 +54,11 @@ namespace ActionDesgin
         /// </summary>
         public Scene scene;
 
+        /// <summary>
+        /// 胡听牌检查
+        /// </summary>
+        public MjHuTingCheck mjHuTingCheck;
+
         public BaseHandAction()      
             : base()
         {
@@ -68,6 +73,7 @@ namespace ActionDesgin
             desk = mjMachine.GetComponent<Desk>();
             fit = mjMachine.GetComponent<Fit>();
             scene = mjMachine.GetComponent<Scene>();
+            mjHuTingCheck = mjMachine.GetComponent<MjHuTingCheck>();
         }
 
         public void StopSelectPaiActionState(int seatIdx)

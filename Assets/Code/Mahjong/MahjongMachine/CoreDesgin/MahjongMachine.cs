@@ -9,9 +9,6 @@ namespace CoreDesgin
         public MahjongGame mjGame;
 
         public MahjongMachineUpdater mjMachineUpdater = new MahjongMachineUpdater();
-
-        public TingData[] tingDatas;
-
         public MahjongMachineCmdMgr mjCmdMgr = new MahjongMachineCmdMgr();
 
         /// <summary>

@@ -25,10 +25,7 @@ namespace ComponentDesgin
         Scene scene;
         Desk desk;
         SettingDataAssetsMgr settingDataAssetsMgr;
-
-        static public MahjongHuTingCheck mjHuTingCheck;
-
-        
+  
         public Dictionary<int, GameObject[]> defaultPrefabDict;
         public Dictionary<int, GameObject[]> effectPrefabDict;
         public Dictionary<int, GameObject[]> mjpaiPrefabDict;

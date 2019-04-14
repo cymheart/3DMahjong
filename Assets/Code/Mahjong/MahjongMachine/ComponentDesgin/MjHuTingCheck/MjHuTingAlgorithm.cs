@@ -1007,7 +1007,7 @@ namespace ComponentDesgin
     }
 
 
-    public class MahjongHuTingCheck
+    public class MjHuTingAlgorithm
     {
         MahjongHuPaiData mjHuPaiData;
         MahjongHuPaiData mjHuPaiDataFengZi;
@@ -1051,7 +1051,7 @@ namespace ComponentDesgin
             }
         }
 
-        public MahjongHuTingCheck()
+        public MjHuTingAlgorithm()
         {
             mjHuPaiData = new MahjongHuPaiData(10);
             mjHuPaiData.IsCreateLaiziDetailData = true;
