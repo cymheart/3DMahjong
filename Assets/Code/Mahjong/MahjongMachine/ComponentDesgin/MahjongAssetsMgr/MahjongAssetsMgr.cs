@@ -95,6 +95,7 @@ namespace ComponentDesgin
             LoadPools();
 
         }
+
         public void Setting(MahjongMachine mjMachine)
         {
             this.mjMachine = mjMachine;
@@ -449,8 +450,10 @@ namespace ComponentDesgin
             destoryTweenerPool.Clear();
         }
 
-        public void Destroy()
+        public override void Destory()
         {
+            base.Destory();
+
             DestoryGameObjectPool();
             DestoryTweenerPool();
 

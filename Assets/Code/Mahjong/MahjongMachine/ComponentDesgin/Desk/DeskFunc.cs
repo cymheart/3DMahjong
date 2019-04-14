@@ -37,6 +37,14 @@ namespace ComponentDesgin
             CreateMahjongPaiDui();
         }
 
+        public override void Destory()
+        {
+            base.Destory();
+
+            for (int i = 0; i < mjDuiPai.Length; i++)
+                Object.Destroy(mjDuiPai[i]);
+        }
+
         public override void ClearData()
         {
             highLightMjValue = MahjongFaceValue.MJ_UNKNOWN;

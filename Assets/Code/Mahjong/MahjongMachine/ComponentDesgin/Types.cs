@@ -378,6 +378,7 @@ namespace ComponentDesgin
         DICE_MACHINE,
         MJPAI_POINT,
         TABLE_POSITION_HELPER,
+        SCENE,
         SWAP_PAI_CONTROLER,
         UI_POSITION_HELPER,
         UI_SELECT_SWAP_HANDPAI,

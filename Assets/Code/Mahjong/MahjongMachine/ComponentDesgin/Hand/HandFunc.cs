@@ -34,6 +34,12 @@ namespace ComponentDesgin
             CreateDeskMjPosViewHandDaPaiActionPoints();
         }
 
+        public override void Destory()
+        {
+            base.Destory();
+            DestroyAllHand();
+        }
+
 
         #region 生成手
         void CreateHands()

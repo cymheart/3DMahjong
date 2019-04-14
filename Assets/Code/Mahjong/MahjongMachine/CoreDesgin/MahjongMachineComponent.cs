@@ -18,6 +18,8 @@ namespace CoreDesgin
 
         void Init();
         void Load();
+
+        void Destory();
     }
 
 
@@ -26,6 +28,30 @@ namespace CoreDesgin
     /// </summary>
     public class MahjongMachineComponent:CommonComponent, MjMachineComponentInterface
     {
+        void StateJieDuan(int type)
+        {
+            MahjongMachineComponent mjMachineComponent;
+            CommonComponent[] components = GetAllComponent();
+
+            for (int i = 0; i < components.Length; i++)
+            {
+                if (components[i].GetType() == typeof(MahjongMachineComponent))
+                {
+                    mjMachineComponent = components[i] as MahjongMachineComponent;
+
+                    switch (type)
+                    {
+                        case 0: mjMachineComponent.Wake(); break;
+                        case 1: mjMachineComponent.PreInit(); break;
+                        case 2: mjMachineComponent.PreLoad(); break;
+                        case 3: mjMachineComponent.Init(); break;
+                        case 4: mjMachineComponent.Load(); break;
+                        case 5: mjMachineComponent.Destory(); break;
+                    }
+                }
+            }
+        }
+
         public virtual void Wake()
         {
             StateJieDuan(0);
@@ -57,34 +83,9 @@ namespace CoreDesgin
             StateJieDuan(4);
         }
 
-        public virtual void ClearData()
+        public virtual void Destory()
         {
-
+            StateJieDuan(5);
         }
-
-
-        void StateJieDuan(int type)
-        {
-            MahjongMachineComponent mjMachineComponent;
-            CommonComponent[] components = GetAllComponent();
-
-            for (int i = 0; i < components.Length; i++)
-            {
-                if (components[i].GetType() == typeof(MahjongMachineComponent))
-                {
-                    mjMachineComponent = components[i] as MahjongMachineComponent;
-
-                    switch(type)
-                    {
-                        case 0: mjMachineComponent.Wake();break;
-                        case 1: mjMachineComponent.PreInit(); break;
-                        case 2: mjMachineComponent.PreLoad(); break;
-                        case 3: mjMachineComponent.Init(); break;
-                        case 4: mjMachineComponent.Load(); break;
-                    }
-                }
-            }
-        }
-   
     }
 }

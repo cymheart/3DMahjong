@@ -1,9 +1,4 @@
 ﻿using CoreDesgin;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace ComponentDesgin
@@ -12,35 +7,26 @@ namespace ComponentDesgin
     {
         MahjongMachine mjMachine;
         MahjongAssetsMgr mjAssetsMgr;
-        Fit fit;
-
 
         public int uiLayer = LayerMask.NameToLayer("UI");
         public int defaultLayer = LayerMask.NameToLayer("Default");
 
         public Transform root;
-
-        /// <summary>
-        /// 麻将桌
-        /// </summary>
+        public Transform cameraTransform;
         public Transform uiCanvasTransform;
         public RectTransform canvasRectTransform;
-   
 
-        public Transform cameraTransform;
-
-
+        
         public override void PreInit()
         {
             base.PreInit();
 
-            GameObject prefabMjTable = mjAssetsMgr.defaultPrefabDict[(int)PrefabIdx.TABLE_POSITION_HELPER][0];
-            GameObject prefabCanvasHandPai = mjAssetsMgr.defaultPrefabDict[(int)PrefabIdx.TABLE_POSITION_HELPER][0];
+            GameObject prefabScene = mjAssetsMgr.defaultPrefabDict[(int)PrefabIdx.SCENE][0];
+            root = Object.Instantiate(prefabScene).transform;
 
-            mjtableTransform = Object.Instantiate(prefabMjTable).transform;
-            canvasHandPaiTransform = Object.Instantiate(prefabCanvasHandPai).transform;
-            canvasHandPaiRectTransform = canvasHandPaiTransform.GetComponent<RectTransform>();
-
+            cameraTransform = root.Find("3DCamera").transform;
+            uiCanvasTransform = root.Find("UICanvas").transform;
+            canvasRectTransform = uiCanvasTransform.GetComponent<RectTransform>();
         }
     }
 }
