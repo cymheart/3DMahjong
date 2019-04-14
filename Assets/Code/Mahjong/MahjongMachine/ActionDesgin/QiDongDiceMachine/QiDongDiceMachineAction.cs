@@ -1,9 +1,5 @@
 ﻿using CoreDesgin;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using DG.Tweening;
 using ComponentDesgin;
@@ -16,7 +12,17 @@ namespace ActionDesgin
     /// </summary>
     public class QiDongDiceMachineAction : BaseHandAction
     {
-        public static QiDongDiceMachineAction Instance { get; } = new QiDongDiceMachineAction();
+        private static QiDongDiceMachineAction instance = null;
+        public static QiDongDiceMachineAction Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new QiDongDiceMachineAction();
+                return instance;
+            }
+        }
+
         StateDataGroup mjMachineStateData;
 
         public override void Init(MahjongMachine mjMachine)

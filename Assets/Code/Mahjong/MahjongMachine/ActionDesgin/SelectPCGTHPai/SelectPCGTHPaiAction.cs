@@ -1,11 +1,7 @@
 ﻿using ComponentDesgin;
 using DG.Tweening;
 using CoreDesgin;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace ActionDesgin
@@ -15,7 +11,16 @@ namespace ActionDesgin
     /// </summary>
     public class SelectPCGTHPaiAction : BaseHandAction
     {
-        public static SelectPCGTHPaiAction Instance { get; } = new SelectPCGTHPaiAction();
+        private static SelectPCGTHPaiAction instance = null;
+        public static SelectPCGTHPaiAction Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new SelectPCGTHPaiAction();
+                return instance;
+            }
+        }
 
         UIPCGHTBtnMgr uiPcghtBtnMgr;
         UIChiPaiTips uiChiPaiTips;

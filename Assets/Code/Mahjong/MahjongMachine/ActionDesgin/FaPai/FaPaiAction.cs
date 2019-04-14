@@ -1,9 +1,5 @@
 ﻿using CoreDesgin;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using DG.Tweening;
 using ComponentDesgin;
@@ -15,7 +11,16 @@ namespace ActionDesgin
     /// </summary>
     public class FaPaiAction: BaseHandAction
     {
-        public static FaPaiAction Instance { get; } = new FaPaiAction();
+        private static FaPaiAction instance = null;
+        public static FaPaiAction Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new FaPaiAction();
+                return instance;
+            }
+        }
 
         StateDataGroup mjMachineStateData;
 

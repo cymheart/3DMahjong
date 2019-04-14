@@ -10,7 +10,16 @@ namespace ActionDesgin
     /// </summary>
     public class HuPaiAction : BaseHandAction
     {
-        public static HuPaiAction Instance { get; } = new HuPaiAction();
+        private static HuPaiAction instance = null;
+        public static HuPaiAction Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new HuPaiAction();
+                return instance;
+            }
+        }
         public override void Install()
         {
             mjMachineUpdater.Reg("HuPai", ActionHuPai);

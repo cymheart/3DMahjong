@@ -1,16 +1,21 @@
 ﻿using ComponentDesgin;
 using CoreDesgin;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ActionDesgin
 {
     public class MahjongPointerAction: MahjongMachineAction
     {
-        public static MahjongPointerAction Instance { get; } = new MahjongPointerAction();
+        private static MahjongPointerAction instance = null;
+        public static MahjongPointerAction Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new MahjongPointerAction();
+                return instance;
+            }
+        }
+
         MahjongPoint mahjongPoint;
         public override void Init(MahjongMachine mjMachine)
         {

@@ -1,11 +1,7 @@
 ﻿using CmdDesgin;
 using ComponentDesgin;
 using CoreDesgin;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace ActionDesgin
@@ -15,7 +11,16 @@ namespace ActionDesgin
     /// </summary>
     public class SelectSwapPaiAction : BaseHandAction
     {
-        public static SelectSwapPaiAction Instance { get; } = new SelectSwapPaiAction();
+        private static SelectSwapPaiAction instance = null;
+        public static SelectSwapPaiAction Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new SelectSwapPaiAction();
+                return instance;
+            }
+        }
 
         UISelectSwapHandPai uiSelectSwapHandPai;
         public override void Init(MahjongMachine mjMachine)

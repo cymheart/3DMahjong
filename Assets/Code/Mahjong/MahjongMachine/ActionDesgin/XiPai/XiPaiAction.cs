@@ -1,9 +1,5 @@
 ﻿using CoreDesgin;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using DG.Tweening;
 using ComponentDesgin;
@@ -15,7 +11,17 @@ namespace ActionDesgin
     /// </summary>
     public class XiPaiAction: BaseHandAction
     {
-        public static XiPaiAction Instance { get; } = new XiPaiAction();
+        private static XiPaiAction instance = null;
+        public static XiPaiAction Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new XiPaiAction();
+                return instance;
+            }
+        }
+
 
         StateDataGroup mjMachineStateData;
         MahjongDiceMachine diceMachine;

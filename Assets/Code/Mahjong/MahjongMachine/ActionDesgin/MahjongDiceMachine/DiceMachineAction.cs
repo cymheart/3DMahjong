@@ -1,16 +1,22 @@
 ﻿using ComponentDesgin;
 using CoreDesgin;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ActionDesgin
 {
     public class DiceMachineAction : MahjongMachineAction
     {
-        public static DiceMachineAction Instance { get; } = new DiceMachineAction();
+        private static DiceMachineAction instance = null;
+        public static DiceMachineAction Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new DiceMachineAction();
+                return instance;
+            }
+        }
+
+
         MahjongDiceMachine diceMachine;
         public override void Init(MahjongMachine mjMachine)
         {

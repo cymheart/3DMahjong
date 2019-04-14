@@ -1,10 +1,7 @@
-﻿using ComponentDesgin;
+﻿using CmdDesgin;
+using ComponentDesgin;
 using CoreDesgin;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace ActionDesgin
@@ -14,7 +11,16 @@ namespace ActionDesgin
     /// </summary>
     public class SelectQueMenAction : BaseHandAction
     {
-        public static SelectQueMenAction Instance { get; } = new SelectQueMenAction();
+        private static SelectQueMenAction instance = null;
+        public static SelectQueMenAction Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new SelectQueMenAction();
+                return instance;
+            }
+        }
 
         UISelectQueMen uiSelectQueMen;
         public override void Init(MahjongMachine mjMachine)

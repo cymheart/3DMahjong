@@ -1,9 +1,5 @@
 ﻿using CoreDesgin;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using DG.Tweening;
 using ComponentDesgin;
@@ -16,7 +12,17 @@ namespace ActionDesgin
     /// </summary>
     public class SortPaiAction : BaseHandAction
     {
-        public static SortPaiAction Instance { get; } = new SortPaiAction();
+        private static SortPaiAction instance = null;
+        public static SortPaiAction Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new SortPaiAction();
+                return instance;
+            }
+        }
+
         public override void Install()
         {
             mjMachineUpdater.Reg("SortPai", ActionSortPai);

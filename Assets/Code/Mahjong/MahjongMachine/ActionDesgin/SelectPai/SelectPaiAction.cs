@@ -1,10 +1,5 @@
 ﻿using ComponentDesgin;
 using CoreDesgin;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace ActionDesgin
@@ -14,7 +9,16 @@ namespace ActionDesgin
     /// </summary>
     public class SelectPaiAction: BaseHandAction
     {
-        public static SelectPaiAction Instance { get; } = new SelectPaiAction();
+        private static SelectPaiAction instance = null;
+        public static SelectPaiAction Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new SelectPaiAction();
+                return instance;
+            }
+        }
 
         UIHuPaiHandPaiIdxTipsArrow uiHuPaiTipsArrow;
         UIHuPaiTips uiHuPaiTips;

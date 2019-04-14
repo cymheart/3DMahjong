@@ -1,9 +1,6 @@
 ﻿using CoreDesgin;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using DG.Tweening;
 using ComponentDesgin;
@@ -16,7 +13,17 @@ namespace ActionDesgin
     /// </summary>
     public class SwapPaiAction : BaseHandAction
     {
-        public static SwapPaiAction Instance { get; } = new SwapPaiAction();
+        private static SwapPaiAction instance = null;
+        public static SwapPaiAction Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new SwapPaiAction();
+                return instance;
+            }
+        }
+
         public override void Install()
         {
             mjMachineUpdater.Reg("SwapPai", ActionSwapPai);

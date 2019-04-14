@@ -1,9 +1,5 @@
 ﻿using CoreDesgin;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using DG.Tweening;
 using ComponentDesgin;
@@ -15,7 +11,17 @@ namespace ActionDesgin
     /// </summary>
     public class MoPaiAction : BaseHandAction
     {
-        public static MoPaiAction Instance { get; } = new MoPaiAction();
+        private static MoPaiAction instance = null;
+        public static MoPaiAction Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new MoPaiAction();
+                return instance;
+            }
+        }
+
         public override void Install()
         {
             mjMachineUpdater.Reg("MoPai", ActionMoPai);

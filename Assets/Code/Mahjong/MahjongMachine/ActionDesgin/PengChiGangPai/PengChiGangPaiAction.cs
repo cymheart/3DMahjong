@@ -18,7 +18,16 @@ namespace ActionDesgin
     /// </summary>
     public class PengChiGangPaiAction : BaseHandAction
     {
-        public static PengChiGangPaiAction Instance { get; } = new PengChiGangPaiAction();
+        private static PengChiGangPaiAction instance = null;
+        public static PengChiGangPaiAction Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new PengChiGangPaiAction();
+                return instance;
+            }
+        }
 
         public override void Install()
         {

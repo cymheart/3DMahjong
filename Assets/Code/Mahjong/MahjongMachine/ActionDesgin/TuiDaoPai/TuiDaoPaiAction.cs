@@ -1,9 +1,5 @@
 ﻿using CoreDesgin;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using DG.Tweening;
 using ComponentDesgin;
@@ -16,7 +12,17 @@ namespace ActionDesgin
     /// </summary>
     public class TuiDaoPaiAction : BaseHandAction
     {
-        public static TuiDaoPaiAction Instance { get; } = new TuiDaoPaiAction();
+        private static TuiDaoPaiAction instance = null;
+        public static TuiDaoPaiAction Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new TuiDaoPaiAction();
+                return instance;
+            }
+        }
+
         public override void Install()
         {
             mjMachineUpdater.Reg("TuiDaoPai", ActionTuiDaoPai);

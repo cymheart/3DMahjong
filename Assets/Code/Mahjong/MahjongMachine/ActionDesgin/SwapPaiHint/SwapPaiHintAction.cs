@@ -1,10 +1,5 @@
 ﻿using ComponentDesgin;
 using CoreDesgin;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace ActionDesgin
@@ -14,7 +9,16 @@ namespace ActionDesgin
     /// </summary>
     public class SwapPaiHintAction : BaseHandAction
     {
-        public static SwapPaiHintAction Instance { get; } = new SwapPaiHintAction();
+        private static SwapPaiHintAction instance = null;
+        public static SwapPaiHintAction Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new SwapPaiHintAction();
+                return instance;
+            }
+        }
 
         SwapPaiHintArrowEffect swapPaiHintArrowEffect;
         UISwapPaiingTips uiSwapPaiingTips;

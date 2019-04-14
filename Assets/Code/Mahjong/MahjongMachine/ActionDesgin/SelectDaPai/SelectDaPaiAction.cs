@@ -1,9 +1,5 @@
 ﻿using CoreDesgin;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using DG.Tweening;
 using ComponentDesgin;
@@ -16,7 +12,16 @@ namespace ActionDesgin
     /// </summary>
     public class SelectDaPaiAction : BaseHandAction
     {
-        public static SelectDaPaiAction Instance { get; } = new SelectDaPaiAction();
+        private static SelectDaPaiAction instance = null;
+        public static SelectDaPaiAction Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new SelectDaPaiAction();
+                return instance;
+            }
+        }
 
         UIHuPaiHandPaiIdxTipsArrow uiHuPaiTipsArrow;
         UIHuPaiTips uiHuPaiTips;

@@ -1,9 +1,5 @@
 ﻿using CoreDesgin;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using DG.Tweening;
 using ComponentDesgin;
@@ -15,7 +11,17 @@ namespace ActionDesgin
     /// </summary>
     public class BuHuaAction : BaseHandAction
     {
-        public static BuHuaAction Instance { get; } = new BuHuaAction();
+        private static BuHuaAction instance = null;
+        public static BuHuaAction Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new BuHuaAction();
+                return instance;
+            }
+        }
+
 
         /// <summary>
         /// 动作安装

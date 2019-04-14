@@ -1,10 +1,5 @@
 ﻿using ComponentDesgin;
 using CoreDesgin;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ActionDesgin
 {
@@ -13,7 +8,16 @@ namespace ActionDesgin
     /// </summary>
     public class HighLightMjAction : BaseHandAction
     {
-        public static HighLightMjAction Instance { get; } = new HighLightMjAction();
+        private static HighLightMjAction instance = null;
+        public static HighLightMjAction Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new HighLightMjAction();
+                return instance;
+            }
+        }
 
         SelectDaPaiStateData stateData;
         public override void Init(MahjongMachine mjMachine)

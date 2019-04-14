@@ -1,5 +1,4 @@
 ﻿using CoreDesgin;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -12,7 +11,17 @@ namespace ActionDesgin
     /// </summary>
     public class ChaPaiAction: BaseHandAction
     {
-        public static ChaPaiAction Instance { get; } = new ChaPaiAction();
+        private static ChaPaiAction instance = null;
+        public static ChaPaiAction Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new ChaPaiAction();
+                return instance;
+            }
+        }
+
         public override void Install()
         {
             mjMachineUpdater.Reg("ChaPai", ActionChaPai);

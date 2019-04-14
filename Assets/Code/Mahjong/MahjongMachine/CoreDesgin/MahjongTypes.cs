@@ -3,6 +3,7 @@
 namespace CoreDesgin
 {
 
+/*
     public struct Vector3Int
     {
         public int x;
@@ -14,7 +15,7 @@ namespace CoreDesgin
             x = _x; y = _y; z = _z;
         }
     }
-
+    */
 
     /// <summary>
     /// 风位

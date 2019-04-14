@@ -1,16 +1,22 @@
 ﻿using ComponentDesgin;
 using CoreDesgin;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ActionDesgin
 {
     public class RecoverParticlesAction : MahjongMachineAction
     {
-        public static RecoverParticlesAction Instance { get; } = new RecoverParticlesAction();
+
+        private static RecoverParticlesAction instance = null;
+        public static RecoverParticlesAction Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new RecoverParticlesAction();
+                return instance;
+            }
+        }
+
         MahjongAssetsMgr mjAssetsMgr;
         public override void Init(MahjongMachine mjMachine)
         {
