@@ -1,4 +1,5 @@
-﻿using CoreDesgin;
+﻿
+using CoreDesgin;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -46,7 +47,7 @@ namespace ActionDesgin
         {
             StopSelectPaiActionState(seatIdx);
 
-            if (playerStateData[seatIdx].state != StateDataGroup.END ||
+            if (playerStateData[seatIdx].state != HandActionState.END ||
                 desk.mjSeatHandPaiLists[seatIdx].Count == 0 || desk.mjSeatHandPaiLists[seatIdx][0] == null)
             {
                 mjCmdMgr.RemoveCmd(opCmdNode);
@@ -80,7 +81,7 @@ namespace ActionDesgin
             ChaPaiStateData stateData = playerStateData[seatIdx].GetComponent<ChaPaiStateData>();
 
             stateData.SetChaPaiData(handStyle, orgPaiIdx, dstHandPaiIdx, orgPaiType, adjustDirection, opCmdNode);
-            playerStateData[seatIdx].SetState(ChaPaiStateData.CHA_PAI_START, Time.time, -1);
+            playerStateData[seatIdx].SetState(HandActionState.CHA_PAI_START, Time.time, -1);
         }
 
         public void ActionChaPai()
@@ -93,8 +94,8 @@ namespace ActionDesgin
         }
         void ActionChaPai(int seatIdx)
         {
-            if (playerStateData[seatIdx].state < ChaPaiStateData.CHA_PAI_START ||
-             playerStateData[seatIdx].state > ChaPaiStateData.CHA_PAI_END)
+            if (playerStateData[seatIdx].state < HandActionState.CHA_PAI_START ||
+             playerStateData[seatIdx].state > HandActionState.CHA_PAI_END)
             {
                 return;
             }
@@ -128,7 +129,7 @@ namespace ActionDesgin
 
             switch (playerStateData[seatIdx].state)
             {
-                case ChaPaiStateData.CHA_PAI_START:
+                case HandActionState.CHA_PAI_START:
                     {
                         GameObject dstPai = desk.mjSeatHandPaiLists[seatIdx][dstHandPaiIdx];
                         stateData.dstHandPaiPostion = dstPai.transform.position;
@@ -139,7 +140,7 @@ namespace ActionDesgin
 
                         anim.Play("zhuaHandPai");
                         waitTime = hands.GetHandActionWaitTime(seatIdx, handStyle, HandDirection.RightHand, "zhuaHandPai");
-                        playerStateData[seatIdx].SetState(ChaPaiStateData.CHA_PAI_ZHUA_HAND_PAI, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.CHA_PAI_ZHUA_HAND_PAI, Time.time, waitTime);
 
                         stateData.handShadowAxis[0] = hands.GetHandShadowAxis(seatIdx, handStyle, HandDirection.RightHand, 2).transform;
                         mjAssetsMgr.handShadowPlanes[seatIdx].SetActive(true);
@@ -148,7 +149,7 @@ namespace ActionDesgin
                     break;
 
 
-                case ChaPaiStateData.CHA_PAI_ZHUA_HAND_PAI:
+                case HandActionState.CHA_PAI_ZHUA_HAND_PAI:
                     {
                         if (orgPaiType == HandPaiType.HandPai)
                             mj = desk.mjSeatHandPaiLists[seatIdx][orgPaiIdx];
@@ -157,7 +158,7 @@ namespace ActionDesgin
 
                         if (mj == null)
                         {
-                            playerStateData[seatIdx].SetState(ChaPaiStateData.CHA_PAI_END, Time.time, 0);
+                            playerStateData[seatIdx].SetState(HandActionState.CHA_PAI_END, Time.time, 0);
                             return;
                         }
 
@@ -173,11 +174,11 @@ namespace ActionDesgin
 
                         anim.Play("TiHandPai");
                         waitTime = hands.GetHandActionWaitTime(seatIdx, handStyle, HandDirection.RightHand, "TiHandPai");
-                        playerStateData[seatIdx].SetState(ChaPaiStateData.CHA_PAI_TI_HAND_PAI, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.CHA_PAI_TI_HAND_PAI, Time.time, waitTime);
                     }
                     break;
 
-                case ChaPaiStateData.CHA_PAI_TI_HAND_PAI:
+                case HandActionState.CHA_PAI_TI_HAND_PAI:
                     {
                         if (orgPaiType == HandPaiType.MoPai || orgPaiIdx != dstHandPaiIdx)
                         {
@@ -199,7 +200,7 @@ namespace ActionDesgin
                                 waitTime = 0.3f;
                             }
 
-                            playerStateData[seatIdx].SetState(ChaPaiStateData.CHA_PAI_TI_HAND_PAI_MOVE, Time.time, waitTime);
+                            playerStateData[seatIdx].SetState(HandActionState.CHA_PAI_TI_HAND_PAI_MOVE, Time.time, waitTime);
                             break;
                         }
 
@@ -211,12 +212,12 @@ namespace ActionDesgin
 
                         anim.Play(actionName);
                         waitTime = hands.GetHandActionWaitTime(seatIdx, handStyle, HandDirection.RightHand, actionName);
-                        playerStateData[seatIdx].SetState(ChaPaiStateData.CHA_PAI_PUTDOWNHAND, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.CHA_PAI_PUTDOWNHAND, Time.time, waitTime);
                     }
                     break;
 
 
-                case ChaPaiStateData.CHA_PAI_TI_HAND_PAI_MOVE:
+                case HandActionState.CHA_PAI_TI_HAND_PAI_MOVE:
                     {
                         string actionName = null;
                         if (orgPaiIdx == dstHandPaiIdx && orgPaiType == HandPaiType.HandPai)
@@ -226,18 +227,18 @@ namespace ActionDesgin
 
                         anim.Play(actionName);
                         waitTime = hands.GetHandActionWaitTime(seatIdx, handStyle, HandDirection.RightHand, actionName);
-                        playerStateData[seatIdx].SetState(ChaPaiStateData.CHA_PAI_PUTDOWNHAND, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.CHA_PAI_PUTDOWNHAND, Time.time, waitTime);
                     }
                     break;
 
-                case ChaPaiStateData.CHA_PAI_PUTDOWNHAND:
+                case HandActionState.CHA_PAI_PUTDOWNHAND:
                     {
                         AdjustPai(seatIdx, mj, dstHandPaiIdx, adjustDirection, playerStateData[seatIdx].stateLiveTime);
-                        playerStateData[seatIdx].SetState(ChaPaiStateData.CHA_PAI_ADJUST_PAI, Time.time, playerStateData[seatIdx].stateLiveTime);
+                        playerStateData[seatIdx].SetState(HandActionState.CHA_PAI_ADJUST_PAI, Time.time, playerStateData[seatIdx].stateLiveTime);
                     }
                     break;
 
-                case ChaPaiStateData.CHA_PAI_ADJUST_PAI:
+                case HandActionState.CHA_PAI_ADJUST_PAI:
                     {
                         fit.OnMjShadow(mj, 0);
 
@@ -248,23 +249,23 @@ namespace ActionDesgin
 
                         anim.Play("TaiHand");
                         waitTime = hands.GetHandActionWaitTime(seatIdx, handStyle, HandDirection.RightHand, "TaiHand");
-                        playerStateData[seatIdx].SetState(ChaPaiStateData.CHA_PAI_TAIHAND, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.CHA_PAI_TAIHAND, Time.time, waitTime);
                     }
                     break;
 
-                case ChaPaiStateData.CHA_PAI_TAIHAND:
+                case HandActionState.CHA_PAI_TAIHAND:
                     {
                         waitTime = HandActionEndMovHandOutScreen(seatIdx, handStyle, HandDirection.RightHand);
-                        playerStateData[seatIdx].SetState(ChaPaiStateData.CHA_PAI_END, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.CHA_PAI_END, Time.time, waitTime);
                     }
                     break;
 
-                case ChaPaiStateData.CHA_PAI_END:
+                case HandActionState.CHA_PAI_END:
                     {
                         GameObject hand = hands.GetHand(seatIdx, handStyle, HandDirection.RightHand);
                         hand.SetActive(false);
                         mjAssetsMgr.handShadowPlanes[seatIdx].SetActive(false);
-                        playerStateData[seatIdx].state = StateDataGroup.END;
+                        playerStateData[seatIdx].state = HandActionState.END;
 
                         ProcessHandActionmjCmdMgr(seatIdx, stateData);
                     }
@@ -294,7 +295,7 @@ namespace ActionDesgin
 
             switch (playerStateData[0].state)
             {
-                case ChaPaiStateData.CHA_PAI_START:
+                case HandActionState.CHA_PAI_START:
                     {
                         if (orgPaiType == HandPaiType.HandPai)
                         {
@@ -307,7 +308,7 @@ namespace ActionDesgin
 
                         if (mj == null)
                         {
-                            playerStateData[0].SetState(ChaPaiStateData.CHA_PAI_END, Time.time, 0);
+                            playerStateData[0].SetState(HandActionState.CHA_PAI_END, Time.time, 0);
                             return;
                         }
 
@@ -329,11 +330,11 @@ namespace ActionDesgin
                         Vector3 endPos = mj.transform.localPosition;
                         endPos.y += y;
                         mj.transform.DOLocalMove(endPos, waitTime);
-                        playerStateData[0].SetState(ChaPaiStateData.CHA_PAI_TI_HAND_PAI, Time.time, waitTime);
+                        playerStateData[0].SetState(HandActionState.CHA_PAI_TI_HAND_PAI, Time.time, waitTime);
                     }
                     break;
 
-                case ChaPaiStateData.CHA_PAI_TI_HAND_PAI:
+                case HandActionState.CHA_PAI_TI_HAND_PAI:
                     {
                         if (orgPaiType == HandPaiType.MoPai || orgPaiIdx != dstHandPaiIdx)
                         {
@@ -341,7 +342,7 @@ namespace ActionDesgin
                             Vector3 dstPos2 = new Vector3(dstPos.x, dstPos.y + y, dstPos.z);
                             mj.transform.DOLocalMove(dstPos2, waitTime);
                             mj.transform.DOLocalRotate(dstEulerAngles, waitTime);
-                            playerStateData[0].SetState(ChaPaiStateData.CHA_PAI_TI_HAND_PAI_MOVE, Time.time, waitTime);
+                            playerStateData[0].SetState(HandActionState.CHA_PAI_TI_HAND_PAI_MOVE, Time.time, waitTime);
                             break;
 
                         }
@@ -349,48 +350,48 @@ namespace ActionDesgin
                         if (orgPaiIdx == dstHandPaiIdx && orgPaiType == HandPaiType.HandPai)
                         {
                             mj.transform.DOLocalMove(dstPos, waitTime);
-                            playerStateData[0].SetState(ChaPaiStateData.CHA_PAI_PUTDOWNHAND, Time.time, waitTime / 3);
+                            playerStateData[0].SetState(HandActionState.CHA_PAI_PUTDOWNHAND, Time.time, waitTime / 3);
                         }
                         else
                         {
                             mj.transform.DOLocalRotate(fit.canvasHandMjFitEulerAngles, waitTime);
                             mj.transform.DOLocalMove(dstPos, waitTime).SetEase(Ease.InCirc);
-                            playerStateData[0].SetState(ChaPaiStateData.CHA_PAI_PUTDOWNHAND, Time.time, waitTime / 3);
+                            playerStateData[0].SetState(HandActionState.CHA_PAI_PUTDOWNHAND, Time.time, waitTime / 3);
                         }
                     }
                     break;
 
-                case ChaPaiStateData.CHA_PAI_TI_HAND_PAI_MOVE:
+                case HandActionState.CHA_PAI_TI_HAND_PAI_MOVE:
                     {
                         if (orgPaiIdx == dstHandPaiIdx && orgPaiType == HandPaiType.HandPai)
                         {
                             mj.transform.DOLocalMove(dstPos, waitTime);
-                            playerStateData[0].SetState(ChaPaiStateData.CHA_PAI_PUTDOWNHAND, Time.time, waitTime / 3);
+                            playerStateData[0].SetState(HandActionState.CHA_PAI_PUTDOWNHAND, Time.time, waitTime / 3);
                         }
                         else
                         {
                             mj.transform.DOLocalRotate(fit.canvasHandMjFitEulerAngles, waitTime);
                             mj.transform.DOLocalMove(dstPos, waitTime).SetEase(Ease.InCirc);
-                            playerStateData[0].SetState(ChaPaiStateData.CHA_PAI_PUTDOWNHAND, Time.time, waitTime / 3);
+                            playerStateData[0].SetState(HandActionState.CHA_PAI_PUTDOWNHAND, Time.time, waitTime / 3);
                         }
                     }
                     break;
 
-                case ChaPaiStateData.CHA_PAI_PUTDOWNHAND:
+                case HandActionState.CHA_PAI_PUTDOWNHAND:
                     {
                         AdjustPai(0, mj, dstHandPaiIdx, adjustDirection, waitTime / 3);
-                        playerStateData[0].SetState(ChaPaiStateData.CHA_PAI_END, Time.time, waitTime / 3 * 2);
+                        playerStateData[0].SetState(HandActionState.CHA_PAI_END, Time.time, waitTime / 3 * 2);
                     }
                     break;
 
-                case ChaPaiStateData.CHA_PAI_END:
+                case HandActionState.CHA_PAI_END:
                     {
                         fit.OnMjShadow(mj);
                         stateData.curtAdjustHandPai.transform.localPosition = dstPos;
                         stateData.curtAdjustHandPai.transform.localEulerAngles = fit.canvasHandMjFitEulerAngles;
                         stateData.curtAdjustHandPai = null;
 
-                        playerStateData[0].state = StateDataGroup.END;
+                        playerStateData[0].state = HandActionState.END;
                         ProcessHandActionmjCmdMgr(0, stateData);
                     }
                     break;

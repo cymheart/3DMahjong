@@ -1,4 +1,6 @@
-﻿using MahjongMachineNS;
+﻿using CmdDesgin;
+using ComponentDesgin;
+using CoreDesgin;
 using System;
 using System.Collections.Generic;
 using System.Threading;

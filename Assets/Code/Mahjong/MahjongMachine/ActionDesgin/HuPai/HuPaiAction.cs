@@ -45,7 +45,7 @@ namespace ActionDesgin
         {
             StopSelectPaiActionState(seatIdx);
 
-            if (playerStateData[seatIdx].state != StateDataGroup.END)
+            if (playerStateData[seatIdx].state != HandActionState.END)
             {
                 mjCmdMgr.RemoveCmd(opCmdNode);
                 return;
@@ -56,7 +56,7 @@ namespace ActionDesgin
             HuPaiStateData stateData = playerStateData[seatIdx].GetComponent<HuPaiStateData>();
 
             stateData.SetHuPaiData(handStyle, targetSeatIdx, targetMjIdx, idx, huPaiFaceValue, handActionNum, opCmdNode);
-            playerStateData[seatIdx].SetState(HuPaiStateData.HU_PAI_START, Time.time, -1);
+            playerStateData[seatIdx].SetState(HandActionState.HU_PAI_START, Time.time, -1);
         }
 
 
@@ -82,8 +82,8 @@ namespace ActionDesgin
         }
         void ActionHuPai(int seatIdx)
         {
-            if (playerStateData[seatIdx].state < HuPaiStateData.HU_PAI_START ||
-               playerStateData[seatIdx].state > HuPaiStateData.HU_PAI_END ||
+            if (playerStateData[seatIdx].state < HandActionState.HU_PAI_START ||
+               playerStateData[seatIdx].state > HandActionState.HU_PAI_END ||
                Time.time - playerStateData[seatIdx].stateStartTime < playerStateData[seatIdx].stateLiveTime)
             {
                 return;
@@ -100,7 +100,7 @@ namespace ActionDesgin
 
             switch (playerStateData[seatIdx].state)
             {
-                case HuPaiStateData.HU_PAI_START:
+                case HandActionState.HU_PAI_START:
                     {
                         GameObject hand = hands.GetHand(seatIdx, handStyle, HandDirection.RightHand);
                         hand.SetActive(true);
@@ -126,11 +126,11 @@ namespace ActionDesgin
                         }
 
                         //
-                        playerStateData[seatIdx].SetState(HuPaiStateData.HU_PAI_READY_FIRST_HAND, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.HU_PAI_READY_FIRST_HAND, Time.time, waitTime);
                     }
                     break;
 
-                case HuPaiStateData.HU_PAI_READY_FIRST_HAND:
+                case HandActionState.HU_PAI_READY_FIRST_HAND:
                     {
                         Vector3 mjpos = desk.GetDeskHuPaiMjPos(seatIdx, stateData.huPaiMjPosIdx);
                         audio.PlayEffectAudio(AudioIdx.AUDIO_EFFECT_SHANDIAN);
@@ -170,11 +170,11 @@ namespace ActionDesgin
                             }
                         }
 
-                        playerStateData[seatIdx].SetState(HuPaiStateData.HU_PAI_MOVE_HAND_TO_DST_POS, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.HU_PAI_MOVE_HAND_TO_DST_POS, Time.time, waitTime);
                     }
                     break;
 
-                case HuPaiStateData.HU_PAI_MOVE_HAND_TO_DST_POS:
+                case HandActionState.HU_PAI_MOVE_HAND_TO_DST_POS:
                     {
                         int key = stateData.huPaiTargetMjKey;
 
@@ -191,11 +191,11 @@ namespace ActionDesgin
                         anim.Play("FirstTaiHand1EndHuPai");
                         waitTime = hands.GetHandActionWaitTime(seatIdx, handStyle, HandDirection.RightHand, "FirstTaiHand1EndHuPai");
 
-                        playerStateData[seatIdx].SetState(HuPaiStateData.HU_PAI_HU, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.HU_PAI_HU, Time.time, waitTime);
                     }
                     break;
 
-                case HuPaiStateData.HU_PAI_HU:
+                case HandActionState.HU_PAI_HU:
                     {
                         GameObject mj = mjAssetsMgr.PopMjFromDeskOrSelfHandMjPool(stateData.huPaiFaceValue);
                         mj.layer = mjMachine.defaultLayer;
@@ -218,25 +218,25 @@ namespace ActionDesgin
                         huPaiParticle.transform.position = handDstPos;
                         huPaiParticle.GetComponent<ParticleSystem>().Play();
 
-                        playerStateData[seatIdx].SetState(HuPaiStateData.HU_PAI_GET_PAI, Time.time, 0.2f);
+                        playerStateData[seatIdx].SetState(HandActionState.HU_PAI_GET_PAI, Time.time, 0.2f);
 
                     }
                     break;
 
 
-                case HuPaiStateData.HU_PAI_GET_PAI:
+                case HandActionState.HU_PAI_GET_PAI:
                     {
                         anim.Play("FirstTaiHand1EndHuPaiEndTaiHand");
                         waitTime = hands.GetHandActionWaitTime(seatIdx, handStyle, HandDirection.RightHand, "FirstTaiHand1EndHuPaiEndTaiHand");
-                        playerStateData[seatIdx].SetState(HuPaiStateData.HU_PAI_END, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.HU_PAI_END, Time.time, waitTime);
                     }
                     break;
 
-                case HuPaiStateData.HU_PAI_END:
+                case HandActionState.HU_PAI_END:
                     {
                         GameObject hand = hands.GetHand(seatIdx, handStyle, HandDirection.RightHand);
                         hand.SetActive(false);
-                        playerStateData[seatIdx].state = StateDataGroup.END;
+                        playerStateData[seatIdx].state = HandActionState.END;
 
                         ProcessHandActionmjCmdMgr(seatIdx, stateData);
                     }

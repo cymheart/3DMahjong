@@ -8,21 +8,7 @@ namespace ActionDesgin
     public class SwapPaiStateData: ActionStateData
     {
 
-        /// <summary>
-        /// 交换牌开始
-        /// </summary>
-        public const int SWAP_PAI_START = 6;
-        public const int SWAP_PAI_READY_FIRST_HAND = 7;
-        public const int SWAP_PAI_MOVE_HAND_TO_DST_POS = 8;
-        public const int SWAP_PAI_CHUPAI = 9;
-        public const int SWAP_PAI_CHUPAI_TAIHAND = 10;
-        public const int SWAP_PAI_TAIHAND_END = 11;
-        public const int SWAP_PAI_ROTATE = 12;
-
-        /// <summary>
-        /// 交换牌结束
-        /// </summary>
-        public const int SWAP_PAI_END = 13;
+       
 
         #region 交换牌动作数据
         public PlayerType handStyle = PlayerType.FEMALE;

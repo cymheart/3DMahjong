@@ -60,7 +60,7 @@ namespace ActionDesgin
         {
             StopSelectPaiActionState(seatIdx);
 
-            if (playerStateData[seatIdx].state != StateDataGroup.END)
+            if (playerStateData[seatIdx].state != HandActionState.END)
             {
                 mjCmdMgr.RemoveCmd(opCmdNode);
                 return;
@@ -82,7 +82,7 @@ namespace ActionDesgin
                 fengRainEtcEffect,
                 actionCombineNum, opCmdNode);
 
-            playerStateData[seatIdx].SetState(PengChiGangPaiStateData.PENG_CHI_GANG_PAI_START, Time.time, -1);
+            playerStateData[seatIdx].SetState(HandActionState.PENG_CHI_GANG_PAI_START, Time.time, -1);
         }
 
 
@@ -101,8 +101,8 @@ namespace ActionDesgin
 
         void ActionPengChiGangPai(int seatIdx)
         {
-            if (playerStateData[seatIdx].state < PengChiGangPaiStateData.PENG_CHI_GANG_PAI_START ||
-               playerStateData[seatIdx].state > PengChiGangPaiStateData.PENG_CHI_GANG_PAI_END ||
+            if (playerStateData[seatIdx].state < HandActionState.PENG_CHI_GANG_PAI_START ||
+               playerStateData[seatIdx].state > HandActionState.PENG_CHI_GANG_PAI_END ||
                Time.time - playerStateData[seatIdx].stateStartTime < playerStateData[seatIdx].stateLiveTime)
             {
                 return;
@@ -123,7 +123,7 @@ namespace ActionDesgin
 
             switch (playerStateData[seatIdx].state)
             {
-                case PengChiGangPaiStateData.PENG_CHI_GANG_PAI_START:
+                case HandActionState.PENG_CHI_GANG_PAI_START:
                     {
                         GameObject hand = hands.GetHand(seatIdx, handStyle, dir);
                         hand.SetActive(true);
@@ -196,11 +196,11 @@ namespace ActionDesgin
 
 
                         //
-                        playerStateData[seatIdx].SetState(PengChiGangPaiStateData.PENG_CHI_GANG_PAI_READY_FIRST_HAND, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.PENG_CHI_GANG_PAI_READY_FIRST_HAND, Time.time, waitTime);
                     }
                     break;
 
-                case PengChiGangPaiStateData.PENG_CHI_GANG_PAI_READY_FIRST_HAND:
+                case HandActionState.PENG_CHI_GANG_PAI_READY_FIRST_HAND:
                     {
                         FitHandPoseForSeat(seatIdx, handStyle, HandDirection.RightHand, stateData.actionCombineNum);
 
@@ -221,7 +221,7 @@ namespace ActionDesgin
 
                             if (stateData.pcgMjIdx == -1)
                             {
-                                playerStateData[seatIdx].SetState(PengChiGangPaiStateData.PENG_CHI_GANG_PAI_END, Time.time, -1);
+                                playerStateData[seatIdx].SetState(HandActionState.PENG_CHI_GANG_PAI_END, Time.time, -1);
                                 break;
                             }
 
@@ -248,11 +248,11 @@ namespace ActionDesgin
                             stateData.pcgOrgStartPos[1],
                             stateData.actionCombineNum);
 
-                        playerStateData[seatIdx].SetState(PengChiGangPaiStateData.PENG_CHI_GANG_PAI_MOVE_HAND_TO_DST_POS, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.PENG_CHI_GANG_PAI_MOVE_HAND_TO_DST_POS, Time.time, waitTime);
                     }
                     break;
 
-                case PengChiGangPaiStateData.PENG_CHI_GANG_PAI_MOVE_HAND_TO_DST_POS:
+                case HandActionState.PENG_CHI_GANG_PAI_MOVE_HAND_TO_DST_POS:
                     {
                         if (targetSeatIdx >= 0 && targetSeatIdx < Fit.playerCount)
                         {
@@ -283,7 +283,7 @@ namespace ActionDesgin
                         {
                             anim.Play("PengPai");
                             waitTime = hands.GetHandActionWaitTime(seatIdx, handStyle, dir, "PengPai");
-                            playerStateData[seatIdx].SetState(PengChiGangPaiStateData.PENG_CHI_GANG_PAI_PCG_PAI, Time.time, waitTime);
+                            playerStateData[seatIdx].SetState(HandActionState.PENG_CHI_GANG_PAI_PCG_PAI, Time.time, waitTime);
                             break;
                         }
 
@@ -315,12 +315,12 @@ namespace ActionDesgin
 
                         anim.Play("PengPai");
                         waitTime = hands.GetHandActionWaitTime(seatIdx, handStyle, dir, "PengPai");
-                        playerStateData[seatIdx].SetState(PengChiGangPaiStateData.PENG_CHI_GANG_PAI_PCG_PAI, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.PENG_CHI_GANG_PAI_PCG_PAI, Time.time, waitTime);
                     }
                     break;
 
 
-                case PengChiGangPaiStateData.PENG_CHI_GANG_PAI_PCG_PAI:
+                case HandActionState.PENG_CHI_GANG_PAI_PCG_PAI:
                     {
                         Vector3 distOffset = stateData.pcgDstStartPos[1] - stateData.pcgOrgStartPos[1];
                         GameObject hand = hands.GetHand(seatIdx, handStyle, dir);
@@ -412,7 +412,7 @@ namespace ActionDesgin
                             }
 
 
-                            playerStateData[seatIdx].SetState(PengChiGangPaiStateData.PENG_CHI_GANG_PAI_MOVE_PAI, Time.time, waitTime);
+                            playerStateData[seatIdx].SetState(HandActionState.PENG_CHI_GANG_PAI_MOVE_PAI, Time.time, waitTime);
                             break;
                         }
 
@@ -424,12 +424,12 @@ namespace ActionDesgin
                             stateData.pcgMjList[i].transform.DOMove(distOffset, waitTime).SetRelative();
                         }
 
-                        playerStateData[seatIdx].SetState(PengChiGangPaiStateData.PENG_CHI_GANG_PAI_MOVE_PAI, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.PENG_CHI_GANG_PAI_MOVE_PAI, Time.time, waitTime);
                     }
                     break;
 
 
-                case PengChiGangPaiStateData.PENG_CHI_GANG_PAI_MOVE_PAI:
+                case HandActionState.PENG_CHI_GANG_PAI_MOVE_PAI:
                     {
                         if (pcgPaiType != PengChiGangPaiType.BU_GANG)
                         {
@@ -448,23 +448,23 @@ namespace ActionDesgin
 
                         anim.Play("PengPaiEndTaiHand");
                         waitTime = hands.GetHandActionWaitTime(seatIdx, handStyle, dir, "PengPaiEndTaiHand");
-                        playerStateData[seatIdx].SetState(PengChiGangPaiStateData.PENG_CHI_GANG_PAI_TAIHAND, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.PENG_CHI_GANG_PAI_TAIHAND, Time.time, waitTime);
                     }
                     break;
 
-                case PengChiGangPaiStateData.PENG_CHI_GANG_PAI_TAIHAND:
+                case HandActionState.PENG_CHI_GANG_PAI_TAIHAND:
                     {
                         waitTime = HandActionEndMovHandOutScreen(seatIdx, handStyle, dir);
-                        playerStateData[seatIdx].SetState(PengChiGangPaiStateData.PENG_CHI_GANG_PAI_END, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.PENG_CHI_GANG_PAI_END, Time.time, waitTime);
 
                     }
                     break;
 
-                case PengChiGangPaiStateData.PENG_CHI_GANG_PAI_END:
+                case HandActionState.PENG_CHI_GANG_PAI_END:
                     {
                         GameObject hand = hands.GetHand(seatIdx, handStyle, dir);
                         hand.SetActive(false);
-                        playerStateData[seatIdx].state = StateDataGroup.END;
+                        playerStateData[seatIdx].state = HandActionState.END;
 
                         ProcessHandActionmjCmdMgr(seatIdx, stateData);
                     }

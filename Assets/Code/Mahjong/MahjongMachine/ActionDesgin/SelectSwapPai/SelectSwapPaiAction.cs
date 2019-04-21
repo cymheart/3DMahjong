@@ -48,7 +48,7 @@ namespace ActionDesgin
         {
             StopSelectPaiActionState(0);
 
-            if (playerStateData[0].state != StateDataGroup.END)
+            if (playerStateData[0].state != HandActionState.END)
             {
                 mjCmdMgr.RemoveCmd(opCmdNode);
                 return;
@@ -57,7 +57,7 @@ namespace ActionDesgin
             SelectSwapPaiStateData stateData = playerStateData[0].GetComponent<SelectSwapPaiStateData>();
 
             stateData.SetSelectSwapPaiData(opCmdNode);
-            playerStateData[0].SetState(SelectSwapPaiStateData.SELECT_SWAP_PAI_START, Time.time, -1);
+            playerStateData[0].SetState(HandActionState.SELECT_SWAP_PAI_START, Time.time, -1);
         }
 
 
@@ -67,8 +67,8 @@ namespace ActionDesgin
         /// </summary>
         public void ActionSelectSwapPai()
         {
-            if (playerStateData[0].state < SelectSwapPaiStateData.SELECT_SWAP_PAI_START ||
-                playerStateData[0].state > SelectSwapPaiStateData.SELECT_SWAP_PAI_END ||
+            if (playerStateData[0].state < HandActionState.SELECT_SWAP_PAI_START ||
+                playerStateData[0].state > HandActionState.SELECT_SWAP_PAI_END ||
                 Time.time - playerStateData[0].stateStartTime < playerStateData[0].stateLiveTime)
             {
                 return;
@@ -78,14 +78,14 @@ namespace ActionDesgin
 
             switch (playerStateData[0].state)
             {
-                case SelectSwapPaiStateData.SELECT_SWAP_PAI_START:
+                case HandActionState.SELECT_SWAP_PAI_START:
                     {
                         uiSelectSwapHandPai.Show();
-                        playerStateData[0].SetState(SelectSwapPaiStateData.SELECT_SWAP_PAI_SELECTTING, Time.time, -1);
+                        playerStateData[0].SetState(HandActionState.SELECT_SWAP_PAI_SELECTTING, Time.time, -1);
                     }
                     break;
 
-                case SelectSwapPaiStateData.SELECT_SWAP_PAI_SELECTTING:
+                case HandActionState.SELECT_SWAP_PAI_SELECTTING:
                     {
                         int selectedCount = daPaiStateData.rayClickPickHandPaiMjIdxList.Count + daPaiStateData.rayClickPickMoPaiMjIdxList.Count;
 
@@ -174,17 +174,17 @@ namespace ActionDesgin
                           
                             daPaiStateData.rayClickPickHandPaiMjIdxList.Clear();
                             daPaiStateData.rayClickPickMoPaiMjIdxList.Clear();
-                            playerStateData[0].SetState(SelectSwapPaiStateData.SELECT_SWAP_PAI_END, Time.time, -1);
+                            playerStateData[0].SetState(HandActionState.SELECT_SWAP_PAI_END, Time.time, -1);
                         }
                     }
                     break;
 
-                case SelectSwapPaiStateData.SELECT_SWAP_PAI_END:
+                case HandActionState.SELECT_SWAP_PAI_END:
                     {
                         if (uiSelectSwapHandPai.IsCompleteSwapPaiSelected == true)
                         {
                             SelectSwapPaiStateData stateData = playerStateData[0].GetComponent<SelectSwapPaiStateData>();
-                            playerStateData[0].state = StateDataGroup.END;
+                            playerStateData[0].state = HandActionState.END;
                             ProcessHandActionmjCmdMgr(0, stateData);
                         }
                     }

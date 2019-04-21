@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ActionDesgin
+namespace ComponentDesgin
 {
     public class ActionStateData : CommonComponent
     {

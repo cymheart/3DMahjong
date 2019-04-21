@@ -11,17 +11,6 @@ namespace ActionDesgin
     public class XiPaiStateData : ActionStateData
     {
 
-        /// <summary>
-        /// 洗牌开始
-        /// </summary>
-        public const int XIPAI_START = 0;
-
-        /// <summary>
-        /// 洗牌结束
-        /// </summary>
-        public const int XIPAI_END = 1;
-
-
         #region 洗牌数据
         public int dealerSeatIdx;
         public FengWei fengWei;

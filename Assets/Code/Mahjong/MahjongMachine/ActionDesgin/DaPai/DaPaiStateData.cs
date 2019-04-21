@@ -1,35 +1,12 @@
 ﻿using ComponentDesgin;
 using CoreDesgin;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace ActionDesgin
 {
     public class DaPaiStateData: ActionStateData
     {
-        /// <summary>
-        /// 开始打牌
-        /// </summary>
-        public const int DA_PAI_START = 16;
-        public const int DA_PAI_READY_FIRST_HAND = 17;
-        public const int DA_PAI_MOVE_HAND_TO_DST_POS = 18;
-        public const int DA_PAI_CHUPAI = 19;
-        public const int DA_PAI_CHUPAI_ZHENGPAI = 20;
-        public const int DA_PAI_CHUPAI_ZHENGPAI_ADJUSTPAI = 21;
-        public const int DA_PAI_CHUPAI_TIAOZHENG_HAND = 22;
-        public const int DA_PAI_CHUPAI_TIAOZHENG_HAND_MOVPAI1 = 23;
-        public const int DA_PAI_CHUPAI_MOVPAI2 = 24;
-        public const int DA_PAI_CHUPAI2_MOVPAI = 25;
-        public const int DA_PAI_CHUPAI_TAIHAND = 26;
-
-        /// <summary>
-        /// 打牌结束
-        /// </summary>
-        public const int DA_PAI_END = 27;
 
         #region 打牌动作数据
         public PlayerType handStyle = PlayerType.FEMALE;

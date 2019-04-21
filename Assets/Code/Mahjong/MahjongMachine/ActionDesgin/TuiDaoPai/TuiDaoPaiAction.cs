@@ -44,7 +44,7 @@ namespace ActionDesgin
         {
             StopSelectPaiActionState(seatIdx);
 
-            if (playerStateData[seatIdx].state != StateDataGroup.END ||
+            if (playerStateData[seatIdx].state != HandActionState.END ||
                 desk.mjSeatHandPaiLists[seatIdx].Count == 0 || desk.mjSeatHandPaiLists[seatIdx][0] == null)
             {
                 mjCmdMgr.RemoveCmd(opCmdNode);
@@ -54,7 +54,7 @@ namespace ActionDesgin
             TuiDaoPaiStateData stateData = playerStateData[seatIdx].GetComponent<TuiDaoPaiStateData>();
 
             stateData.SetTuiDaoPaiData(handStyle, handPaiValueList, handActionNum, opCmdNode);
-            playerStateData[seatIdx].SetState(TuiDaoPaiStateData.TUIDAO_PAI_START, Time.time, -1);
+            playerStateData[seatIdx].SetState(HandActionState.TUIDAO_PAI_START, Time.time, -1);
         }
 
         #region 推倒牌动作
@@ -68,8 +68,8 @@ namespace ActionDesgin
         }
         void ActionTuiDaoPai(int seatIdx)
         {
-            if (playerStateData[seatIdx].state < TuiDaoPaiStateData.TUIDAO_PAI_START ||
-                playerStateData[seatIdx].state > TuiDaoPaiStateData.TUIDAO_PAI_END)
+            if (playerStateData[seatIdx].state < HandActionState.TUIDAO_PAI_START ||
+                playerStateData[seatIdx].state > HandActionState.TUIDAO_PAI_END)
             {
                 return;
             }
@@ -79,7 +79,7 @@ namespace ActionDesgin
             if ((seatIdx == 0 && desk.mjSeatHandPaiLists[seatIdx].Count == 0) ||
                 stateData.handPaiValueList.Count == 0)
             {
-                playerStateData[seatIdx].state = StateDataGroup.END;
+                playerStateData[seatIdx].state = HandActionState.END;
                 ProcessHandActionmjCmdMgr(seatIdx, stateData);
                 return;
             }
@@ -98,7 +98,7 @@ namespace ActionDesgin
 
             switch (playerStateData[seatIdx].state)
             {
-                case TuiDaoPaiStateData.TUIDAO_PAI_START:
+                case HandActionState.TUIDAO_PAI_START:
                     {
                         GameObject rightHand = hands.GetHand(seatIdx, handStyle, HandDirection.RightHand);
                         rightHand.SetActive(true);
@@ -122,11 +122,11 @@ namespace ActionDesgin
                         mjAssetsMgr.handShadowPlanes[seatIdx].SetActive(true);
                         MoveTuiDaoPaiHandShadow(seatIdx, stateData);
 
-                        playerStateData[seatIdx].SetState(TuiDaoPaiStateData.TUIDAO_PAI_ZHUA_HAND_PAI, Time.time, waitTime + 0.06f);
+                        playerStateData[seatIdx].SetState(HandActionState.TUIDAO_PAI_ZHUA_HAND_PAI, Time.time, waitTime + 0.06f);
                     }
                     break;
 
-                case TuiDaoPaiStateData.TUIDAO_PAI_ZHUA_HAND_PAI:
+                case HandActionState.TUIDAO_PAI_ZHUA_HAND_PAI:
                     {
                         leftHandAnim.Play("ZhuaHandPai2EndBackMoveHandPai");
                         rightHandAnim.Play("ZhuaHandPai2EndBackMoveHandPai");
@@ -258,12 +258,12 @@ namespace ActionDesgin
                             }
                         }
 
-                        playerStateData[seatIdx].SetState(TuiDaoPaiStateData.TUIDAO_PAI_BACK_MOVE_HAND_PAI, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.TUIDAO_PAI_BACK_MOVE_HAND_PAI, Time.time, waitTime);
                     }
                     break;
 
 
-                case TuiDaoPaiStateData.TUIDAO_PAI_BACK_MOVE_HAND_PAI:
+                case HandActionState.TUIDAO_PAI_BACK_MOVE_HAND_PAI:
                     {
                         leftHandAnim.Play("BackMoveHandPaiEndTuiDaoHandPai");
                         rightHandAnim.Play("BackMoveHandPaiEndTuiDaoHandPai");
@@ -323,11 +323,11 @@ namespace ActionDesgin
                                 break;
                         }
 
-                        playerStateData[seatIdx].SetState(TuiDaoPaiStateData.TUIDAO_PAI_TUIDAO_HAND_PAI, Time.time, waitTime + 0.01f);
+                        playerStateData[seatIdx].SetState(HandActionState.TUIDAO_PAI_TUIDAO_HAND_PAI, Time.time, waitTime + 0.01f);
                     }
                     break;
 
-                case TuiDaoPaiStateData.TUIDAO_PAI_TUIDAO_HAND_PAI:
+                case HandActionState.TUIDAO_PAI_TUIDAO_HAND_PAI:
                     {
                         List<GameObject> mjHandPaiList = desk.mjSeatHandPaiLists[seatIdx];
 
@@ -340,19 +340,19 @@ namespace ActionDesgin
                         rightHandAnim.Play("TuiDaoHandPaiEndTaiHand");
                         waitTime = hands.GetHandActionWaitTime(seatIdx, handStyle, HandDirection.RightHand, "TuiDaoHandPaiEndTaiHand");
 
-                        playerStateData[seatIdx].SetState(TuiDaoPaiStateData.TUIDAO_PAI_TUIDAO_HAND_PAI_TAIHAND, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.TUIDAO_PAI_TUIDAO_HAND_PAI_TAIHAND, Time.time, waitTime);
                     }
                     break;
 
-                case TuiDaoPaiStateData.TUIDAO_PAI_TUIDAO_HAND_PAI_TAIHAND:
+                case HandActionState.TUIDAO_PAI_TUIDAO_HAND_PAI_TAIHAND:
                     {
                         waitTime = HandActionEndMovHandOutScreen(seatIdx, handStyle, HandDirection.RightHand, ActionCombineNum.End, 1);
                         HandActionEndMovHandOutScreen(seatIdx, handStyle, HandDirection.LeftHand, ActionCombineNum.End, 1);
-                        playerStateData[seatIdx].SetState(TuiDaoPaiStateData.TUIDAO_PAI_END, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.TUIDAO_PAI_END, Time.time, waitTime);
                     }
                     break;
 
-                case TuiDaoPaiStateData.TUIDAO_PAI_END:
+                case HandActionState.TUIDAO_PAI_END:
                     {
                         GameObject rightHand = hands.GetHand(seatIdx, handStyle, HandDirection.RightHand);
                         GameObject leftHand = hands.GetHand(seatIdx, handStyle, HandDirection.LeftHand);
@@ -360,7 +360,7 @@ namespace ActionDesgin
                         rightHand.SetActive(false);
                         mjAssetsMgr.handShadowPlanes[seatIdx].SetActive(false);
 
-                        playerStateData[seatIdx].state = StateDataGroup.END;
+                        playerStateData[seatIdx].state = HandActionState.END;
 
                         ProcessHandActionmjCmdMgr(seatIdx, stateData);
                     }

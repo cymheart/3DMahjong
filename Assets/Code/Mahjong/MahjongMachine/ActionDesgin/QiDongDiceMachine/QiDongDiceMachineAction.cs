@@ -22,13 +22,9 @@ namespace ActionDesgin
                 return instance;
             }
         }
-
-        StateDataGroup mjMachineStateData;
-
         public override void Init(MahjongMachine mjMachine)
         {
             base.Init(mjMachine);
-            mjMachineStateData = mjMachine.mjMachineStateData;
         }
 
         public override void Install()
@@ -52,7 +48,7 @@ namespace ActionDesgin
         {
             StopSelectPaiActionState(seatIdx);
 
-            if (playerStateData[seatIdx].state != StateDataGroup.END)
+            if (playerStateData[seatIdx].state != HandActionState.END)
             {
                 mjCmdMgr.RemoveCmd(opCmdNode);
                 return;
@@ -61,7 +57,7 @@ namespace ActionDesgin
             QiDongDiceMachineStateData stateData = playerStateData[seatIdx].GetComponent<QiDongDiceMachineStateData>();
 
             stateData.SetQiDongDiceMachineData(dice1Point, dice2Point, opCmdNode);
-            playerStateData[seatIdx].SetState(QiDongDiceMachineStateData.QIDONG_DICEMACHINE_START, Time.time, -1);
+            playerStateData[seatIdx].SetState(HandActionState.QIDONG_DICEMACHINE_START, Time.time, -1);
         }
 
 
@@ -79,8 +75,8 @@ namespace ActionDesgin
 
         void ActionQiDongDiceMachine(int seatIdx)
         {
-            if (playerStateData[seatIdx].state < QiDongDiceMachineStateData.QIDONG_DICEMACHINE_START ||
-               playerStateData[seatIdx].state > QiDongDiceMachineStateData.QIDONG_DICEMACHINE_END)
+            if (playerStateData[seatIdx].state < HandActionState.QIDONG_DICEMACHINE_START ||
+               playerStateData[seatIdx].state > HandActionState.QIDONG_DICEMACHINE_END)
             {
                 return;
             }
@@ -102,7 +98,7 @@ namespace ActionDesgin
 
             switch (playerStateData[seatIdx].state)
             {
-                case QiDongDiceMachineStateData.QIDONG_DICEMACHINE_START:
+                case HandActionState.QIDONG_DICEMACHINE_START:
                     {
                         GameObject hand = hands.GetHand(seatIdx, handStyle, HandDirection.RightHand);
                         hand.SetActive(true);
@@ -113,53 +109,53 @@ namespace ActionDesgin
                         MoveHandShadowForDaPai(seatIdx, stateData);
 
 
-                        playerStateData[seatIdx].SetState(QiDongDiceMachineStateData.QIDONG_DICEMACHINE_READY_FIRST_HAND, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.QIDONG_DICEMACHINE_READY_FIRST_HAND, Time.time, waitTime);
 
                     }
                     break;
 
 
-                case QiDongDiceMachineStateData.QIDONG_DICEMACHINE_READY_FIRST_HAND:
+                case HandActionState.QIDONG_DICEMACHINE_READY_FIRST_HAND:
                     {
                         FitHandPoseForSeat(seatIdx, handStyle, HandDirection.RightHand, ActionCombineNum.QiDongDiceMachine);
 
                         waitTime = MoveHandToDstOffsetPos(seatIdx, handStyle, HandDirection.RightHand, preSettingHelper.diceQiDongPosSeat[seatIdx], ActionCombineNum.QiDongDiceMachine);
-                        playerStateData[seatIdx].SetState(QiDongDiceMachineStateData.QIDONG_DICEMACHINE_MOVE_HAND_TO_DST_POS, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.QIDONG_DICEMACHINE_MOVE_HAND_TO_DST_POS, Time.time, waitTime);
                     }
                     break;
 
-                case QiDongDiceMachineStateData.QIDONG_DICEMACHINE_MOVE_HAND_TO_DST_POS:
+                case HandActionState.QIDONG_DICEMACHINE_MOVE_HAND_TO_DST_POS:
                     {
                         anim.CrossFade("QiDongDiceMachine", fadeTime);
                         waitTime = hands.GetHandActionWaitTime(seatIdx, handStyle, HandDirection.RightHand, "QiDongDiceMachine");
-                        playerStateData[seatIdx].SetState(QiDongDiceMachineStateData.QIDONG_DICEMACHINE_QIDONG, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.QIDONG_DICEMACHINE_QIDONG, Time.time, waitTime);
                     }
                     break;
 
-                case QiDongDiceMachineStateData.QIDONG_DICEMACHINE_QIDONG:
+                case HandActionState.QIDONG_DICEMACHINE_QIDONG:
                     {
                         QiDong(seatIdx, stateData.dice1Point, stateData.dice2Point);
 
                         anim.CrossFade("QiDongDiceMachineEndTaiHand", fadeTime);
                         waitTime = hands.GetHandActionWaitTime(seatIdx, handStyle, HandDirection.RightHand, "QiDongDiceMachineEndTaiHand");
-                        playerStateData[seatIdx].SetState(QiDongDiceMachineStateData.QIDONG_DICEMACHINE_TAIHAND, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.QIDONG_DICEMACHINE_TAIHAND, Time.time, waitTime);
                     }
                     break;
 
 
-                case QiDongDiceMachineStateData.QIDONG_DICEMACHINE_TAIHAND:
+                case HandActionState.QIDONG_DICEMACHINE_TAIHAND:
                     {
                         waitTime = HandActionEndMovHandOutScreen(seatIdx, handStyle, HandDirection.RightHand, ActionCombineNum.QiDongDiceMachine);
-                        playerStateData[seatIdx].SetState(QiDongDiceMachineStateData.QIDONG_DICEMACHINE_END, Time.time, waitTime + 4f);
+                        playerStateData[seatIdx].SetState(HandActionState.QIDONG_DICEMACHINE_END, Time.time, waitTime + 4f);
                     }
                     break;
 
-                case QiDongDiceMachineStateData.QIDONG_DICEMACHINE_END:
+                case HandActionState.QIDONG_DICEMACHINE_END:
                     {
                         GameObject hand = hands.GetHand(seatIdx, handStyle, HandDirection.RightHand);
                         hand.SetActive(false);
                         mjAssetsMgr.handShadowPlanes[seatIdx].SetActive(false);
-                        playerStateData[seatIdx].state = StateDataGroup.END;
+                        playerStateData[seatIdx].state = HandActionState.END;
 
                         ProcessHandActionmjCmdMgr(seatIdx, stateData);
                     }

@@ -1,33 +1,13 @@
 ﻿using ComponentDesgin;
 using CoreDesgin;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace ActionDesgin
 {
     public class PengChiGangPaiStateData : ActionStateData
     {
-        /// <summary>
-        /// 开始碰吃杠牌
-        /// </summary>
-        public const int PENG_CHI_GANG_PAI_START = 53;
-
-        public const int PENG_CHI_GANG_PAI_READY_FIRST_HAND = 54;
-        public const int PENG_CHI_GANG_PAI_MOVE_HAND_TO_DST_POS = 55;
-        public const int PENG_CHI_GANG_PAI_PCG_PAI = 56;
-        public const int PENG_CHI_GANG_PAI_MOVE_PAI = 57;
-        public const int PENG_CHI_GANG_PAI_TAIHAND = 58;
-
-        /// <summary>
-        /// 碰吃杠牌结束
-        /// </summary>
-        public const int PENG_CHI_GANG_PAI_END = 59;
-
-
+       
         #region 碰吃杠牌动作数据
         public PlayerType handStyle = PlayerType.FEMALE;
         public ActionCombineNum actionCombineNum = ActionCombineNum.End;

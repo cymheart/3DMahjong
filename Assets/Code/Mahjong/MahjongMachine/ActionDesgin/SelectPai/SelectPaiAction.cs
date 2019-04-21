@@ -47,8 +47,8 @@ namespace ActionDesgin
         /// </summary>
         public void ActionSelectPai()
         {
-            if (playerStateData[0].state < SelectPaiStateData.SELECT_PAI_START ||
-               playerStateData[0].state > SelectPaiStateData.SELECT_PAI_END ||
+            if (playerStateData[0].state < HandActionState.SELECT_PAI_START ||
+               playerStateData[0].state > HandActionState.SELECT_PAI_END ||
                Time.time - playerStateData[0].stateStartTime < playerStateData[0].stateLiveTime)
             {
                 return;
@@ -58,14 +58,14 @@ namespace ActionDesgin
 
             switch (playerStateData[0].state)
             {
-                case SelectPaiStateData.SELECT_PAI_START:
+                case HandActionState.SELECT_PAI_START:
                     {
                         uiHuPaiTipsArrow.Show(stateData.selectPaiHuPaiInHandPaiIdxs, stateData.selectPaiHuPaiInMoPaiIdxs);
-                        playerStateData[0].SetState(SelectPaiStateData.SELECT_PAI_READY_CLICK, Time.time, -1);
+                        playerStateData[0].SetState(HandActionState.SELECT_PAI_READY_CLICK, Time.time, -1);
                     }
                     break;
 
-                case SelectPaiStateData.SELECT_PAI_READY_CLICK:
+                case HandActionState.SELECT_PAI_READY_CLICK:
                     {
                         if (Input.GetMouseButtonDown(0))
                         {
@@ -81,7 +81,7 @@ namespace ActionDesgin
                                 fit.OffMjShadow(stateData.rayPickMj);
 
                                 stateData.rayPickMjLastKickTime = Time.realtimeSinceStartup;
-                                playerStateData[0].SetState(SelectPaiStateData.SELECT_PAIING, Time.time, -1);
+                                playerStateData[0].SetState(HandActionState.SELECT_PAIING, Time.time, -1);
 
                             }
                         }
@@ -89,7 +89,7 @@ namespace ActionDesgin
                     break;
 
 
-                case SelectPaiStateData.SELECT_PAIING:
+                case HandActionState.SELECT_PAIING:
                     {
                         //松开鼠标按键时
                         if (Input.GetMouseButtonUp(0))
@@ -122,7 +122,7 @@ namespace ActionDesgin
                                 RestoreSelectedUpHandPaiToOrgPos(true);
                             }
 
-                            playerStateData[0].SetState(SelectPaiStateData.SELECT_PAI_READY_CLICK, Time.time, 0);
+                            playerStateData[0].SetState(HandActionState.SELECT_PAI_READY_CLICK, Time.time, 0);
 
                         }
                         else   //未松开按键
@@ -143,13 +143,13 @@ namespace ActionDesgin
                     break;
 
 
-                case SelectPaiStateData.SELECT_PAI_END:
+                case HandActionState.SELECT_PAI_END:
                     {
                         uiHuPaiTips.RemoveAllDetailTips();
                         uiHuPaiTips.Hide();
                         uiHuPaiTipsArrow.Hide();
 
-                        playerStateData[0].state = StateDataGroup.END;
+                        playerStateData[0].state = HandActionState.END;
                         stateData.rayPickMj = null;
 
                     }

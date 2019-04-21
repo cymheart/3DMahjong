@@ -2,31 +2,12 @@
 using CoreDesgin;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
 
 namespace ActionDesgin
 {
     public class FaPaiStateData : ActionStateData
     {
-        /// <summary>
-        /// 发牌开始
-        /// </summary>
-        public const int FAPAI_START = 2;
-
-        public const int FAPAI_FEN_SINGLE_DENGING = 3;
-        public const int FAPAI_FEN_SINGLE_DENG_END = 4;
-        public const int FAPAI_FEN_DENG_END = 5;
-        public const int FAPAI_BUHUA = 6;
-        public const int FAPAI_SORT = 7;
-
-        /// <summary>
-        /// 发牌结束
-        /// </summary>
-        public const int FAPAI_END = 8;
-
+       
         #region 发牌数据
         public List<MahjongFaceValue> handPaiValueList;
 

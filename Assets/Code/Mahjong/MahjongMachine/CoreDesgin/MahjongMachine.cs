@@ -11,22 +11,6 @@ namespace CoreDesgin
         public MahjongMachineUpdater mjMachineUpdater = new MahjongMachineUpdater();
         public MahjongMachineCmdMgr mjCmdMgr = new MahjongMachineCmdMgr();
 
-        /// <summary>
-        /// 麻将机状态数据组
-        /// </summary>
-        public StateDataGroup mjMachineStateData = new StateDataGroup();
-
-        /// <summary>
-        /// 玩家状态数据组
-        /// </summary>
-        public StateDataGroup[] playerStateData = new StateDataGroup[4]
-        {
-            new StateDataGroup(),
-            new StateDataGroup(),
-            new StateDataGroup(),
-            new StateDataGroup()
-        };
-
         int state = -1;
         int oldState = -1;
 

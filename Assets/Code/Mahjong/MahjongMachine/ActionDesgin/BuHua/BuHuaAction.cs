@@ -22,7 +22,6 @@ namespace ActionDesgin
             }
         }
 
-
         /// <summary>
         /// 动作安装
         /// </summary>
@@ -46,7 +45,7 @@ namespace ActionDesgin
         {
             StopSelectPaiActionState(seatIdx);
 
-            if (playerStateData[seatIdx].state != StateDataGroup.END)
+            if (playerStateData[seatIdx].state != HandActionState.END)
             {
                 mjCmdMgr.RemoveCmd(opCmdNode);
                 return;
@@ -58,7 +57,7 @@ namespace ActionDesgin
             BuHuaStateData stateData = playerStateData[seatIdx].GetComponent<BuHuaStateData>();
 
             stateData.SetBuHuaPaiData(handStyle, idx, buHuaPaiFaceValue, handActionNum, opCmdNode);
-            playerStateData[seatIdx].SetState(BuHuaStateData.BUHUA_PAI_START, Time.time, -1);
+            playerStateData[seatIdx].SetState(HandActionState.BUHUA_PAI_START, Time.time, -1);
         }
 
         #region 补花动作
@@ -73,8 +72,8 @@ namespace ActionDesgin
 
         void ActionBuHua(int seatIdx)
         {
-            if (playerStateData[seatIdx].state < BuHuaStateData.BUHUA_PAI_START ||
-               playerStateData[seatIdx].state > BuHuaStateData.BUHUA_PAI_END ||
+            if (playerStateData[seatIdx].state < HandActionState.BUHUA_PAI_START ||
+               playerStateData[seatIdx].state > HandActionState.BUHUA_PAI_END ||
                Time.time - playerStateData[seatIdx].stateStartTime < playerStateData[seatIdx].stateLiveTime)
             {
                 return;
@@ -89,36 +88,36 @@ namespace ActionDesgin
 
             switch (playerStateData[seatIdx].state)
             {
-                case BuHuaStateData.BUHUA_PAI_START:
+                case HandActionState.BUHUA_PAI_START:
                     {
                         GameObject hand = hands.GetHand(seatIdx, handStyle, HandDirection.RightHand);
                         hand.SetActive(true);
                         waitTime = ReadyFirstHand(seatIdx, handStyle, HandDirection.RightHand, "HuPaiFirstHand");
 
                         audio.PlaySpeakAudio(handStyle, AudioIdx.AUDIO_SPEAK_BUHUA, scene.cameraTransform.position);
-                        playerStateData[seatIdx].SetState(BuHuaStateData.BUHUA_PAI_READY_FIRST_HAND, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.BUHUA_PAI_READY_FIRST_HAND, Time.time, waitTime);
                     }
                     break;
 
-                case BuHuaStateData.BUHUA_PAI_READY_FIRST_HAND:
+                case HandActionState.BUHUA_PAI_READY_FIRST_HAND:
                     {
                         Vector3 mjpos = desk.GetDeskHuPaiMjPos(seatIdx, stateData.buHuaPaiMjPosIdx);
                         mjpos.y += fit.GetDeskMjSizeByAxis(Axis.Z) / 2;
                         FitHandPoseForSeat(seatIdx, handStyle, HandDirection.RightHand, stateData.actionCombineNum);
                         waitTime = MoveHandToDstOffsetPos(seatIdx, handStyle, HandDirection.RightHand, mjpos, stateData.actionCombineNum);
-                        playerStateData[seatIdx].SetState(BuHuaStateData.BUHUA_PAI_MOVE_HAND_TO_DST_POS, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.BUHUA_PAI_MOVE_HAND_TO_DST_POS, Time.time, waitTime);
                     }
                     break;
 
-                case BuHuaStateData.BUHUA_PAI_MOVE_HAND_TO_DST_POS:
+                case HandActionState.BUHUA_PAI_MOVE_HAND_TO_DST_POS:
                     {
                         anim.Play("FirstTaiHand1EndHuPai");
                         waitTime = hands.GetHandActionWaitTime(seatIdx, handStyle, HandDirection.RightHand, "FirstTaiHand1EndHuPai");
-                        playerStateData[seatIdx].SetState(BuHuaStateData.BUHUA_PAI_BU, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.BUHUA_PAI_BU, Time.time, waitTime);
                     }
                     break;
 
-                case BuHuaStateData.BUHUA_PAI_BU:
+                case HandActionState.BUHUA_PAI_BU:
                     {
                         GameObject mj = mjAssetsMgr.PopMjFromDeskOrSelfHandMjPool(stateData.buHuaPaiFaceValue);
                         mj.layer = mjMachine.defaultLayer;
@@ -134,25 +133,25 @@ namespace ActionDesgin
                         }
 
                         mj.transform.SetParent(desk.mjtableTransform, true);
-                        playerStateData[seatIdx].SetState(BuHuaStateData.BUHUA_PAI_GET_PAI, Time.time, 0.2f);
+                        playerStateData[seatIdx].SetState(HandActionState.BUHUA_PAI_GET_PAI, Time.time, 0.2f);
 
                     }
                     break;
 
 
-                case BuHuaStateData.BUHUA_PAI_GET_PAI:
+                case HandActionState.BUHUA_PAI_GET_PAI:
                     {
                         anim.Play("FirstTaiHand1EndHuPaiEndTaiHand");
                         waitTime = hands.GetHandActionWaitTime(seatIdx, handStyle, HandDirection.RightHand, "FirstTaiHand1EndHuPaiEndTaiHand");
-                        playerStateData[seatIdx].SetState(BuHuaStateData.BUHUA_PAI_END, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.BUHUA_PAI_END, Time.time, waitTime);
                     }
                     break;
 
-                case BuHuaStateData.BUHUA_PAI_END:
+                case HandActionState.BUHUA_PAI_END:
                     {
                         GameObject hand = hands.GetHand(seatIdx, handStyle, HandDirection.RightHand);
                         hand.SetActive(false);
-                        playerStateData[seatIdx].state = StateDataGroup.END;
+                        playerStateData[seatIdx].state = HandActionState.END;
 
                         ProcessHandActionmjCmdMgr(seatIdx, stateData);
                     }

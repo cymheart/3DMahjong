@@ -7,23 +7,6 @@ namespace ActionDesgin
 {
     public class HuPaiStateData: ActionStateData
     {
-        /// <summary>
-        /// 开始胡牌
-        /// </summary>
-        public const int HU_PAI_START = 46;
-
-        public const int HU_PAI_READY_FIRST_HAND = 47;
-        public const int HU_PAI_MOVE_HAND_TO_DST_POS = 48;
-        public const int HU_PAI_HU = 49;
-        public const int HU_PAI_GET_PAI = 50;
-        public const int HU_PAI_TAIHAND = 51;
-
-        /// <summary>
-        /// 胡牌结束
-        /// </summary>
-        public const int HU_PAI_END = 52;
-
-
         #region 胡牌动作数据
         public PlayerType handStyle = PlayerType.FEMALE;
         public ActionCombineNum actionCombineNum = ActionCombineNum.End;

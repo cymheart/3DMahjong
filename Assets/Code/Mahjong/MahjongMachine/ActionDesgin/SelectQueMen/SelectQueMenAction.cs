@@ -48,7 +48,7 @@ namespace ActionDesgin
         {
             StopSelectPaiActionState(0);
 
-            if (playerStateData[0].state != StateDataGroup.END)
+            if (playerStateData[0].state != HandActionState.END)
             {
                 mjCmdMgr.RemoveCmd(opCmdNode);
                 return;
@@ -57,14 +57,14 @@ namespace ActionDesgin
             SelectQueMenStateData stateData = playerStateData[0].GetComponent<SelectQueMenStateData>();
 
             stateData.SetSelectQueMenData(defaultQueMenHuaSe, opCmdNode);
-            playerStateData[0].SetState(SelectQueMenStateData.SELECT_QUE_MEN_START, Time.time, -1);
+            playerStateData[0].SetState(HandActionState.SELECT_QUE_MEN_START, Time.time, -1);
         }
 
 
         public void ActionSelectQueMen()
         {
-            if (playerStateData[0].state < SelectQueMenStateData.SELECT_QUE_MEN_START ||
-                playerStateData[0].state > SelectQueMenStateData.SELECT_QUE_MEN_END ||
+            if (playerStateData[0].state < HandActionState.SELECT_QUE_MEN_START ||
+                playerStateData[0].state > HandActionState.SELECT_QUE_MEN_END ||
                 Time.time - playerStateData[0].stateStartTime < playerStateData[0].stateLiveTime)
             {
                 return;
@@ -74,16 +74,16 @@ namespace ActionDesgin
 
             switch (playerStateData[0].state)
             {
-                case SelectQueMenStateData.SELECT_QUE_MEN_START:
+                case HandActionState.SELECT_QUE_MEN_START:
                     {
                         stateData.queMenIsPlayDownAudio = false;
                         stateData.queMenIsPlayFeiDingQueAudio = false;
                         uiSelectQueMen.Show();
-                        playerStateData[0].SetState(SelectQueMenStateData.SELECT_QUE_MEN_SELECTTING, Time.time, -1);
+                        playerStateData[0].SetState(HandActionState.SELECT_QUE_MEN_SELECTTING, Time.time, -1);
                     }
                     break;
 
-                case SelectQueMenStateData.SELECT_QUE_MEN_SELECTTING:
+                case HandActionState.SELECT_QUE_MEN_SELECTTING:
                     {
                         if (uiSelectQueMen.IsClicked)
                         {
@@ -101,18 +101,18 @@ namespace ActionDesgin
 
                             stateData.queMenHuaSe = uiSelectQueMen.ClickedHuaSe;
                             SelfSelectQueMenEnd(stateData.queMenHuaSe);
-                            playerStateData[0].SetState(SelectQueMenStateData.SELECT_QUE_MEN_END, Time.time, 0);
+                            playerStateData[0].SetState(HandActionState.SELECT_QUE_MEN_END, Time.time, 0);
                         }
                     }
                     break;
 
 
-                case SelectQueMenStateData.SELECT_QUE_MEN_END:
+                case HandActionState.SELECT_QUE_MEN_END:
                     {
 
                         if (uiSelectQueMen.IsCompleteQueMenSelected == true)
                         {
-                            playerStateData[0].state = StateDataGroup.END;
+                            playerStateData[0].state = HandActionState.END;
                             ProcessHandActionmjCmdMgr(0, stateData);
                         }
                         else

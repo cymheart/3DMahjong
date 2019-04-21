@@ -11,22 +11,7 @@ namespace ActionDesgin
 {
     public class QiDongDiceMachineStateData : ActionStateData
     {
-        /// <summary>
-        /// 启动骰子器开始
-        /// </summary>
-        public const int QIDONG_DICEMACHINE_START = 0;
-
-        public const int QIDONG_DICEMACHINE_READY_FIRST_HAND = 1;
-        public const int QIDONG_DICEMACHINE_MOVE_HAND_TO_DST_POS = 2;
-        public const int QIDONG_DICEMACHINE_QIDONG = 3;
-        public const int QIDONG_DICEMACHINE_TAIHAND = 4;
-
-        /// <summary>
-        /// 结束启动骰子器
-        /// </summary>
-        public const int QIDONG_DICEMACHINE_END = 5;
-
-
+        
         #region 启动骰子机动作数据
         public PlayerType handStyle = PlayerType.FEMALE;
         public ActionCombineNum actionCombineNum = ActionCombineNum.End;

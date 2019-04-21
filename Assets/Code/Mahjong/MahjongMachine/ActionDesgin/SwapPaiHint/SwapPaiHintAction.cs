@@ -22,7 +22,7 @@ namespace ActionDesgin
 
         SwapPaiHintArrowEffect swapPaiHintArrowEffect;
         UISwapPaiingTips uiSwapPaiingTips;
-        StateDataGroup swapPaiHintStateDataGroup;
+        StateDatas<SwapPaiHintState> swapPaiHintStateDataGroup;
     
 
         public override void Init(MahjongMachine mjMachine)
@@ -30,7 +30,7 @@ namespace ActionDesgin
             base.Init(mjMachine);
             swapPaiHintArrowEffect = mjMachine.GetComponent<SwapPaiHintArrowEffect>();
             uiSwapPaiingTips = mjMachine.GetComponent<UISwapPaiingTips>();
-            swapPaiHintStateDataGroup = mjMachine.GetComponent<StateDataGroup>();
+            swapPaiHintStateDataGroup = states.swapPaiHintStateData;
         }
 
         public override void Install()
@@ -50,7 +50,7 @@ namespace ActionDesgin
         /// </summary>
         public void ShowSwapPaiHint(SwapPaiDirection swapPaiDir)
         {
-            if (swapPaiHintStateDataGroup.state != SwapPaiHintStateData.HINT_END)
+            if (swapPaiHintStateDataGroup.state != SwapPaiHintState.HINT_END)
             {
                 return;
             }
@@ -58,7 +58,7 @@ namespace ActionDesgin
             SwapPaiHintStateData stateData = swapPaiHintStateDataGroup.GetComponent<SwapPaiHintStateData>();
 
             stateData.SetData(swapPaiDir);
-            swapPaiHintStateDataGroup.SetState(SwapPaiHintStateData.HINT_START, Time.time, -1);
+            swapPaiHintStateDataGroup.SetState(SwapPaiHintState.HINT_START, Time.time, -1);
         }
 
 
@@ -67,8 +67,8 @@ namespace ActionDesgin
         /// </summary>
         public void ActionSwapPaiHint()
         {
-            if (swapPaiHintStateDataGroup.state < SwapPaiHintStateData.HINT_START ||
-                swapPaiHintStateDataGroup.state >= SwapPaiHintStateData.HINT_END ||
+            if (swapPaiHintStateDataGroup.state < SwapPaiHintState.HINT_START ||
+                swapPaiHintStateDataGroup.state >= SwapPaiHintState.HINT_END ||
                 Time.time - swapPaiHintStateDataGroup.stateStartTime < swapPaiHintStateDataGroup.stateLiveTime)
             {
                 return;
@@ -78,21 +78,21 @@ namespace ActionDesgin
 
             switch (swapPaiHintStateDataGroup.state)
             {
-                case SwapPaiHintStateData.HINT_START:
+                case SwapPaiHintState.HINT_START:
                     {
                         uiSwapPaiingTips.SetHintSwapType(swapPaiHintStateData.swapPaiDirection);
                         uiSwapPaiingTips.Show();
                         swapPaiHintArrowEffect.ShowArrow(swapPaiHintStateData.swapPaiDirection);
 
-                        swapPaiHintStateDataGroup.SetState(SwapPaiHintStateData.HINTTING, Time.time, 2f);
+                        swapPaiHintStateDataGroup.SetState(SwapPaiHintState.HINTTING, Time.time, 2f);
                     }
                     break;
 
-                case SwapPaiHintStateData.HINTTING:
+                case SwapPaiHintState.HINTTING:
                     {
                         uiSwapPaiingTips.Hide();
                         swapPaiHintArrowEffect.HideArrow(swapPaiHintStateData.swapPaiDirection);
-                        swapPaiHintStateDataGroup.state = SwapPaiHintStateData.HINT_END;
+                        swapPaiHintStateDataGroup.state = SwapPaiHintState.HINT_END;
                     }
                     break;
             }

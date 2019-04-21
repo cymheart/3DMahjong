@@ -54,7 +54,7 @@ namespace ActionDesgin
         {
             StopSelectPaiActionState(0);
 
-            if (playerStateData[0].state != StateDataGroup.END)
+            if (playerStateData[0].state != HandActionState.END)
             {
                 mjCmdMgr.RemoveCmd(opCmdNode);
                 return;
@@ -80,7 +80,7 @@ namespace ActionDesgin
 
             SelectDaPaiStateData stateData = playerStateData[0].GetComponent<SelectDaPaiStateData>();
             stateData.SetSelectDaPaiData(huPaiInHandPaiIdxs, huPaiInfosInHandPai, huPaiInMoPaiIdxs, huPaiInfosInMoPai, opCmdNode);
-            playerStateData[0].SetState(SelectDaPaiStateData.SELECT_DA_PAI_START, Time.time, -1);
+            playerStateData[0].SetState(HandActionState.SELECT_DA_PAI_START, Time.time, -1);
         }
 
         #region 选打牌动作
@@ -89,8 +89,8 @@ namespace ActionDesgin
         /// </summary>
         public void ActionSelectDaPai()
         {
-            if (playerStateData[0].state < SelectDaPaiStateData.SELECT_DA_PAI_START ||
-                playerStateData[0].state > SelectDaPaiStateData.SELECT_DA_PAI_END ||
+            if (playerStateData[0].state < HandActionState.SELECT_DA_PAI_START ||
+                playerStateData[0].state > HandActionState.SELECT_DA_PAI_END ||
                 Time.time - playerStateData[0].stateStartTime < playerStateData[0].stateLiveTime)
             {
                 return;
@@ -100,14 +100,14 @@ namespace ActionDesgin
 
             switch (playerStateData[0].state)
             {
-                case SelectDaPaiStateData.SELECT_DA_PAI_START:
+                case HandActionState.SELECT_DA_PAI_START:
                     {
                         uiHuPaiTipsArrow.Show(stateData.selectPaiHuPaiInHandPaiIdxs, stateData.selectPaiHuPaiInMoPaiIdxs);
-                        playerStateData[0].SetState(SelectDaPaiStateData.SELECT_DA_PAI_READY_CLICK, Time.time, -1);
+                        playerStateData[0].SetState(HandActionState.SELECT_DA_PAI_READY_CLICK, Time.time, -1);
                     }
                     break;
 
-                case SelectDaPaiStateData.SELECT_DA_PAI_READY_CLICK:
+                case HandActionState.SELECT_DA_PAI_READY_CLICK:
                     {
                         if (Input.GetMouseButtonDown(0))
                         {
@@ -127,7 +127,7 @@ namespace ActionDesgin
                                 if (Time.realtimeSinceStartup - stateData.rayPickMjLastKickTime < 0.15f &&
                                     stateData.rayPickMj == hitInfo.collider.gameObject)
                                 {
-                                    playerStateData[0].SetState(SelectDaPaiStateData.SELECT_DA_PAI_END, Time.time, -1);
+                                    playerStateData[0].SetState(HandActionState.SELECT_DA_PAI_END, Time.time, -1);
                                     return;
                                 }
 
@@ -138,7 +138,7 @@ namespace ActionDesgin
                                 fit.OffMjShadow(stateData.rayPickMj);
 
                                 stateData.rayPickMjLastKickTime = Time.realtimeSinceStartup;
-                                playerStateData[0].SetState(SelectDaPaiStateData.SELECT_DA_PAIING, Time.time, -1);
+                                playerStateData[0].SetState(HandActionState.SELECT_DA_PAIING, Time.time, -1);
 
                             }
                         }
@@ -146,7 +146,7 @@ namespace ActionDesgin
                     break;
 
 
-                case SelectDaPaiStateData.SELECT_DA_PAIING:
+                case HandActionState.SELECT_DA_PAIING:
                     {
                         //松开鼠标按键时
                         if (Input.GetMouseButtonUp(0))
@@ -182,28 +182,28 @@ namespace ActionDesgin
                                     RestoreSelectedUpHandPaiToOrgPos(true);
                                 }
 
-                                playerStateData[0].SetState(SelectDaPaiStateData.SELECT_DA_PAI_READY_CLICK, Time.time, 0);
+                                playerStateData[0].SetState(HandActionState.SELECT_DA_PAI_READY_CLICK, Time.time, 0);
                             }
 
                             //麻将移动速度超过25
                             else if (stateData.rayPickMjMoveDistPreDuration > 50)
                             {
                                 stateData.rayPickMjMoveDistPreDuration = 0;
-                                playerStateData[0].SetState(SelectDaPaiStateData.SELECT_DA_PAI_END, Time.time, -1);
+                                playerStateData[0].SetState(HandActionState.SELECT_DA_PAI_END, Time.time, -1);
                             }
 
                             //麻将移动距离未超过指定高度
                             else if (stateData.rayPickMj.transform.localPosition.y < stateData.rayPickMjOrgPos.y + fit.GetCanvasHandMjSizeByAxis(Axis.Y))
                             {
                                 stateData.rayPickMj.transform.DOLocalMove(stateData.rayPickMjOrgPos, 0.2f);
-                                playerStateData[0].SetState(SelectDaPaiStateData.SELECT_DA_PAI_RESTORE, Time.time, 0.2f);
+                                playerStateData[0].SetState(HandActionState.SELECT_DA_PAI_RESTORE, Time.time, 0.2f);
                                 stateData.selectPaiRayPickMj = stateData.rayPickMj;
                             }
 
                             //
                             else
                             {
-                                playerStateData[0].SetState(SelectDaPaiStateData.SELECT_DA_PAI_END, Time.time, -1);
+                                playerStateData[0].SetState(HandActionState.SELECT_DA_PAI_END, Time.time, -1);
                             }
 
                             if (fit.isUsePlayerSelectMjOutLine)
@@ -249,7 +249,7 @@ namespace ActionDesgin
 
                     break;
 
-                case SelectDaPaiStateData.SELECT_DA_PAI_RESTORE:
+                case HandActionState.SELECT_DA_PAI_RESTORE:
                     {
                         if (stateData.selectedUpMj != stateData.selectPaiRayPickMj)
                             fit.OnMjShadow(stateData.selectPaiRayPickMj, 1);
@@ -260,12 +260,12 @@ namespace ActionDesgin
 
                         uiHuPaiTipsArrow.Show(stateData.selectPaiHuPaiInHandPaiIdxs, stateData.selectPaiHuPaiInMoPaiIdxs);
 
-                        playerStateData[0].SetState(SelectDaPaiStateData.SELECT_DA_PAI_READY_CLICK, Time.time, -1);
+                        playerStateData[0].SetState(HandActionState.SELECT_DA_PAI_READY_CLICK, Time.time, -1);
                     }
                     break;
 
 
-                case SelectDaPaiStateData.SELECT_DA_PAI_END:
+                case HandActionState.SELECT_DA_PAI_END:
                     {
                         stateData.selectPaiHuPaiInHandPaiIdxs = null;
                         stateData.selectPaiHuPaiInfosInHandPai = null;
@@ -276,7 +276,7 @@ namespace ActionDesgin
                         uiHuPaiTips.Hide();
                         uiHuPaiTipsArrow.Hide();
 
-                        playerStateData[0].state = StateDataGroup.END;
+                        playerStateData[0].state = HandActionState.END;
 
 
                         int selectPaiHandPaiIdx = desk.mjSeatHandPaiLists[0].IndexOf(stateData.rayPickMj);

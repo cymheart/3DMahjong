@@ -22,14 +22,11 @@ namespace ActionDesgin
             }
         }
 
-
-        StateDataGroup mjMachineStateData;
         MahjongDiceMachine diceMachine;
 
         public override void Init(MahjongMachine mjMachine)
         {
             base.Init(mjMachine);
-            mjMachineStateData = mjMachine.mjMachineStateData;
             diceMachine = mjMachine.GetComponent<MahjongDiceMachine>();
         }
 
@@ -49,7 +46,7 @@ namespace ActionDesgin
         /// </summary>
         public void XiPai(int dealerSeatIdx, FengWei fengWei, LinkedListNode<MahjongMachineCmd> opCmdNode = null)
         {
-            if (mjMachineStateData.state != StateDataGroup.END)
+            if (mjMachineStateData.state != MjMachineState.END)
             {
                 mjCmdMgr.RemoveCmd(opCmdNode);
                 return;
@@ -60,7 +57,7 @@ namespace ActionDesgin
             XiPaiStateData stateData = mjMachineStateData.GetComponent<XiPaiStateData>();
 
             stateData.SetXiPaiData(dealerSeatIdx, fengWei, opCmdNode);
-            mjMachineStateData.SetState(XiPaiStateData.XIPAI_START, Time.time, -1);
+            mjMachineStateData.SetState(MjMachineState.XIPAI_START, Time.time, -1);
         }
 
 
@@ -69,8 +66,8 @@ namespace ActionDesgin
         /// </summary>
         public void ActionXiPai()
         {
-            if (mjMachineStateData.state < XiPaiStateData.XIPAI_START ||
-                mjMachineStateData.state > XiPaiStateData.XIPAI_END ||
+            if (mjMachineStateData.state < MjMachineState.XIPAI_START ||
+                mjMachineStateData.state > MjMachineState.XIPAI_END ||
                 Time.time - mjMachineStateData.stateStartTime < mjMachineStateData.stateLiveTime)
             {
                 return;
@@ -80,7 +77,7 @@ namespace ActionDesgin
 
             switch (mjMachineStateData.state)
             {
-                case XiPaiStateData.XIPAI_START:
+                case MjMachineState.XIPAI_START:
                     {
                         fit.SetDealer(stateData.dealerSeatIdx, stateData.fengWei);
                         diceMachine.SetSeatFengWei(stateData.dealerSeatIdx, stateData.fengWei);
@@ -90,14 +87,14 @@ namespace ActionDesgin
                         MjTuoXiPaiShengqi(desk.deskMjTuoName[2], preSettingHelper.deskMjTuoPos[2], -0.2185f, MahjongGameDir.MG_DIR_Z);
                         MjTuoXiPaiShengqi(desk.deskMjTuoName[0], preSettingHelper.deskMjTuoPos[0], 0.2185f, MahjongGameDir.MG_DIR_Z);
 
-                        mjMachineStateData.SetState(XiPaiStateData.XIPAI_END, Time.time, 1f);
+                        mjMachineStateData.SetState(MjMachineState.XIPAI_END, Time.time, 1f);
 
                     }
                     break;
 
-                case XiPaiStateData.XIPAI_END:
+                case MjMachineState.XIPAI_END:
                     {
-                        mjMachineStateData.state = StateDataGroup.END;
+                        mjMachineStateData.state = MjMachineState.END;
                         ProcessCommonActionmjCmdMgr(stateData);
                     }
                     break;

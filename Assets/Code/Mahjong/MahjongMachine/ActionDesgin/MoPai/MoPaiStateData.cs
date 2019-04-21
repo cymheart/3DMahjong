@@ -11,17 +11,7 @@ namespace ActionDesgin
 {
     public class MoPaiStateData: ActionStateData
     {
-        /// <summary>
-        /// 摸牌开始
-        /// </summary>
-        public const int MO_PAI_START = 14;
-
-        /// <summary>
-        /// 摸牌结束
-        /// </summary>
-        public const int MO_PAI_END = 15;
-
-
+        
         #region 摸牌动作数据
         public PlayerType handStyle = PlayerType.FEMALE;
         public ActionCombineNum actionCombineNum = ActionCombineNum.End;

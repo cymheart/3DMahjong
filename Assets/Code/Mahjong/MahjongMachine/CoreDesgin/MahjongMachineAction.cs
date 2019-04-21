@@ -3,7 +3,6 @@
     public class MahjongMachineAction
     {
         public MahjongMachine mjMachine;
-        public StateDataGroup[] playerStateData;
         public MahjongMachineCmdMgr mjCmdMgr;
         public MahjongMachineUpdater mjMachineUpdater;
 
@@ -19,7 +18,6 @@
                 return;
 
             this.mjMachine = mjMachine;
-            playerStateData = mjMachine.playerStateData;
             mjCmdMgr = mjMachine.mjCmdMgr;
             mjMachineUpdater = mjMachine.mjMachineUpdater;
         }

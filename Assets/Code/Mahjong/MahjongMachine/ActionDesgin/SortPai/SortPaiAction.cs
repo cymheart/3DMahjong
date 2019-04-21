@@ -43,7 +43,7 @@ namespace ActionDesgin
         {
             StopSelectPaiActionState(seatIdx);
 
-            if (playerStateData[seatIdx].state != StateDataGroup.END ||
+            if (playerStateData[seatIdx].state != HandActionState.END ||
                 desk.mjSeatHandPaiLists[seatIdx].Count == 0 || desk.mjSeatHandPaiLists[seatIdx][0] == null)
             {
                 mjCmdMgr.RemoveCmd(opCmdNode);
@@ -53,7 +53,7 @@ namespace ActionDesgin
             SortPaiStateData stateData = playerStateData[seatIdx].GetComponent<SortPaiStateData>();
 
             stateData.SetSortPaiData(sortPaiType, opCmdNode);
-            playerStateData[seatIdx].SetState(SortPaiStateData.SORT_PAI_START, Time.time, -1);
+            playerStateData[seatIdx].SetState(HandActionState.SORT_PAI_START, Time.time, -1);
         }
 
         /// <summary>
@@ -71,8 +71,8 @@ namespace ActionDesgin
         }
         void ActionSortPai(int seatIdx)
         {
-            if (playerStateData[seatIdx].state < SortPaiStateData.SORT_PAI_START ||
-             playerStateData[seatIdx].state > SortPaiStateData.SORT_PAI_END ||
+            if (playerStateData[seatIdx].state < HandActionState.SORT_PAI_START ||
+             playerStateData[seatIdx].state > HandActionState.SORT_PAI_END ||
              Time.time - playerStateData[seatIdx].stateStartTime < playerStateData[seatIdx].stateLiveTime)
             {
                 return;
@@ -80,9 +80,9 @@ namespace ActionDesgin
 
             SortPaiStateData stateData = playerStateData[seatIdx].GetComponent<SortPaiStateData>();
 
-            if (playerStateData[seatIdx].state == SortPaiStateData.SORT_PAI_END)
+            if (playerStateData[seatIdx].state == HandActionState.SORT_PAI_END)
             {
-                playerStateData[seatIdx].state = StateDataGroup.END;
+                playerStateData[seatIdx].state = HandActionState.END;
                 ProcessHandActionmjCmdMgr(seatIdx, stateData);
                 return;
             }
@@ -282,7 +282,7 @@ namespace ActionDesgin
 
             }
 
-            playerStateData[seatIdx].SetState(SortPaiStateData.SORT_PAI_END, Time.time, tm);
+            playerStateData[seatIdx].SetState(HandActionState.SORT_PAI_END, Time.time, tm);
         }
 
         #endregion

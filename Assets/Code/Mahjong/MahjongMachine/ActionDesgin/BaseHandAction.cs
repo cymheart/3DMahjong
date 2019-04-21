@@ -1,10 +1,6 @@
 ﻿using ComponentDesgin;
 using CoreDesgin;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using DG.Tweening;
 
@@ -21,6 +17,13 @@ namespace ActionDesgin
         /// </summary>
         public MahjongAssetsMgr mjAssetsMgr;
 
+
+        /// <summary>
+        /// 状态模块
+        /// </summary>
+        public States states;
+        public StateDatas<HandActionState>[] playerStateData;
+        public StateDatas<MjMachineState> mjMachineStateData;
 
         /// <summary>
         /// 手部动作模块
@@ -74,14 +77,17 @@ namespace ActionDesgin
             fit = mjMachine.GetComponent<Fit>();
             scene = mjMachine.GetComponent<Scene>();
             mjHuTingCheck = mjMachine.GetComponent<MjHuTingCheck>();
+            states = mjMachine.GetComponent<States>();
+            playerStateData = states.playerStateData;
+            mjMachineStateData = states.mjMachineStateData;
         }
 
         public void StopSelectPaiActionState(int seatIdx)
         {
-            if (playerStateData[seatIdx].state >= SelectPaiStateData.SELECT_PAI_START &&
-                playerStateData[seatIdx].state <= SelectPaiStateData.SELECT_PAI_END)
+            if (playerStateData[seatIdx].state >= HandActionState.SELECT_PAI_START &&
+                playerStateData[seatIdx].state <= HandActionState.SELECT_PAI_END)
             {
-                playerStateData[seatIdx].state = StateDataGroup.END;
+                playerStateData[seatIdx].state = HandActionState.END;
             }
         }
 
@@ -122,12 +128,12 @@ namespace ActionDesgin
         }
 
 
-        public void ProcessHandActionmjCmdMgr(int seatIdx, StateData stateData)
+        public void ProcessHandActionmjCmdMgr(int seatIdx, ActionStateData stateData)
         {
             if (mjCmdMgr != null && stateData.opCmdNode != null)
             {
                 if (stateData.opCmdNode.Value.canSelectPaiAfterCmdEnd == true)
-                    playerStateData[seatIdx].state = SelectPaiStateData.SELECT_PAI_START;
+                    playerStateData[seatIdx].state = HandActionState.SELECT_PAI_START;
 
                 LinkedListNode<MahjongMachineCmd> tmp = stateData.opCmdNode;
                 stateData.opCmdNode = null;
@@ -136,7 +142,7 @@ namespace ActionDesgin
         }
 
 
-        public void ProcessCommonActionmjCmdMgr(StateData stateData)
+        public void ProcessCommonActionmjCmdMgr(ActionStateData stateData)
         {
             if (mjCmdMgr != null && stateData.opCmdNode != null)
             {

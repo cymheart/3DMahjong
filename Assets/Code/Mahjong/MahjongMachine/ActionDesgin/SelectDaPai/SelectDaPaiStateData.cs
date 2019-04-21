@@ -1,31 +1,12 @@
 ﻿using ComponentDesgin;
 using CoreDesgin;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace ActionDesgin
 {
     public class SelectDaPaiStateData: ActionStateData
     {
-        /// <summary>
-        /// 选择打牌开始
-        /// </summary>
-        public const int SELECT_DA_PAI_START = 70;
-
-        public const int SELECT_DA_PAI_READY_CLICK = 71;
-        public const int SELECT_DA_PAIING = 72;
-        public const int SELECT_DA_PAI_RESTORE = 73;
-
-        /// <summary>
-        /// 选择打牌结束
-        /// </summary>
-        public const int SELECT_DA_PAI_END = 74;
-
-
 
         #region 选择打出麻将动作数据
         public GameObject rayPickMj;

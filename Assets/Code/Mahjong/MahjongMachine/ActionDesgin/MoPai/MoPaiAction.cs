@@ -43,7 +43,7 @@ namespace ActionDesgin
         {
             StopSelectPaiActionState(seatIdx);
 
-            if (playerStateData[seatIdx].state != StateDataGroup.END ||
+            if (playerStateData[seatIdx].state != HandActionState.END ||
                    desk.mjSeatHandPaiLists[seatIdx].Count == 0 || desk.mjSeatHandPaiLists[seatIdx][0] == null)
             {
                 mjCmdMgr.RemoveCmd(opCmdNode);
@@ -55,7 +55,7 @@ namespace ActionDesgin
             MoPaiStateData stateData = playerStateData[seatIdx].GetComponent<MoPaiStateData>();
 
             stateData.SetMoPaiData(mjFaceValue, opCmdNode);
-            playerStateData[seatIdx].SetState(MoPaiStateData.MO_PAI_START, Time.time, -1);
+            playerStateData[seatIdx].SetState(HandActionState.MO_PAI_START, Time.time, -1);
 
         }
 
@@ -76,8 +76,8 @@ namespace ActionDesgin
         }
         void ActionMoPai(int seatIdx)
         {
-            if (playerStateData[seatIdx].state < MoPaiStateData.MO_PAI_START ||
-            playerStateData[seatIdx].state > MoPaiStateData.MO_PAI_END ||
+            if (playerStateData[seatIdx].state < HandActionState.MO_PAI_START ||
+            playerStateData[seatIdx].state > HandActionState.MO_PAI_END ||
             Time.time - playerStateData[seatIdx].stateStartTime < playerStateData[seatIdx].stateLiveTime)
             {
                 return;
@@ -85,10 +85,10 @@ namespace ActionDesgin
 
             MoPaiStateData stateData = playerStateData[seatIdx].GetComponent<MoPaiStateData>();
 
-            if (playerStateData[seatIdx].state == MoPaiStateData.MO_PAI_END)
+            if (playerStateData[seatIdx].state == HandActionState.MO_PAI_END)
             {
                 fit.OnMjShadow(stateData.curtMoPaiMj, stateData.curtMoPaiMjShadowIdx);
-                playerStateData[seatIdx].state = StateDataGroup.END;
+                playerStateData[seatIdx].state = HandActionState.END;
 
                 ProcessHandActionmjCmdMgr(seatIdx, stateData);
                 return;
@@ -283,7 +283,7 @@ namespace ActionDesgin
                     break;
             }
 
-            playerStateData[seatIdx].SetState(MoPaiStateData.MO_PAI_END, Time.time, waitTime);
+            playerStateData[seatIdx].SetState(HandActionState.MO_PAI_END, Time.time, waitTime);
 
         }
 

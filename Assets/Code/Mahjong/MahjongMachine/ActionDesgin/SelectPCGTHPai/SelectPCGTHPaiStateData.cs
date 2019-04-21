@@ -11,25 +11,7 @@ namespace ActionDesgin
 {
     public class SelectPCGTHPaiStateData : ActionStateData
     {
-        /// <summary>
-        /// 选择碰吃杠听胡牌开始
-        /// </summary>
-        public const int SELECT_PCGTH_PAI_START = 82;
-        public const int SELECT_PCGTH_PAI_SELECTTING = 83;
-        public const int SELECT_PCGTH_PAI_SELECTTING_CHIPAI = 84;
-        public const int SELECT_PCGTH_PAI_SELECT_TING_PAI_START = 85;
-        public const int SELECT_PCGTH_PAI_SELECT_TING_PAI_READY_CLICK = 86;
-        public const int SELECT_PCGTH_PAI_SELECT_TING_PAIING = 87;
-        public const int SELECT_PCGTH_PAI_SELECT_TING_PAI_RESTORE = 88;
-        public const int SELECT_PCGTH_PAI_SELECT_TING_PAI_SELECT_END = 89;
-
-        /// <summary>
-        /// 选择碰吃杠听胡牌结束
-        /// </summary>
-        public const int SELECT_PCGTH_PAI_END = 90;
-
-
-
+       
         #region 选择碰吃杠听胡牌动作数据
         public PengChiGangTingHuType[] selectPcgthBtnTypes;
         public List<MahjongFaceValue[]> selectPcgthChiPaiMjValueList = null;

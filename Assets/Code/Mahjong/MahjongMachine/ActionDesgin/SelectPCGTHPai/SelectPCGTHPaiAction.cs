@@ -60,7 +60,7 @@ namespace ActionDesgin
         {
             StopSelectPaiActionState(0);
 
-            if (playerStateData[0].state != StateDataGroup.END)
+            if (playerStateData[0].state != HandActionState.END)
             {
                 mjCmdMgr.RemoveCmd(opCmdNode);
                 return;
@@ -69,7 +69,7 @@ namespace ActionDesgin
             SelectPCGTHPaiStateData stateData = playerStateData[0].GetComponent<SelectPCGTHPaiStateData>();
 
             stateData.SetSelectPCGTHPaiData(pcgthBtnTypes, chiPaiMjValueList, tingPaiInHandPaiIdxs, tingPaiInfosInHandPai, tingPaiInMoPaiIdxs, tingPaiInfosInMoPai, opCmdNode);
-            playerStateData[0].SetState(SelectPCGTHPaiStateData.SELECT_PCGTH_PAI_START, Time.time, -1);
+            playerStateData[0].SetState(HandActionState.SELECT_PCGTH_PAI_START, Time.time, -1);
         }
 
 
@@ -78,8 +78,8 @@ namespace ActionDesgin
         /// </summary>
         public void ActionSelectPCGTHPai()
         {
-            if (playerStateData[0].state < SelectPCGTHPaiStateData.SELECT_PCGTH_PAI_START ||
-                playerStateData[0].state > SelectPCGTHPaiStateData.SELECT_PCGTH_PAI_END ||
+            if (playerStateData[0].state < HandActionState.SELECT_PCGTH_PAI_START ||
+                playerStateData[0].state > HandActionState.SELECT_PCGTH_PAI_END ||
                 Time.time - playerStateData[0].stateStartTime < playerStateData[0].stateLiveTime)
             {
                 return;
@@ -89,14 +89,14 @@ namespace ActionDesgin
      
             switch (playerStateData[0].state)
             {
-                case SelectPCGTHPaiStateData.SELECT_PCGTH_PAI_START:
+                case HandActionState.SELECT_PCGTH_PAI_START:
                     {
                         uiPcghtBtnMgr.Show(stateData.selectPcgthBtnTypes);
-                        playerStateData[0].SetState(SelectPCGTHPaiStateData.SELECT_PCGTH_PAI_SELECTTING, Time.time, -1);
+                        playerStateData[0].SetState(HandActionState.SELECT_PCGTH_PAI_SELECTTING, Time.time, -1);
                     }
                     break;
 
-                case SelectPCGTHPaiStateData.SELECT_PCGTH_PAI_SELECTTING:
+                case HandActionState.SELECT_PCGTH_PAI_SELECTTING:
                     {
                         if (uiPcghtBtnMgr.IsClicked == false)
                             break;
@@ -115,7 +115,7 @@ namespace ActionDesgin
 
                                     uiChiPaiTips.Show(stateData.selectPcgthChiPaiMjValueList);
                                     uiPcghtBtnMgr.Show(new PengChiGangTingHuType[] { PengChiGangTingHuType.CANCEL }, new Vector3(100f, 0, 0));
-                                    playerStateData[0].SetState(SelectPCGTHPaiStateData.SELECT_PCGTH_PAI_SELECTTING_CHIPAI, Time.time, -1);
+                                    playerStateData[0].SetState(HandActionState.SELECT_PCGTH_PAI_SELECTTING_CHIPAI, Time.time, -1);
                                 }
                                 break;
 
@@ -123,12 +123,12 @@ namespace ActionDesgin
                             case PengChiGangTingHuType.TING:
                                 {
                                     uiPcghtBtnMgr.Show(new PengChiGangTingHuType[] { PengChiGangTingHuType.CANCEL }, new Vector3(100f, 0, 0));
-                                    playerStateData[0].SetState(SelectPCGTHPaiStateData.SELECT_PCGTH_PAI_SELECT_TING_PAI_START, Time.time, -1);
+                                    playerStateData[0].SetState(HandActionState.SELECT_PCGTH_PAI_SELECT_TING_PAI_START, Time.time, -1);
                                 }
                                 break;
 
                             default:
-                                playerStateData[0].SetState(SelectPCGTHPaiStateData.SELECT_PCGTH_PAI_END, Time.time, -1);
+                                playerStateData[0].SetState(HandActionState.SELECT_PCGTH_PAI_END, Time.time, -1);
                                 break;
 
                         }
@@ -136,30 +136,30 @@ namespace ActionDesgin
                     }
                     break;
 
-                case SelectPCGTHPaiStateData.SELECT_PCGTH_PAI_SELECTTING_CHIPAI:
+                case HandActionState.SELECT_PCGTH_PAI_SELECTTING_CHIPAI:
                     {
                         if (uiChiPaiTips.selectedIdx != -1)
                         {
                             uiPcghtBtnMgr.Hide();
                             stateData.selectPcgthedChiPaiMjValueIdx = uiChiPaiTips.selectedIdx;
-                            playerStateData[0].SetState(SelectPCGTHPaiStateData.SELECT_PCGTH_PAI_END, Time.time, -1);
+                            playerStateData[0].SetState(HandActionState.SELECT_PCGTH_PAI_END, Time.time, -1);
                         }
                         else if (uiPcghtBtnMgr.IsClicked == true)
                         {
                             uiChiPaiTips.Hide();
-                            playerStateData[0].SetState(SelectPCGTHPaiStateData.SELECT_PCGTH_PAI_START, Time.time, -1);
+                            playerStateData[0].SetState(HandActionState.SELECT_PCGTH_PAI_START, Time.time, -1);
                         }
                     }
                     break;
 
-                case SelectPCGTHPaiStateData.SELECT_PCGTH_PAI_SELECT_TING_PAI_START:
+                case HandActionState.SELECT_PCGTH_PAI_SELECT_TING_PAI_START:
                     {
                         uiHuPaiTipsArrow.Show(stateData.selectPaiHuPaiInHandPaiIdxs, stateData.selectPaiHuPaiInMoPaiIdxs);
-                        playerStateData[0].SetState(SelectPCGTHPaiStateData.SELECT_PCGTH_PAI_SELECT_TING_PAI_READY_CLICK, Time.time, -1);
+                        playerStateData[0].SetState(HandActionState.SELECT_PCGTH_PAI_SELECT_TING_PAI_READY_CLICK, Time.time, -1);
                     }
                     break;
 
-                case SelectPCGTHPaiStateData.SELECT_PCGTH_PAI_SELECT_TING_PAI_READY_CLICK:
+                case HandActionState.SELECT_PCGTH_PAI_SELECT_TING_PAI_READY_CLICK:
                     {
                         if (uiPcghtBtnMgr.IsClicked == true)
                         {
@@ -168,7 +168,7 @@ namespace ActionDesgin
                             uiHuPaiTips.Hide();
                             uiHuPaiTipsArrow.Hide();
                             stateData.rayPickMj = null;
-                            playerStateData[0].SetState(SelectPCGTHPaiStateData.SELECT_PCGTH_PAI_START, Time.time, -1);
+                            playerStateData[0].SetState(HandActionState.SELECT_PCGTH_PAI_START, Time.time, -1);
                         }
                         else if (Input.GetMouseButtonDown(0))
                         {
@@ -182,7 +182,7 @@ namespace ActionDesgin
                                 if (Time.realtimeSinceStartup - stateData.rayPickMjLastKickTime < 0.15f &&
                                     stateData.rayPickMj == hitInfo.collider.gameObject)
                                 {
-                                    playerStateData[0].SetState(SelectPCGTHPaiStateData.SELECT_PCGTH_PAI_SELECT_TING_PAI_SELECT_END, Time.time, -1);
+                                    playerStateData[0].SetState(HandActionState.SELECT_PCGTH_PAI_SELECT_TING_PAI_SELECT_END, Time.time, -1);
                                     return;
                                 }
 
@@ -193,7 +193,7 @@ namespace ActionDesgin
                                 fit.OffMjShadow(stateData.rayPickMj);
 
                                 stateData.rayPickMjLastKickTime = Time.realtimeSinceStartup;
-                                playerStateData[0].SetState(SelectPCGTHPaiStateData.SELECT_PCGTH_PAI_SELECT_TING_PAIING, Time.time, -1);
+                                playerStateData[0].SetState(HandActionState.SELECT_PCGTH_PAI_SELECT_TING_PAIING, Time.time, -1);
 
                             }
                         }
@@ -201,7 +201,7 @@ namespace ActionDesgin
                     break;
 
 
-                case SelectPCGTHPaiStateData.SELECT_PCGTH_PAI_SELECT_TING_PAIING:
+                case HandActionState.SELECT_PCGTH_PAI_SELECT_TING_PAIING:
                     {
                         //松开鼠标按键时
                         if (Input.GetMouseButtonUp(0))
@@ -237,28 +237,28 @@ namespace ActionDesgin
                                     RestoreSelectedUpHandPaiToOrgPos(stateData, true);
                                 }
 
-                                playerStateData[0].SetState(SelectPCGTHPaiStateData.SELECT_PCGTH_PAI_SELECT_TING_PAI_READY_CLICK, Time.time, 0);
+                                playerStateData[0].SetState(HandActionState.SELECT_PCGTH_PAI_SELECT_TING_PAI_READY_CLICK, Time.time, 0);
                             }
 
                             //麻将移动速度超过25
                             else if (stateData.rayPickMjMoveDistPreDuration > 50)
                             {
                                 stateData.rayPickMjMoveDistPreDuration = 0;
-                                playerStateData[0].SetState(SelectPCGTHPaiStateData.SELECT_PCGTH_PAI_SELECT_TING_PAI_SELECT_END, Time.time, -1);
+                                playerStateData[0].SetState(HandActionState.SELECT_PCGTH_PAI_SELECT_TING_PAI_SELECT_END, Time.time, -1);
                             }
 
                             //麻将移动距离未超过指定高度
                             else if (stateData.rayPickMj.transform.localPosition.y < stateData.rayPickMjOrgPos.y + fit.GetCanvasHandMjSizeByAxis(Axis.Y))
                             {
                                 stateData.rayPickMj.transform.DOLocalMove(stateData.rayPickMjOrgPos, 0.2f);
-                                playerStateData[0].SetState(SelectPCGTHPaiStateData.SELECT_PCGTH_PAI_SELECT_TING_PAI_RESTORE, Time.time, 0.2f);
+                                playerStateData[0].SetState(HandActionState.SELECT_PCGTH_PAI_SELECT_TING_PAI_RESTORE, Time.time, 0.2f);
                                 stateData.selectPaiRayPickMj = stateData.rayPickMj;
                             }
 
                             //
                             else
                             {
-                                playerStateData[0].SetState(SelectPCGTHPaiStateData.SELECT_PCGTH_PAI_SELECT_TING_PAI_SELECT_END, Time.time, -1);
+                                playerStateData[0].SetState(HandActionState.SELECT_PCGTH_PAI_SELECT_TING_PAI_SELECT_END, Time.time, -1);
                             }
 
                             if (fit.isUsePlayerSelectMjOutLine)
@@ -304,7 +304,7 @@ namespace ActionDesgin
 
                     break;
 
-                case SelectPCGTHPaiStateData.SELECT_PCGTH_PAI_SELECT_TING_PAI_RESTORE:
+                case HandActionState.SELECT_PCGTH_PAI_SELECT_TING_PAI_RESTORE:
                     {
                         if (stateData.selectedUpMj != stateData.selectPaiRayPickMj)
                             fit.OnMjShadow(stateData.selectPaiRayPickMj, 1);
@@ -315,12 +315,12 @@ namespace ActionDesgin
 
                         uiHuPaiTipsArrow.Show(stateData.selectPaiHuPaiInHandPaiIdxs, stateData.selectPaiHuPaiInMoPaiIdxs);
 
-                        playerStateData[0].SetState(SelectPCGTHPaiStateData.SELECT_PCGTH_PAI_SELECT_TING_PAI_READY_CLICK, Time.time, -1);
+                        playerStateData[0].SetState(HandActionState.SELECT_PCGTH_PAI_SELECT_TING_PAI_READY_CLICK, Time.time, -1);
                     }
                     break;
 
 
-                case SelectPCGTHPaiStateData.SELECT_PCGTH_PAI_SELECT_TING_PAI_SELECT_END:
+                case HandActionState.SELECT_PCGTH_PAI_SELECT_TING_PAI_SELECT_END:
                     {
                         uiHuPaiTips.RemoveAllDetailTips();
                         uiHuPaiTips.Hide();
@@ -342,14 +342,14 @@ namespace ActionDesgin
                         stateData.selectPaiType = paiType;
 
                         stateData.rayPickMj = null;
-                        playerStateData[0].SetState(SelectPCGTHPaiStateData.SELECT_PCGTH_PAI_END, Time.time, -1);
+                        playerStateData[0].SetState(HandActionState.SELECT_PCGTH_PAI_END, Time.time, -1);
 
                     }
                     break;
 
-                case SelectPCGTHPaiStateData.SELECT_PCGTH_PAI_END:
+                case HandActionState.SELECT_PCGTH_PAI_END:
                     {
-                        playerStateData[0].state = StateDataGroup.END;
+                        playerStateData[0].state = HandActionState.END;
 
 
                         SelfSelectPCGTHPaiEnd(

@@ -22,12 +22,9 @@ namespace ActionDesgin
             }
         }
 
-        StateDataGroup mjMachineStateData;
-
         public override void Init(MahjongMachine mjMachine)
         {
             base.Init(mjMachine);
-            mjMachineStateData = mjMachine.mjMachineStateData;
         }
 
         public override void Install()
@@ -52,7 +49,7 @@ namespace ActionDesgin
             List<MahjongFaceValue> selfBuPaiValueList,
             LinkedListNode<MahjongMachineCmd> opCmdNode = null)
         {
-            if (mjMachineStateData.state != StateDataGroup.END)
+            if (mjMachineStateData.state != MjMachineState.END)
             {
                 mjCmdMgr.RemoveCmd(opCmdNode);
                 return;
@@ -62,7 +59,7 @@ namespace ActionDesgin
             stateData.handPaiValueList = mjHandSelfPaiFaceValueList;
 
             stateData.SetFaPaiData(startPaiIdx, selfHuaPaiValueList, selfBuPaiValueList, opCmdNode);
-            mjMachineStateData.SetState(FaPaiStateData.FAPAI_START, Time.time, -1);
+            mjMachineStateData.SetState(MjMachineState.FAPAI_START, Time.time, -1);
         }
 
         /// <summary>
@@ -70,8 +67,8 @@ namespace ActionDesgin
         /// </summary>
         public void ActionFaPai()
         {
-            if (mjMachineStateData.state < FaPaiStateData.FAPAI_START ||
-               mjMachineStateData.state > FaPaiStateData.FAPAI_END ||
+            if (mjMachineStateData.state < MjMachineState.FAPAI_START ||
+               mjMachineStateData.state > MjMachineState.FAPAI_END ||
                Time.time - mjMachineStateData.stateStartTime < mjMachineStateData.stateLiveTime)
             {
                 return;
@@ -81,7 +78,7 @@ namespace ActionDesgin
 
             switch (mjMachineStateData.state)
             {
-                case FaPaiStateData.FAPAI_START:
+                case MjMachineState.FAPAI_START:
                     {
                         if (desk.mjDuiPaiUpDown[stateData.faPaiStartIdx] == MahjongUpDown.MG_DOWN)
                         {
@@ -105,11 +102,11 @@ namespace ActionDesgin
 
                         audio.PlayEffectAudio(AudioIdx.AUDIO_EFFECT_FAPAI);
 
-                        mjMachineStateData.SetState(FaPaiStateData.FAPAI_FEN_SINGLE_DENGING, Time.time, 0);
+                        mjMachineStateData.SetState(MjMachineState.FAPAI_FEN_SINGLE_DENGING, Time.time, 0);
                     }
                     break;
 
-                case FaPaiStateData.FAPAI_FEN_SINGLE_DENGING:
+                case MjMachineState.FAPAI_FEN_SINGLE_DENGING:
                     {
                         desk.FenMahjongPaiFromPaiDui(fit.curtPaiDuiPos, stateData.faPaiSingleCount);
                         FanMahjongPai(stateData.faPaiSeat, stateData.faPaiPosIdx, stateData.faPaiSingleCount);
@@ -141,16 +138,16 @@ namespace ActionDesgin
 
                         if (stateData.faPaiPosIdx >= stateData.faPaiMjDengCount)
                         {
-                            mjMachineStateData.SetState(FaPaiStateData.FAPAI_FEN_DENG_END, Time.time, 0.5f);
+                            mjMachineStateData.SetState(MjMachineState.FAPAI_FEN_DENG_END, Time.time, 0.5f);
                         }
                         else
                         {
-                            mjMachineStateData.SetState(FaPaiStateData.FAPAI_FEN_SINGLE_DENGING, Time.time, fit.fenPaiSpeed);
+                            mjMachineStateData.SetState(MjMachineState.FAPAI_FEN_SINGLE_DENGING, Time.time, fit.fenPaiSpeed);
                         }
                     }
                     break;
 
-                case FaPaiStateData.FAPAI_FEN_DENG_END:
+                case MjMachineState.FAPAI_FEN_DENG_END:
                     {
                         //补花牌
                         if (stateData.selfHuaPaiValueList.Count > 0)
@@ -187,16 +184,16 @@ namespace ActionDesgin
                                 }
                             }
 
-                            mjMachineStateData.SetState(FaPaiStateData.FAPAI_BUHUA, Time.time, 0);
+                            mjMachineStateData.SetState(MjMachineState.FAPAI_BUHUA, Time.time, 0);
                         }
                         else
                         {
-                            mjMachineStateData.SetState(FaPaiStateData.FAPAI_SORT, Time.time, 0);
+                            mjMachineStateData.SetState(MjMachineState.FAPAI_SORT, Time.time, 0);
                         }
                     }
                     break;
 
-                case FaPaiStateData.FAPAI_BUHUA:
+                case MjMachineState.FAPAI_BUHUA:
                     {
                         SortPaiType sortPaiType = SortPaiType.LEFT;
 
@@ -249,13 +246,13 @@ namespace ActionDesgin
                             }
                         }
 
-                        mjMachineStateData.SetState(FaPaiStateData.FAPAI_SORT, Time.time, tm);
+                        mjMachineStateData.SetState(MjMachineState.FAPAI_SORT, Time.time, tm);
                     }
                     break;
 
 
 
-                case FaPaiStateData.FAPAI_SORT:
+                case MjMachineState.FAPAI_SORT:
                     {
                         GameObject mj;
                         Tweener t;
@@ -282,13 +279,13 @@ namespace ActionDesgin
                             seq.Append(t);
                         }
 
-                        mjMachineStateData.SetState(FaPaiStateData.FAPAI_END, Time.time, fit.fanPaiAfterSortPaiSpeed * 2);
+                        mjMachineStateData.SetState(MjMachineState.FAPAI_END, Time.time, fit.fanPaiAfterSortPaiSpeed * 2);
                     }
 
                     break;
 
 
-                case FaPaiStateData.FAPAI_END:
+                case MjMachineState.FAPAI_END:
                     {
                         GameObject mj;
                         for (int j = 0; j < desk.mjSeatHandPaiLists[0].Count; j++)
@@ -300,7 +297,7 @@ namespace ActionDesgin
                             fit.OnMjShadow(mj);
                         }
 
-                        mjMachineStateData.state = StateDataGroup.END;
+                        mjMachineStateData.state = MjMachineState.END;
                         ProcessCommonActionmjCmdMgr(stateData);
                     }
                     break;

@@ -61,7 +61,7 @@ namespace ActionDesgin
         {
             StopSelectPaiActionState(fromSeatIdx);
 
-            if (playerStateData[fromSeatIdx].state != StateDataGroup.END ||
+            if (playerStateData[fromSeatIdx].state != HandActionState.END ||
                 desk.mjSeatHandPaiLists[toSeatIdx].Count == 0 || desk.mjSeatHandPaiLists[toSeatIdx][0] == null)
             {
                 mjCmdMgr.RemoveCmd(opCmdNode);
@@ -136,7 +136,7 @@ namespace ActionDesgin
                 swapDir,
                 isShowBack, opCmdNode);
 
-            playerStateData[fromSeatIdx].SetState(SwapPaiStateData.SWAP_PAI_START, Time.time, -1);
+            playerStateData[fromSeatIdx].SetState(HandActionState.SWAP_PAI_START, Time.time, -1);
         }
 
 
@@ -153,8 +153,8 @@ namespace ActionDesgin
         }
         void ActionSwapPai(int seatIdx)
         {
-            if (playerStateData[seatIdx].state < SwapPaiStateData.SWAP_PAI_START ||
-               playerStateData[seatIdx].state > SwapPaiStateData.SWAP_PAI_END)
+            if (playerStateData[seatIdx].state < HandActionState.SWAP_PAI_START ||
+               playerStateData[seatIdx].state > HandActionState.SWAP_PAI_END)
             {
                 return;
             }
@@ -177,7 +177,7 @@ namespace ActionDesgin
 
             switch (playerStateData[seatIdx].state)
             {
-                case SwapPaiStateData.SWAP_PAI_START:
+                case HandActionState.SWAP_PAI_START:
                     {
                         List<GameObject> mjHandPaiList = desk.mjSeatHandPaiLists[seatIdx];
                         int[] fromIdx = stateData.swapPaiFromSeatPaiIdxs;
@@ -220,27 +220,27 @@ namespace ActionDesgin
                         mjAssetsMgr.handShadowPlanes[seatIdx].SetActive(true);
                         MoveHandShadowForDaPai(seatIdx, stateData);
 
-                        playerStateData[seatIdx].SetState(SwapPaiStateData.SWAP_PAI_READY_FIRST_HAND, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.SWAP_PAI_READY_FIRST_HAND, Time.time, waitTime);
                     }
                     break;
 
-                case SwapPaiStateData.SWAP_PAI_READY_FIRST_HAND:
+                case HandActionState.SWAP_PAI_READY_FIRST_HAND:
                     {
                         FitHandPoseForSeat(seatIdx, handStyle, HandDirection.RightHand, actionCombineNum);
                         waitTime = MoveHandToDstOffsetPos(seatIdx, handStyle, HandDirection.RightHand, orgPos, actionCombineNum);
-                        playerStateData[seatIdx].SetState(SwapPaiStateData.SWAP_PAI_MOVE_HAND_TO_DST_POS, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.SWAP_PAI_MOVE_HAND_TO_DST_POS, Time.time, waitTime);
                     }
                     break;
 
-                case SwapPaiStateData.SWAP_PAI_MOVE_HAND_TO_DST_POS:
+                case HandActionState.SWAP_PAI_MOVE_HAND_TO_DST_POS:
                     {
                         anim.CrossFade("FirstTaiHand2EndDaPai4", fadeTime);
                         waitTime = hands.GetHandActionWaitTime(seatIdx, handStyle, HandDirection.RightHand, "FirstTaiHand2EndDaPai4");
-                        playerStateData[seatIdx].SetState(SwapPaiStateData.SWAP_PAI_CHUPAI, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.SWAP_PAI_CHUPAI, Time.time, waitTime);
                     }
                     break;
 
-                case SwapPaiStateData.SWAP_PAI_CHUPAI:
+                case HandActionState.SWAP_PAI_CHUPAI:
                     {
                         AudioClip clip = audio.GetEffectAudio((int)AudioIdx.AUDIO_EFFECT_GIVE);
                         AudioSource.PlayClipAtPoint(clip, orgPos);
@@ -265,19 +265,19 @@ namespace ActionDesgin
 
                         anim.Play(Hand.taiHandActionName[(int)actionCombineNum]);
                         hands.MoveHandToDstDirRelative(seatIdx, handStyle, HandDirection.RightHand, hands.handActionLeaveScreenPosSeat[seatIdx]);
-                        playerStateData[seatIdx].SetState(SwapPaiStateData.SWAP_PAI_CHUPAI_TAIHAND, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.SWAP_PAI_CHUPAI_TAIHAND, Time.time, waitTime);
 
                     }
                     break;
 
-                case SwapPaiStateData.SWAP_PAI_CHUPAI_TAIHAND:
+                case HandActionState.SWAP_PAI_CHUPAI_TAIHAND:
                     {
                         waitTime = HandActionEndMovHandOutScreen(seatIdx, handStyle, HandDirection.RightHand, actionCombineNum);
-                        playerStateData[seatIdx].SetState(SwapPaiStateData.SWAP_PAI_TAIHAND_END, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.SWAP_PAI_TAIHAND_END, Time.time, waitTime);
                     }
                     break;
 
-                case SwapPaiStateData.SWAP_PAI_TAIHAND_END:
+                case HandActionState.SWAP_PAI_TAIHAND_END:
                     {
                         waitTime = 1f;
 
@@ -292,12 +292,12 @@ namespace ActionDesgin
                             stateData.swapPaiRotControler.transform.DORotate(new Vector3(0, stateData.swapPaiToSeatIdx * 90, 0), waitTime);
                         }
 
-                        playerStateData[seatIdx].SetState(SwapPaiStateData.SWAP_PAI_ROTATE, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.SWAP_PAI_ROTATE, Time.time, waitTime);
                     }
 
                     break;
 
-                case SwapPaiStateData.SWAP_PAI_ROTATE:
+                case HandActionState.SWAP_PAI_ROTATE:
                     {
                         Transform tf = stateData.swapPaiRotControler.transform;
                         GameObject go;
@@ -321,12 +321,12 @@ namespace ActionDesgin
                                stateData.swapPaiFaceValues,
                                 waitTime);
 
-                        playerStateData[seatIdx].SetState(SwapPaiStateData.SWAP_PAI_END, Time.time, waitTime);
+                        playerStateData[seatIdx].SetState(HandActionState.SWAP_PAI_END, Time.time, waitTime);
 
                     }
                     break;
 
-                case SwapPaiStateData.SWAP_PAI_END:
+                case HandActionState.SWAP_PAI_END:
                     {
                         if (stateData.swapPaiToSeatIdx == 0)
                         {
@@ -337,7 +337,7 @@ namespace ActionDesgin
                             }
                         }
 
-                        playerStateData[seatIdx].state = StateDataGroup.END;
+                        playerStateData[seatIdx].state = HandActionState.END;
                         ProcessHandActionmjCmdMgr(seatIdx, stateData);
                     }
                     break;
