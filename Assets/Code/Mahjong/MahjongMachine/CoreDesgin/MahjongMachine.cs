@@ -11,87 +11,20 @@ namespace CoreDesgin
         public MahjongMachineUpdater mjMachineUpdater = new MahjongMachineUpdater();
         public MahjongMachineCmdMgr mjCmdMgr = new MahjongMachineCmdMgr();
 
-        int state = -1;
-        int oldState = -1;
 
         public void Start()
         {
             mjCmdMgr.Init(this);
-            oldState = state = 0;
             mjMachineUpdater.Reg("MjMachineStateCheck", StateCheck); 
         }
 
-        public void SetWaitState()
-        {
-            if (state == 10)
-                return;
-
-            oldState = state;
-            state = 10;
-        }
-
-        public void SetContinueState()
-        {
-            if (state == 10)
-            {
-                state = oldState + 1;
-                oldState = state;
-            }
-        }
-
+       
         public void StateCheck()
         {
-            switch(state)
+            bool isEnd = Update();
+            if (isEnd == true)
             {
-                case 0:
-                    Wake();
-                    if (state == 0)
-                    {
-                        state++;
-                        oldState = state;
-                    }
-                    break;
-
-                case 1:
-                    PreInit();
-
-                    if (state == 1)
-                    {
-                        state++;
-                        oldState = state;
-                    }
-                    break;
-
-                case 2:
-                    PreLoad();
-
-                    if (state == 2)
-                    {
-                        state++;
-                        oldState = state;
-                    }
-                    break;
-
-                case 3:
-                    Init();
-
-                    if (state == 3)
-                    {
-                        state++;
-                        oldState = state;
-                    }
-                    break;
-
-                case 4:
-                    Load();
-
-                    if (state == 4)
-                    {
-                        state= -1;
-                        oldState = -1;
-                        mjMachineUpdater.UnReg("MjMachineStateCheck");
-                    }
-                    break;
+                mjMachineUpdater.UnReg("MjMachineStateCheck");
             }
         }
 

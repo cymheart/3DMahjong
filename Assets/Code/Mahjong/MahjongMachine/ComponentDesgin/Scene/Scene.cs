@@ -18,11 +18,15 @@ namespace ComponentDesgin
         public Transform uiCanvasTransform;
         public RectTransform canvasRectTransform;
 
-        
-        public override void PreInit()
-        {
-            base.PreInit();
 
+        public override void SetInitMethod()
+        {
+            base.SetInitMethod();
+            AddInitMethodToParent(PreInit, 0);
+        }
+
+        public void PreInit()
+        {
             GameObject prefabScene = mjAssetsMgr.defaultPrefabDict[(int)PrefabIdx.SCENE][0];
             root = Object.Instantiate(prefabScene).transform;
 
@@ -32,5 +36,9 @@ namespace ComponentDesgin
             uiCanvasTransform = root.Find("UICanvas").transform;
             canvasRectTransform = uiCanvasTransform.GetComponent<RectTransform>();
         }
+
+
+
+
     }
 }

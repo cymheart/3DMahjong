@@ -6,15 +6,23 @@ using UnityEngine;
 
 public class GameObjectPool
 {
+    public delegate void ProcessGO(GameObject go, object data);
+
     public List<GameObject> goList = new List<GameObject>();
     int ogListIdx = 0;
     GameObject orgGo;
     Transform parent = null;
-    public void CreatePool(GameObject orgGo, int Count, Transform parent = null)
+    ProcessGO processGo;
+    object data;
+
+
+    public void CreatePool(GameObject orgGo, int Count, Transform parent = null, ProcessGO processGo = null, object data = null)
     {
         this.orgGo = orgGo;
         GameObject go;
         this.parent = parent;
+        this.processGo = processGo;
+        this.data = data;
 
         for (int i = 0; i < Count; i++)
         {
@@ -22,6 +30,9 @@ public class GameObjectPool
                 go = Object.Instantiate(orgGo);
             else
                 go = Object.Instantiate(orgGo, parent);
+
+            if (processGo != null)
+                processGo(go, data);
 
             go.SetActive(false);
             goList.Add(go);
@@ -47,6 +58,9 @@ public class GameObjectPool
         else
             go = Object.Instantiate(orgGo, parent);
 
+        if (processGo != null)
+            processGo(go, data);
+
         goList.Add(go);
         return go;
     }
@@ -54,7 +68,9 @@ public class GameObjectPool
     public void PushGameObject(GameObject go)
     {
         go.SetActive(false);
-        go.transform.SetParent(parent);
+
+        if (parent != null)
+            go.transform.SetParent(parent);
     }
 
     public void RecoverGameObjectsForParticles()
@@ -83,7 +99,4 @@ public class GameObjectPool
         goList.Clear();
         orgGo = null;
     }
-
-
-
 }

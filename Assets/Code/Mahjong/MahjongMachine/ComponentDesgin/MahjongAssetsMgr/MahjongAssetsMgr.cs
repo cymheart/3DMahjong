@@ -26,9 +26,24 @@ namespace ComponentDesgin
         Desk desk;
         SettingDataAssetsMgr settingDataAssetsMgr;
   
+        /// <summary>
+        /// 一些未分类预制体
+        /// </summary>
         public Dictionary<int, GameObject[]> defaultPrefabDict;
+
+        /// <summary>
+        /// 各种特效预制体
+        /// </summary>
         public Dictionary<int, GameObject[]> effectPrefabDict;
+
+        /// <summary>
+        /// 麻将牌预制体
+        /// </summary>
         public Dictionary<int, GameObject[]> mjpaiPrefabDict;
+
+        /// <summary>
+        /// ui方面的预制体
+        /// </summary>
         public Dictionary<int, GameObject[]> uiPrefabDict;
 
 
@@ -83,22 +98,23 @@ namespace ComponentDesgin
 
         AssetBundle ab;
 
-        public override void Wake()
-        {
-            base.Wake();
 
+        public override void SetInitMethod()
+        {
+            base.SetInitMethod();
+
+            AddInitMethodToParent(Wake, -1);
+            AddInitMethodToParent(LoadPools, 1);
+        }
+
+        public void Wake()
+        {
             mjMachine = (MahjongMachine)Parent;
             mjGame = mjMachine.mjGame;
             settingDataAssetsMgr = mjMachine.GetComponent<SettingDataAssetsMgr>();
-
             mjGame.StartCoroutine(LoadMahjongRes());
-            mjMachine.SetWaitState();
-        }
 
-        public override void PreLoad()
-        {
-            base.PreLoad();
-            LoadPools();
+            SetWait(true);
         }
 
         public IEnumerator LoadMahjongRes()
@@ -111,9 +127,8 @@ namespace ComponentDesgin
             
             CreateMahjongRes();
 
-            mjMachine.SetContinueState(); 
+            SetWait(false);
         }
-
 
 
         public void CreateMahjongRes()

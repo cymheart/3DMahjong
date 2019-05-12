@@ -172,7 +172,6 @@
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\MjHuTingCheck\MjHuTingAlgorithm.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\MjHuTingCheck\MjHuTingCheck.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\MjPointer\MahjongPoint.cs" />
-    <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\PreSettingHelper\PreSettingHelper.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\Scene\Scene.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\ScreenFit\ScreenFit.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\SelectPCGTHPai\UIChiPaiTips.cs" />

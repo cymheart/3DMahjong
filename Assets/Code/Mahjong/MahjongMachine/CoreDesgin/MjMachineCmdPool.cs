@@ -30,7 +30,17 @@ namespace CoreDesgin
         List<bool> isCmdLinkedListListFree = new List<bool>();
 
         private MjMachineCmdPool() { }
-        public static MjMachineCmdPool Instance { get; } = new MjMachineCmdPool();
+
+        private static MjMachineCmdPool instance = null;
+        public static MjMachineCmdPool Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new MjMachineCmdPool();
+                return instance;
+            }
+        }
 
         /// <summary>
         /// 添加麻将机命令类型

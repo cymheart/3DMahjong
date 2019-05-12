@@ -6,15 +6,19 @@ namespace ComponentDesgin
 {
     public partial class Desk
     {
-        public override void Init()
+
+        public override void SetInitMethod()
         {
-            base.Init();
-            Setting((MahjongMachine)Parent);
+            base.SetInitMethod();
+
+            AddInitMethodToParent(Setting, 2);
+            AddInitMethodToParent(Load, 3);
         }
 
-        public void Setting(MahjongMachine mjMachine)
+
+        public void Setting()
         {
-            this.mjMachine = mjMachine;
+            mjMachine = (MahjongMachine)Parent;
             mjAssetsMgr = mjMachine.GetComponent<MahjongAssetsMgr>();
             fit = mjMachine.GetComponent<Fit>();
             scene = mjMachine.GetComponent<Scene>();
@@ -22,11 +26,11 @@ namespace ComponentDesgin
 
             canvasHandPaiTransform = scene.canvasHandPaiTransform;
             canvasHandPaiRectTransform = canvasHandPaiTransform.GetComponent<RectTransform>();
+
         }
 
-        public override void Load()
-        {
-            base.Load();     
+        public void Load()
+        {  
             CreateInitLayoutPosForSeats();
             CreateMahjongPaiDui();
         }

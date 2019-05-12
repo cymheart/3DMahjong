@@ -7,27 +7,36 @@ namespace ComponentDesgin
 {
     public partial class Fit
     {
-        public override void Init()
+        public override void SetInitMethod()
         {
-            Setting((MahjongMachine)Parent);
+            base.SetInitMethod();
+
+            AddInitMethodToParent(Setting, 3);
+            AddInitMethodToParent(Load, 4);
         }
 
-        public void Setting(MahjongMachine mjMachine)
+
+
+        public void Setting()
         {
-            this.mjMachine = mjMachine;
+            mjMachine = (MahjongMachine)Parent;
             desk = mjMachine.GetComponent<Desk>();
             moPaiToHandPaiCanvasOffset = moPaiToHandPaiOffset * 5000f;
             premj = mjAssetsMgr.mjPai[(int)MahjongFaceValue.MJ_ZFB_FACAI];
             premjSize = premj.transform.GetComponent<Renderer>().bounds.size;
 
+            uiPositionHelperTransform =;
+            mjTablePositionHelperTransform = ;
+            swapPaiControler = ;
+
             SetSeatCanUse();
             SetSeatMjTuoCanDuiPai();
         }
 
-        public override void Load()
+        public void Load()
         {
-            base.Load();
             handPaiSelectOffsetHeight = GetCanvasHandMjSizeByAxis(Axis.Y) / 3;
+            CreateInitLayoutPosForSeats();
         }
 
         public override void ClearData()
@@ -35,6 +44,170 @@ namespace ComponentDesgin
             curtPaiDuiPos = 0;
             paiDuiRichCount = mjPaiTotalCount;
         }
+
+
+        #region 生成初始布局位置
+
+        /// <summary>
+        /// 生成初始布局位置
+        /// </summary>
+        void CreateInitLayoutPosForSeats()
+        {
+            CreateDiceQiDongPosForSeats();
+            CreateSwapPaiCenterPosForSeats();
+            CreateDeskPengPaiStartPosForSeats();
+            CreateFengRainEffectPosForSeats();
+            CreatePcgthEffectTextPosForSeats();
+            CreateUIScorePosForSeats();
+            CreateUITouXiangPosForSeats();
+            CreateUIDingQueMoveHuaseStartPosForSeats();
+            CreateDeskMjTuoPosForSeats();
+        }
+
+
+        /// <summary>
+        /// 生成骰子启动位置
+        /// </summary>
+        void CreateDiceQiDongPosForSeats()
+        {
+            Transform diceQiDongPos = mjTablePositionHelperTransform.Find("DiceQiDongPos");
+
+            diceQiDongPosSeat[0] = diceQiDongPos.Find("seat0").transform.position;
+            diceQiDongPosSeat[1] = diceQiDongPos.Find("seat1").transform.position;
+            diceQiDongPosSeat[2] = diceQiDongPos.Find("seat2").transform.position;
+            diceQiDongPosSeat[3] = diceQiDongPos.Find("seat3").transform.position;
+        }
+
+        /// <summary>
+        /// 生成各座位碰吃杠听胡牌文字特效位置
+        /// </summary>
+        void CreatePcgthEffectTextPosForSeats()
+        {
+            Transform pcghtEffectTextPosTransform = uiPositionHelperTransform.Find("HuChiGangPengTingEffectTextPos");
+
+            pcgthEffectTextPosSeat[0] = pcghtEffectTextPosTransform.Find("seat0").localPosition;
+            pcgthEffectTextPosSeat[1] = pcghtEffectTextPosTransform.Find("seat1").localPosition;
+            pcgthEffectTextPosSeat[2] = pcghtEffectTextPosTransform.Find("seat2").localPosition;
+            pcgthEffectTextPosSeat[3] = pcghtEffectTextPosTransform.Find("seat3").localPosition;
+        }
+
+        /// <summary>
+        /// 生成各座位UI分数显示位置
+        /// </summary>
+        void CreateUIScorePosForSeats()
+        {
+            Transform scorePos = uiPositionHelperTransform.Find("ScorePos");
+            uiScorePosSeat[0] = scorePos.Find("seat0").transform.localPosition;
+            uiScorePosSeat[1] = scorePos.Find("seat1").transform.localPosition;
+            uiScorePosSeat[2] = scorePos.Find("seat2").transform.localPosition;
+            uiScorePosSeat[3] = scorePos.Find("seat3").transform.localPosition;
+        }
+
+        /// <summary>
+        /// 生成各座位UI头像显示位置
+        /// </summary>
+        void CreateUITouXiangPosForSeats()
+        {
+            Transform touxiangPos = uiPositionHelperTransform.Find("TouXiangPos");
+            uiTouXiangPosSeat[0] = touxiangPos.Find("seat0").transform.localPosition;
+            uiTouXiangPosSeat[1] = touxiangPos.Find("seat1").transform.localPosition;
+            uiTouXiangPosSeat[2] = touxiangPos.Find("seat2").transform.localPosition;
+            uiTouXiangPosSeat[3] = touxiangPos.Find("seat3").transform.localPosition;
+        }
+
+        /// <summary>
+        /// 生成各座位UI定缺移动花色的初始位置
+        /// </summary>
+        void CreateUIDingQueMoveHuaseStartPosForSeats()
+        {
+            Transform huaseStartPos = uiPositionHelperTransform.Find("DingQueMoveHuaSeStartPos");
+            huaSeStartPosSeat[1] = huaseStartPos.Find("seat1").transform.position;
+            huaSeStartPosSeat[2] = huaseStartPos.Find("seat2").transform.position;
+            huaSeStartPosSeat[3] = huaseStartPos.Find("seat3").transform.position;
+        }
+
+
+        /// <summary>
+        /// 生成刮风下雨特效位置
+        /// </summary>
+        void CreateFengRainEffectPosForSeats()
+        {
+            Transform fengEffectPosTransform = mjTablePositionHelperTransform.Find("FengEffectPos");
+            fengEffectPos[0] = fengEffectPosTransform.Find("seat0").localPosition;
+            fengEffectPos[1] = fengEffectPosTransform.Find("seat1").localPosition;
+            fengEffectPos[2] = fengEffectPosTransform.Find("seat2").localPosition;
+            fengEffectPos[3] = fengEffectPosTransform.Find("seat3").localPosition;
+
+            //
+            Transform rainEffectPosTransform = mjTablePositionHelperTransform.Find("RainEffectPos");
+            rainEffectPos[0] = rainEffectPosTransform.localPosition;
+            rainEffectPos[1] = rainEffectPosTransform.localPosition;
+            rainEffectPos[2] = rainEffectPosTransform.localPosition;
+            rainEffectPos[3] = rainEffectPosTransform.localPosition;
+        }
+
+
+        /// <summary>
+        /// 生成桌面麻将托位置
+        /// </summary>
+        void CreateDeskMjTuoPosForSeats()
+        {
+            for (int i = 0; i < 4; i++)
+                deskMjTuoPos[i] = desk.mjtableTransform.Find(desk.deskMjTuoName[i]).localPosition;
+        }
+
+        /// <summary>
+        /// 生成碰，吃，杠牌的起始位置
+        /// </summary>
+        void CreateDeskPengPaiStartPosForSeats()
+        {
+            Transform pengPaiPos = mjTablePositionHelperTransform.Find("PengPaiPos");
+            float y = Desk.deskFacePosY + fit.GetDeskMjSizeByAxis(Axis.Z) / 2 + 0.0002f;
+
+            pengPaiStartPosSeat[0] = pengPaiPos.Find("seat0").transform.position;
+            pengPaiStartPosSeat[1] = pengPaiPos.Find("seat1").transform.position;
+            pengPaiStartPosSeat[2] = pengPaiPos.Find("seat2").transform.position;
+            pengPaiStartPosSeat[3] = pengPaiPos.Find("seat3").transform.position;
+
+            pengPaiStartPosSeat[0].y = y;
+            pengPaiStartPosSeat[1].y = y;
+            pengPaiStartPosSeat[2].y = y;
+            pengPaiStartPosSeat[3].y = y;
+
+            pengPaiCurtPosSeat[0] = pengPaiStartPosSeat[0];
+            pengPaiCurtPosSeat[1] = pengPaiStartPosSeat[1];
+            pengPaiCurtPosSeat[2] = pengPaiStartPosSeat[2];
+            pengPaiCurtPosSeat[3] = pengPaiStartPosSeat[3];
+        }
+
+        void ResetDeskPengPaiCurtPos()
+        {
+            pengPaiCurtPosSeat[0] = pengPaiStartPosSeat[0];
+            pengPaiCurtPosSeat[1] = pengPaiStartPosSeat[1];
+            pengPaiCurtPosSeat[2] = pengPaiStartPosSeat[2];
+            pengPaiCurtPosSeat[3] = pengPaiStartPosSeat[3];
+        }
+
+        /// <summary>
+        /// 生成交换牌中心位置
+        /// </summary>
+        void CreateSwapPaiCenterPosForSeats()
+        {
+            Transform swapPaiPosTransform = mjTablePositionHelperTransform.Find("SwapPaiPos");
+            float r = swapPaiPosTransform.position.z;
+            swapPaiCenterPosSeat[0] = new Vector3(0, 0, r);
+            swapPaiCenterPosSeat[1] = new Vector3(r, 0, 0);
+            swapPaiCenterPosSeat[2] = new Vector3(0, 0, -r);
+            swapPaiCenterPosSeat[3] = new Vector3(-r, 0, 0);
+
+            swapPaiControlerSeat[0] = swapPaiControler.Find("seat0");
+            swapPaiControlerSeat[1] = swapPaiControler.Find("seat1");
+            swapPaiControlerSeat[2] = swapPaiControler.Find("seat2");
+            swapPaiControlerSeat[3] = swapPaiControler.Find("seat3");
+
+        }
+
+        #endregion
 
 
         /// <summary>

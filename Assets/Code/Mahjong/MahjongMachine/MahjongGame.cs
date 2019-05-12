@@ -55,7 +55,7 @@ public class MahjongGame : MonoBehaviour
         {
             typeof(Audio), typeof(Desk), typeof(Fit),
             typeof(Hand), typeof(MahjongAssetsMgr), typeof(MahjongDiceMachine),
-            typeof(MahjongPoint), typeof(PreSettingHelper), typeof(Scene),
+            typeof(MahjongPoint), typeof(Scene),
             typeof(ScreenFit), typeof(UIPCGHTBtnMgr), typeof(UISelectQueMen),
             typeof(UISelectSwapHandPai), typeof(UIScore), typeof(SwapPaiHintArrowEffect),
             typeof(UISwapPaiingTips), typeof(UITouXiang),typeof(MjHuTingCheck),
@@ -70,8 +70,10 @@ public class MahjongGame : MonoBehaviour
     {
         for (int i = 0; i < componentTypes.Length; i++)
         {
-            mjMachine.AddComponent(componentTypes[i]);
+            mjMachine.AddComponent(componentTypes[i]); 
         }
+
+        mjMachine.SetInitMethod();
     }
 
     /// <summary>

@@ -20,6 +20,153 @@ namespace ComponentDesgin
         MahjongAssetsMgr mjAssetsMgr;
         Desk desk;
 
+        Transform uiPositionHelperTransform;
+        Transform mjTablePositionHelperTransform;
+        Transform swapPaiControler;
+
+        /// <summary>
+        /// 各座位碰吃杠牌惯用手的方向
+        /// </summary>
+        public HandDirection[] pengPaiHandDirSeat = new HandDirection[]
+        {
+            HandDirection.RightHand,
+            HandDirection.RightHand,
+            HandDirection.RightHand,
+            HandDirection.RightHand
+        };
+
+        #region 设置位置
+
+        /// <summary>
+        /// 各座位碰吃杠牌放置的开始位置
+        /// </summary>
+        public Vector3[] pengPaiStartPosSeat = new Vector3[]
+        {
+            Vector3.zero,
+            Vector3.zero,
+            Vector3.zero,
+            Vector3.zero,
+        };
+
+        /// <summary>
+        /// 各座位碰吃杠牌放置的当前位置
+        /// </summary>
+        public Vector3[] pengPaiCurtPosSeat = new Vector3[]
+        {
+            Vector3.zero,
+            Vector3.zero,
+            Vector3.zero,
+            Vector3.zero,
+        };
+
+        /// <summary>
+        /// 各座位交换牌中心位置
+        /// </summary>
+        public Vector3[] swapPaiCenterPosSeat = new Vector3[]
+        {
+            Vector3.zero,
+            Vector3.zero,
+            Vector3.zero,
+            Vector3.zero,
+        };
+
+
+        /// <summary>
+        /// 各座位骰子器启动位置
+        /// </summary>
+        public Vector3[] diceQiDongPosSeat = new Vector3[]
+        {
+            Vector3.zero,
+            Vector3.zero,
+            Vector3.zero,
+            Vector3.zero,
+        };
+
+
+        /// <summary>
+        /// 各座位碰吃杠听胡牌UI文字特效位置
+        /// </summary>
+        public Vector3[] pcgthEffectTextPosSeat = new Vector3[]
+        {
+            Vector3.zero,
+            Vector3.zero,
+            Vector3.zero,
+            Vector3.zero,
+        };
+
+        /// <summary>
+        /// 各座位UI分数显示位置
+        /// </summary>
+        public Vector3[] uiScorePosSeat = new Vector3[]
+        {
+            Vector3.zero,
+            Vector3.zero,
+            Vector3.zero,
+            Vector3.zero,
+        };
+
+        /// <summary>
+        /// 各座位UI头像显示位置
+        /// </summary>
+        public Vector3[] uiTouXiangPosSeat = new Vector3[]
+        {
+            Vector3.zero,
+            Vector3.zero,
+            Vector3.zero,
+            Vector3.zero,
+        };
+
+
+        /// <summary>
+        /// 各座位定缺移动花色的起始位置
+        /// </summary>
+        public Vector3[] huaSeStartPosSeat = new Vector3[]
+        {
+            Vector3.zero,
+            Vector3.zero,
+            Vector3.zero,
+            Vector3.zero,
+        };
+
+        /// <summary>
+        /// 刮风特效位置
+        /// </summary>
+        public Vector3[] fengEffectPos = new Vector3[]
+        {
+            Vector3.zero,
+            Vector3.zero,
+            Vector3.zero,
+            Vector3.zero,
+        };
+
+        /// <summary>
+        /// 下雨特效位置
+        /// </summary>
+        public Vector3[] rainEffectPos = new Vector3[]
+        {
+            Vector3.zero,
+            Vector3.zero,
+            Vector3.zero,
+            Vector3.zero,
+        };
+
+        /// <summary>
+        /// 桌面麻将托位置
+        /// </summary>
+        public Vector3[] deskMjTuoPos = new Vector3[]
+        {
+            Vector3.zero,
+            Vector3.zero,
+            Vector3.zero,
+            Vector3.zero
+        };
+
+
+        public Transform[] swapPaiControlerSeat = new Transform[4];
+
+        #endregion
+
+
         /// <summary>
         /// 胡牌位置桌面麻将的布局row数量
         /// </summary>
@@ -230,5 +377,6 @@ namespace ComponentDesgin
         /// CanvasHand麻将的适配欧拉角
         /// </summary>
         public Vector3 canvasHandMjFitEulerAngles = new Vector3(0, -180, 0);
+
     }
 }
