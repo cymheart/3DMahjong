@@ -77,7 +77,6 @@
     <Compile Include="Assets\Code\GameListScript.cs" />
     <Compile Include="Assets\Code\GameQuit.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongGameRule\DaZhongMahjongRule.cs" />
-    <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\States\StateType.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ActionDesgin\ActionStateData.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ActionDesgin\BaseHandAction.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ActionDesgin\BuHua\BuHuaAction.cs" />
@@ -163,7 +162,6 @@
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\Desk\DeskFunc.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\Fit\Fit.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\Fit\FitFunc.cs" />
-    <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\States\States.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\Hand\Hand.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\Hand\HandFunc.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\Hand\HandTypes.cs" />
@@ -186,6 +184,9 @@
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\SelectQueMen\UISelectQueMen.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\SelectSwapPai\UISelectSwapHandPai.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\ShowScore\UIScore.cs" />
+    <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\States\ActionStateData.cs" />
+    <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\States\States.cs" />
+    <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\States\StateType.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\SwapPaiHint\SwapPaiHintArrowEffect.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\SwapPaiHint\UISwapPaiingTips.cs" />
     <Compile Include="Assets\Code\Mahjong\MahjongMachine\ComponentDesgin\TouXiang\UITouXiang.cs" />
